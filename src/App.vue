@@ -3,16 +3,23 @@
     <img src="./assets/logo.png">
     <router-view/>
     <Classification></Classification>
+    <el-container>
+      <headerNav></headerNav>
+    </el-container>
   </div>
 </template>
 
 <script>
     import Classification from "./components/Classification/Classification";
 
-    export default {
-        name: 'App',
-        components: {Classification}
-    }
+import Nav from './components/Nav'
+export default {
+  name: 'App',
+  components: {
+      Classification,
+    headerNav: Nav
+  }
+}
 </script>
 
 <style>

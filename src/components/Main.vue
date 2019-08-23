@@ -6,14 +6,14 @@
 </template>
 
 <script>
-    export default {
-        name: "Main",
-        data () {
-            return {
-                msg: "This is the homepage of the website"
-            }
-        }
+export default {
+  name: 'Main',
+  data () {
+    return {
+      msg: 'This is the homepage of the website'
     }
+  }
+}
 </script>
 
 <style scoped>
