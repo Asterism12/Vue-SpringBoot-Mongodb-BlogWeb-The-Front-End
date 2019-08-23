@@ -1,9 +1,9 @@
 <template>
-    <div class="Nav">
-        <div id="Navi">
+    <div class="app">
+        <div id="NavSlide">
             <nav>
-                <p @click="toggle()"><router-link to="/Main">首页</router-link></p>
-                <p @click="toggle()"><router-link to="/UserMain">用户空间</router-link></p>
+                 <p @click="toggle()"><router-link to="/Main">首页</router-link></p>
+                 <p @click="toggle()"><router-link to="/UserMain">用户空间</router-link></p>
             </nav>
         </div>
         <div class="footer"></div>
@@ -11,27 +11,28 @@
 </template>
 
 <script>
-    export default {
-        name: "Nav",
-        data: function(){
-            return{
-                active:0,
-                arr:[
-                    "首页",
-                    "用户空间"
-                ],
-            };
-        },
-        methods:{
-            setTab:function(name, index, menus){
-                this.nowIndex = index;
-                this.menu_index = index + 1;
-            },
-            toggle: function(){
-                this.active
-            }
-        }
+export default {
+  name: 'app',
+  data: function () {
+    return {
+      active: 0,
+      arr: [
+        '首页',
+        '用户空间'
+      ]
     }
+  },
+  methods: {
+    setTab: function (name, index, menus) {
+      this.nowIndex = index
+      this.menu_index = index + 1
+    },
+    toggle: function () {
+      // eslint-disable-next-line no-unused-expressions
+      this.active
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -39,7 +40,7 @@
         color:brown;
         font-size: 16px;
     }
-    .Nav{
+    #app{
         font-family: "Avenir", Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -52,11 +53,11 @@
         padding: 5px;
         margin: 5px;
     }
-    .Navi{
+    #NavSlide{
         width: 100%;
         overflow: hidden;
     }
-    .Navi nav{
+    #NavSlide nav{
         padding: 0 10px;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -67,7 +68,7 @@
         overflow: auto;
         background-color: rgba(49,193,123,0.4);
     }
-    .Navi p{
+    #NavSlide p{
         text-align: center;
         font-size: 16px;
         -ms-flex-negative: 0;
@@ -76,16 +77,18 @@
         margin: 5px;
         color: #e5e5e5;
     }
-    .Navi p a{
+    #NavSlide p a{
         color: #e5e5e5;
         text-decoration: none;
     }
-    .Navi p a active{
+    #NavSlide p a active{
         color: white;
     }
-    .Navi .fixadd{
+    #NavSlide .fixadd{
         position: absolute;
         right: -4px;
         background-color: rgba(49,193,123,0.4);
     }
 </style>
+
+
