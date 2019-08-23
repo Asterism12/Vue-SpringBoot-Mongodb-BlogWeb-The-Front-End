@@ -9,7 +9,7 @@
 </template>
 
 <script>
-    import Classification from "./components/Classification/Classification";
+    import Classification from "./components/Classification";
     import Nav from './components/Nav'
 
     export default {
