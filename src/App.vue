@@ -1,25 +1,24 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
-    <Classification></Classification>
     <el-container>
       <headerNav></headerNav>
     </el-container>
+    <Classification></Classification>
   </div>
 </template>
 
 <script>
     import Classification from "./components/Classification/Classification";
+    import Nav from './components/Nav'
 
-import Nav from './components/Nav'
-export default {
-  name: 'App',
-  components: {
-      Classification,
-    headerNav: Nav
-  }
-}
+    export default {
+        name: 'App',
+        components: {
+            Classification,
+            headerNav: Nav
+        }
+    }
 </script>
 
 <style>
