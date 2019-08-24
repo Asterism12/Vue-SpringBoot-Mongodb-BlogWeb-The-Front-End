@@ -16,7 +16,7 @@
 
   <script>
   export default {
-    name: "app",
+    name: "Nav",
     data: function() {
       return {
         active:0,
