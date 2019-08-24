@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'Main',
+  name: 'HomePage',
   data () {
     return {
       msg: 'This is the homepage of the website'
