@@ -4,18 +4,15 @@
     <el-container>
       <headerNav></headerNav>
     </el-container>
-    <Classification></Classification>
   </div>
 </template>
 
 <script>
-    import Classification from "./components/Classification";
     import Nav from './components/Nav'
 
     export default {
         name: 'App',
         components: {
-            Classification,
             headerNav: Nav
         }
     }
