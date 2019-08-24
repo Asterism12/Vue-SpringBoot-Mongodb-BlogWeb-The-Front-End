@@ -65,8 +65,8 @@
     <div class="app">
         <div id="NavSlide">
             <nav>
-                 <p @click="toggle()"><router-link to="/HomePage">首页</router-link></p>
-                 <p @click="toggle()"><router-link to="/UserMain">用户空间</router-link></p>
+                 <p @click="toggle()"><router-link v-bind:to="'/HomePage'">首页</router-link></p>
+                 <p @click="toggle()"><router-link v-bind:to="'/UserMain'">用户空间</router-link></p>
             </nav>
         </div>
         <div class="footer"></div>
