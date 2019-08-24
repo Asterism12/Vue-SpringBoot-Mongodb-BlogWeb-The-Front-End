@@ -2,18 +2,19 @@
   <div id="app">
     <img src="./assets/logo.png">
     <el-container>
-      <headerNav></headerNav>
+      <common></common>
     </el-container>
   </div>
 </template>
 
 <script>
+    import Common from './components/Common'
     import Nav from './components/Nav'
 
     export default {
         name: 'App',
         components: {
-            headerNav: Nav
+            common: Nav
         }
     }
 </script>
