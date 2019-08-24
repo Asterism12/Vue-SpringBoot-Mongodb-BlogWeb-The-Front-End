@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <div v-if="!isMobile"
          class="nav">
@@ -60,6 +61,16 @@
           </el-col>
         </el-row>
       </div>
+=======
+    <div class="app">
+        <div id="NavSlide">
+            <nav>
+                 <p @click="toggle()"><router-link to="/HomePage">首页</router-link></p>
+                 <p @click="toggle()"><router-link to="/UserMain">用户空间</router-link></p>
+            </nav>
+        </div>
+        <div class="footer"></div>
+>>>>>>> cbe3eac2ffa65e80f678e6bbbd7099346f6f23e0
     </div>
 
     <div v-if="isShow"

@@ -1,16 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
-import Nav from '@/components/Nav'
+import UserMain from "../components/UserMain"
+import HomePage from "../components/HomePage"
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Nav',
-      component: Nav
+      path: '/UserMain',
+      name: 'UserMain',
+      component: UserMain
+    },
+    {
+      path: '/HomePage',
+      name: 'HomePage',
+      component: HomePage
     }
-  ]
+  ], mode: 'history'
 })
