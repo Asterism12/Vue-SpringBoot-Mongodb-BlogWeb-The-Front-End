@@ -1,89 +1,92 @@
 <template>
-  <div class="app">
-    <div id="NavSlide">
-      <nav>
-        <p @click="toggle()"><router-link to="/Main">首页</router-link></p>
-        <p @click="toggle()"><router-link to="/UserMain">用户空间</router-link></p>
-      </nav>
-    </div>
-    <div class="footer"></div>
+  <div id="header">
+    <ul>
+      <li class="home" :class="{clicked: showHomePage}">
+        <router-link to="/">Home</router-link>
+      </li>
+      <li :class="{clicked: showAddBlog}">
+        <router-link to="/add-blog">
+          Add Blog
+        </router-link>
+      </li>
+      <li :class="{clicked: showAbout}">
+        <router-link to="/about">
+          About
+        </router-link>
+      </li>
+
+    </ul>
   </div>
 </template>
 
 
 <script>
     export default {
-        name: 'app',
+        name: 'Nav',
+        props: ["showPage","showHomePage","showAddBlog","showAbout"],
+
         data: function () {
             return {
-                active: 0,
-                arr: [
-                    '首页',
-                    '用户空间'
-                ]
-            }
-        },
-        methods: {
-            setTab: function (name, index, menus) {
-                this.nowIndex = index
-                this.menu_index = index + 1
-            },
-            toggle: function () {
-                // eslint-disable-next-line no-unused-expressions
-                this.active
+                query: '',
             }
         }
-    }
+    };
 </script>
 
 <style scoped>
-  .router-link-active{
-    color:brown;
-    font-size: 16px;
-  }
-  #app{
-    position: relative;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #ffff;
-    text-align: left;
-  }
-  #NavSlide{
-    position: absolute;
+  #header {
     width: 100%;
-    overflow: hidden;
-    background: rgb(49, 193, 123);
+    height: 70px;
+    line-height: 70px;
+
+    background-color: #42b983;
+    position: fixed;
+    z-index: 1;
+    top: 0;
   }
-  #NavSlide nav{
-    padding: 0 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    overflow: auto;
+  ul {
+    margin: 0 auto;
+    width: 80%;
   }
-  #NavSlide p{
-    text-align: center;
-    font-size: 16px;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    padding: 10px;
-    margin: 5px;
-    color: #e5e5e5;
+  ul li {
+    float: left;
+    padding: 0 20px;
+    list-style: none;
   }
-  #NavSlide p a{
-    color: #e5e5e5;
+
+  ul li a{
+    color: #fff;
+    font-size: 18px;
+    height: 36px;
     text-decoration: none;
+    padding: 0 10px;
+    line-height: 36px;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 3px;
+    vertical-align: -1px;
   }
-  #NavSlide p a active{
-    color: white;
+
+
+
+
+  ul li input:focus {
+    opacity: 1;
   }
-  #NavSlide .fixadd{
-    position: absolute;
-    right: -4px;
-    background-color: rgb(49,193,123);
+
+  ul li a:hover{
+    background-color: #fff;
+    color: #42b983;
+  }
+
+  ul li.clicked a{
+    background-color: #fff;
+    color: #42b983;
+  }
+
+  ul li.home a {
+    font-size: 26px;
+    font-weight: bold;
+    vertical-align: -4px;
   }
 </style>

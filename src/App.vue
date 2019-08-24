@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <Nav></Nav>
-    <router-view/>
+    <div>
+        <Nav></Nav>
+    </div>
   </div>
+
 </template>
 
 <script>
   import Nav from "./components/Nav";
+  import Classification from "./components/Classification";
 export default {
   name: 'App',
     components: {
-      "Nav": Nav
+      "Nav": Nav,
+        "Classi":Classification,
     }
 }
 </script>
@@ -23,5 +27,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: #000000;
 }
+
 </style>
