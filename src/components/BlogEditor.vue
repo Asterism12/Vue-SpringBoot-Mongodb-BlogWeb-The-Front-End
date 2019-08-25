@@ -17,7 +17,6 @@
 </template>
 
 <script>
-  import store from "../store";
     export default {
         name: "BlogEditor",
         data() {
@@ -30,7 +29,7 @@
             publish () {
                 axios.get('api/publish', {
                     params: {
-                        username:store.state.UserName,
+                        username:this.$store.state.UserName,
                         title:this.textarea1,
                         article:this.textarea2
                     }
