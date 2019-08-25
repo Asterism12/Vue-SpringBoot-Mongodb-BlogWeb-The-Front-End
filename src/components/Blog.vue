@@ -1,13 +1,13 @@
 <template>
   <div class="Blog">
     <h1>{{blog.title}}</h1>
-    <article>{{blog.body}}</article>
+    <article>{{blog.article}}</article>
     <el-row>
       <el-table :data="blog.comments">
-        <el-table-column prop="Id" label="用户名">
+        <el-table-column prop="username" label="用户名">
         </el-table-column>
 
-        <el-table-column prop="Comments" label="评论">
+        <el-table-column prop="content" label="评论">
         </el-table-column>
       </el-table>
     </el-row>
