@@ -1,30 +1,56 @@
-<template>
-    <div id="home">
-      <h2>
-        今日推荐 <input type="" name="" v-model="query">
-      </h2>
-      <div v-for="blog in Blogs" class="item">
-        <h3>
-          <router-link to="{name: 'ReadBlog', params: {id:blog.id}}">
-            {{blog.title}}
-          </router-link>
-        </h3>
-        <p class="bloginfo">
-          <span>
-            作者: {{blog.author}}
-          </span>
-          <span>
-            标签: <span v-for="tag in blog.tags">{{tag}}{{blog.tags.indexOf(tag) == blog.tags.length-1 ? "" : ","}}</span>
-          </span>
-        </p>
-        <p>{{blog.content | cutContent}}</p>
-      </div>
-    </div>
+<template class="home">
+  <el-container class="container">
+    <el-row>
+      <el-header class="head">
+          <div>
+            <Nav></Nav>
+          </div>
+      </el-header>
+    </el-row>
+    <el-row>
+      <el-col :span="6">
+        <el-aside class="aside">
+          <SideNav></SideNav>
+        </el-aside>
+      </el-col>
+      <el-col :span="12">
+        <el-main>
+          <div class="head-info">
+            <h2>
+              今日推荐 <input type="" name="" v-model="query">
+            </h2>
+            <!--<div v-for="blog in Blogs" class="item">
+              <h3>
+                <router-link to="{name: 'ReadBlog', params: {id:blog.id}}">
+                  {{blog.title}}
+                </router-link>
+              </h3>
+              <p class="bloginfo">
+                <span>
+                  作者: {{blog.author}}
+                </span>
+                <span>
+                  标签: <span v-for="tag in blog.tags">{{tag}}{{blog.tags.indexOf(tag) == blog.tags.length-1 ? "" : ","}}</span>
+                </span>
+              </p>
+              <p>{{blog.content | cutContent}}</p>
+            </div>-->
+          </div>
+        </el-main>
+      </el-col>
+    </el-row>
+  </el-container>
 </template>
 
 <script>
+  import Nav from "./Nav";
+  import SideNav from "./SideNav";
     export default {
         name: "Home",
+        components: {
+          "Nav":Nav,
+          "SideNav":SideNav
+        },
         data () {
             return {
                 query: '',
@@ -57,9 +83,21 @@
 </script>
 
 <style scoped>
-  #home{
-    min-height: 500px;
-    padding: 20px;
+
+  .container{
+    background-repeat: no-repeat;
+  }
+  .head {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .head-info{
+    margin-top: 28px;
+  }
+
+  .aside{
+    margin-top: 0px;
   }
 
   h2 {
@@ -68,6 +106,7 @@
     font-weight: bold;
     margin-bottom: 20px;
   }
+
 
   .item {
     width: 70%;

@@ -3,12 +3,10 @@
     <router-view></router-view>
     <div>
       <div class="main">
-        <Nav></Nav>
       </div>
 
     </div>
     <br><br><br>
-    <router-view></router-view>
   </div>
 
 </template>

@@ -19,6 +19,11 @@
           登录
         </router-link>
       </li>
+      <li :class="{clicked: showRegister}" style="float: right">
+        <router-link to="/regis">
+          注册
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -27,7 +32,7 @@
 <script>
     export default {
         name: 'Nav',
-        props: ["showPage","showHomePage","showAddBlog","showAbout"],
+        props: ["showPage","showHomePage","showAddBlog","showAbout","showRegister","showLogin"],
 
         data: function () {
             return {

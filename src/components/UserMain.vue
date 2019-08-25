@@ -19,7 +19,7 @@
         name: "UserMain",
         data() {
             return {
-                msg: "This is the homepage of the User"
+                msg: "This is the homepage of the User",
                 userinfo: {}
             }
         },
