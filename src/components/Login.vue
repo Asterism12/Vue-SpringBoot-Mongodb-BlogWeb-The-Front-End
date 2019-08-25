@@ -1,12 +1,6 @@
 <template>
   <el-container>
-    <el-header>
-      <el-menu mode="horizontal" @select="handleSelect">
-        <el-menu-item index="1">
-          返回首页
-        </el-menu-item>
-      </el-menu>
-    </el-header>
+    <Nav></Nav>
     <body id="poster">
     <el-form class="login-container" label-position="left"
              label-width="0px">
@@ -30,8 +24,10 @@
 
 <script>
 
+    import Nav from "./Nav";
     export default {
         name: 'Login',
+        components: {Nav},
         props:["showHome"],
         data () {
             return {
