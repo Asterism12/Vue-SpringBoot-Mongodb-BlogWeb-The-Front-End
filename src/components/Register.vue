@@ -24,8 +24,8 @@
             login () {
                 this.$axios
                     .post('api/login', {
-                        username: this.loginForm.username,
-                        password: this.loginForm.password
+                        username: this.registerForm.username,
+                        password: this.registerForm.password
                     })
                     .then(successResponse => {
                         alert("success jieshou")
