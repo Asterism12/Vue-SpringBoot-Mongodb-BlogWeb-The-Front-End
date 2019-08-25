@@ -24,11 +24,12 @@
         methods: {
             login () {
                 this.$axios
-                    .post('/login', {
+                    .post('114.115.170.8:8443/login', {
                         username: this.loginForm.username,
                         password: this.loginForm.password
                     })
                     .then(successResponse => {
+                        alert("success jieshou")
                         if (successResponse.data.code === 200) {
                             this.$router.replace({path: '/HelloWorld'})
                         }else{
