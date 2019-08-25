@@ -31,6 +31,8 @@
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
                             this.$router.replace({path: '/HelloWorld'})
+                        }else{
+                            this.$router.replace({path: '/HelloWorld'})
                         }
                     })
                     .catch(failResponse => {
