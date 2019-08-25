@@ -2,7 +2,7 @@
   <div id="header">
     <ul>
       <li class="home" :class="{clicked: showHomePage}">
-        <router-link to="/">Home</router-link>
+        <router-link to="/Home">Home</router-link>
       </li>
       <li :class="{clicked: showAddBlog}">
         <router-link to="/add-blog">
@@ -39,7 +39,7 @@
     height: 70px;
     line-height: 70px;
 
-    background-color: #42b983;
+    background-color: #d8bfd8;
     position: fixed;
     z-index: 1;
     top: 0;

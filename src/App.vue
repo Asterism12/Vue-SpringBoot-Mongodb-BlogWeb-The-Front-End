@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <div>
+      <div class="main">
         <Nav></Nav>
+      </div>
+
     </div>
   </div>
 
@@ -9,12 +12,34 @@
 
 <script>
   import Nav from "./components/Nav";
-  import Classification from "./components/Classification";
+  import Home from "./components/Home";
+
 export default {
   name: 'App',
     components: {
       "Nav": Nav,
-        "Classi":Classification,
+        "Home":Home
+    },
+    data () {
+      return {
+          showHomePage: 0,
+      }
+    },
+    methods:{
+      show: function (name) {
+        this.showHomePage = 1;
+        if(name == "Home"){
+            this.showHomePage = 1;
+        }
+      }
+    },
+    mounted() {
+      this.show(this.$route.name)
+    },
+    watch: {
+      $route (to,from) {
+          this.show(this.$route.name)
+      }
     }
 }
 </script>
@@ -27,7 +52,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  background-color: #000000;
 }
+  .main {
+    margin-top: 70px;
+    min-height: 500px;
+  }
 
 </style>
