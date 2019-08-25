@@ -1,17 +1,17 @@
 <template>
-    <div>
-        <h1>User</h1>
-        <p>{{msg}}</p>
-      <el-row>
-        <el-table :data="userinfo">
-          <el-table-column prop="Id" label="用户名">
-          </el-table-column>
+  <div>
+    <h1>User</h1>
+    <p>{{msg}}</p>
+    <el-row>
+      <el-table :data="userinfo">
+        <el-table-column prop="Id" label="用户名">
+        </el-table-column>
 
-          <el-table-column prop="Sex" label="性别">
-          </el-table-column>
-        </el-table>
-      </el-row>
-    </div>
+        <el-table-column prop="Sex" label="性别">
+        </el-table-column>
+      </el-table>
+    </el-row>
+  </div>
 </template>
 
 <script>
@@ -20,7 +20,7 @@
         data() {
             return {
                 msg: "This is the homepage of the User"
-                userinfo:{}
+                userinfo: {}
             }
         },
         created() {
