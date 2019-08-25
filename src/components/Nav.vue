@@ -6,13 +6,10 @@
       <el-menu-item index="/">
         Home
       </el-menu-item>
-      <el-menu-item>
-
-      </el-menu-item>
       <el-menu-item index="/login">
         登录
       </el-menu-item>
-      <el-menu-item index="/blogedit">
+      <el-menu-item index="/blog/edit">
         编辑博文
       </el-menu-item>
     </el-menu>

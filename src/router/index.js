@@ -25,7 +25,7 @@ export default new Router({
       components: Blog
     },
     {
-      path:'/blogedit',
+      path:'/blog/edit',
       components: BlogEditor
     }
   ]
