@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    LoginState: false
+    LoginState: false,
+    UserName:''
   }
 })
 
