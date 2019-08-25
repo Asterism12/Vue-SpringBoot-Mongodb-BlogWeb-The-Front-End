@@ -2,7 +2,7 @@
   <div id="header">
     <ul>
       <li class="home" :class="{clicked: showHomePage}">
-        <router-link to="/Home">Home</router-link>
+        <router-link to="/">Home</router-link>
       </li>
       <li :class="{clicked: showAddBlog}">
         <router-link to="/add-blog">
@@ -14,7 +14,11 @@
           About
         </router-link>
       </li>
-
+      <li :class="{clicked: showLogin}" style="float: right">
+        <router-link to="/login">
+          登录
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -89,4 +93,5 @@
     font-weight: bold;
     vertical-align: -4px;
   }
+
 </style>
