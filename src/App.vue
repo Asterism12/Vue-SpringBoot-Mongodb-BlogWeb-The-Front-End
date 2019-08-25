@@ -3,6 +3,8 @@
     <div>
         <Nav></Nav>
     </div>
+    <br><br><br>
+    <router-view></router-view>
   </div>
 
 </template>
