@@ -3,8 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
 
-var axios = require('axios')
 axios.defaults.baseURL = 'http://localhost:8443/api'
 
 Vue.prototype.$axios = axios
