@@ -24,7 +24,7 @@
         methods: {
             login () {
                 this.$axios
-                    .post('114.115.170.8:8443/login', {
+                    .post('api/login', {
                         username: this.loginForm.username,
                         password: this.loginForm.password
                     })
