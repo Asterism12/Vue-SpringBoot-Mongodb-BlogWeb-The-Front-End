@@ -1,7 +1,7 @@
 <template>
   <el-container id="header">
-    <el-row>
-      <el-col :span="12">
+    <el-row style="width: 100%">
+      <el-col>
         <el-menu mode="horizontal" class="el-menu" router :default-active="$route.path"
                  @select="handleSelect" @open="handleOpen"
                  @close="handleClose">
@@ -13,13 +13,21 @@
             <i class="el-icon-edit"></i>
             <span>编辑博文</span>
           </el-menu-item>
-          <el-menu-item v-if="this.$store.state.LoginState">
+          <el-menu-item v-if="this.$store.state.LoginState" style="float: right">
             <i class="el-icon-star-on>"></i>
             <span>{{this.$store.state.UserName}}</span>
           </el-menu-item>
+          <el-menu-item index="/login" v-if="!this.$store.state.LoginState" style="float: right">
+            <i class="el-icon-user-solid"></i>
+            <span>登录</span>
+          </el-menu-item>
+          <el-menu-item index="/register" v-if="!this.$store.state.LoginState" style="float: right">
+            <i class="el-icon-user"></i>
+            <span>注册</span>
+          </el-menu-item>
         </el-menu>
        </el-col>
-      <el-col :span="18">
+      <!--<el-col :span="18" style="float: right;width: 60%">
         <el-menu mode="horizontal" class="el-menu" router :default-active="$route.path"
                  @select="handleSelect" @open="handleOpen"
                  @close="handleClose">
@@ -32,7 +40,7 @@
             <span>注册</span>
           </el-menu-item>
         </el-menu>
-      </el-col>
+      </el-col>-->
     </el-row>
 
 
@@ -65,6 +73,7 @@
 
     border: white;
     border-radius: 25px;
+
   }
 
 

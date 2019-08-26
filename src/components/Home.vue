@@ -1,9 +1,7 @@
 <template class="home">
-  <div>
-    <div>
       <el-container class="fore">
           <el-row>
-            <el-col :span="18">
+            <el-col :span="30">
               <Nav></Nav>
             </el-col>
           </el-row>
@@ -44,8 +42,6 @@
 
           </video>-->
       </el-container>
-    </div>
-  </div>
 </template>
 
 <script>

@@ -1,6 +1,8 @@
 <template>
   <el-container>
-    <Nav></Nav>
+    <div>
+      <Nav></Nav>
+    </div>
     <body id="poster">
     <el-form class="login-container" label-position="left"
              label-width="0px">
