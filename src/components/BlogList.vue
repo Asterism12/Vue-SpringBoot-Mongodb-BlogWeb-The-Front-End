@@ -2,7 +2,7 @@
   <el-card class="box-card" :data="blog">
     <div slot="header" class="clearfix">
       <span>{{blog.title}}</span>
-      <el-button style="float: right; padding: 3px 0" type="text">查看原文</el-button>
+      <el-button style="float: right; padding: 3px 0" type="text" @click="GoToRoute"()>查看原文</el-button>
     </div>
     <div  class="text item">
       {{blog.abstract}}
@@ -16,6 +16,11 @@
         data(){
             return{
                 blog:{}
+            }
+        },
+        methods:{
+            GoToRoute : function(){
+                this.$router.push({ name: 'blog', params: { id: blog.bid }})
             }
         }
     }

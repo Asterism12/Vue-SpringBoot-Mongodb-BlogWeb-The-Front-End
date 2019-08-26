@@ -31,6 +31,7 @@ export default new Router({
     },
     {
       path: '/blog/:id',
+      name:'blog',
       component: Blog
     },
     {
