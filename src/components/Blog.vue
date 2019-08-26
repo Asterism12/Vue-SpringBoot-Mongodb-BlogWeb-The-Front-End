@@ -24,7 +24,7 @@
             }
         },
         created() {
-            axios.get('api/blogs', {
+            this.$axios.get('api/blogs', {
                 params: {
                     bid: this.id
                 }

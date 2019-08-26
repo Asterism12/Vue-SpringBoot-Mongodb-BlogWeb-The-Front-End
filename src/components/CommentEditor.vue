@@ -16,7 +16,7 @@
             }
         },
         comment () {
-            axios.get('api/comment', {
+            this.$axios.get('api/comment', {
                 params: {
                     username:this.$store.state.UserName,
                     article:this.textarea1

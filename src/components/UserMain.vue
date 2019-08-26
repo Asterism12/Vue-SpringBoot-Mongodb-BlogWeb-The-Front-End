@@ -24,7 +24,7 @@
             }
         },
         created() {
-            axios.get('api/user', {
+            this.$axios.get('api/user', {
                 params: {
                     uid: this.id
                 }

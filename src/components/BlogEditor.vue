@@ -34,7 +34,7 @@
         },
         methods: {
             publish () {
-                axios.get('api/publish', {
+                this.$axios.get('api/publish', {
                     params: {
                         username:this.$store.state.UserName,
                         title:this.textarea1,
