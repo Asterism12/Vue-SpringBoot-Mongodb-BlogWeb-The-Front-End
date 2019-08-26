@@ -3,13 +3,16 @@
     <h1>{{blog.title}}</h1>
     <article>{{blog.article}}</article>
     <el-row>
-      <el-table :data="blog.comments">
-        <el-table-column prop="username" label="用户名">
-        </el-table-column>
-
-        <el-table-column prop="content" label="评论">
-        </el-table-column>
-      </el-table>
+      <div>
+        <el-card class="box-card" v-for="blog in blogs":key="blog.bid">
+          <div slot="header" class="clearfix">
+            <span>{{blog.comments.username}}</span>
+          </div>
+          <div  class="text item">
+            {{blog.content}}
+          </div>
+        </el-card>
+      </div>
     </el-row>
   </div>
 </template>
