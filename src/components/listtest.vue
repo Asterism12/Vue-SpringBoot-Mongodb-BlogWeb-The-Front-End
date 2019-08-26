@@ -1,13 +1,20 @@
 <template>
-  <div>
+  <div style="width: 100%">
   <el-card class="box-card" v-for="blog in blogs":key="blog.bid">
-    <div slot="header" class="clearfix">
-      <span>{{blog.title}}</span>
-      <el-button style="float: right; padding: 3px 0" type="text" @click="GoToBlog(blog.bid)">查看原文</el-button>
+    <div slot="header" class="clearfix" >
+      <span class="title">{{blog.title}}</span>
+      <el-button style="float: right; padding: 3px 0" type="text" @click="GoToBlog(blog.bid)">查看博客</el-button>
     </div>
-    <div  class="text item">
-      {{blog.abstract}}
+    <div class="body">
+      <el-col :span="2" style="background-color: #42b983">
+      </el-col>
+      <el-col>
+        <div class="text">
+          {{blog.abstract}}
+        </div>
+      </el-col>
     </div>
+
   </el-card>
   </div>
 </template>
@@ -32,11 +39,15 @@
 
 <style>
   .text {
-    font-size: 14px;
+    font-size: 12px;
+    float: left;
   }
 
-  .item {
-    margin-bottom: 18px;
+  .title{
+    float: left;
+    font-weight: bold;
+    font-family: "Microsoft YaHei";
+    font-size: large;
   }
 
   .clearfix:before,
@@ -50,5 +61,7 @@
 
   .box-card {
     width: 480px;
+    margin-top: 20px;
+    position: center;
   }
 </style>

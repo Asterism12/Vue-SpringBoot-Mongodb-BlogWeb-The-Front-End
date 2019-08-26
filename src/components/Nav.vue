@@ -13,10 +13,18 @@
             <i class="el-icon-edit"></i>
             <span>编辑博文</span>
           </el-menu-item>
-          <el-menu-item v-if="this.$store.state.LoginState" style="float: right">
-            <i class="el-icon-star-on>"></i>
-            <span>{{this.$store.state.UserName}}</span>
-          </el-menu-item>
+          <el-submenu v-if="this.$store.state.LoginState" style="float: right">
+            <template slot="title">
+              <i class="el-icon-star-on>"></i>
+              {{this.$store.state.UserName}}
+            </template>
+            <el-menu-item index="2-1">
+              个人设置
+            </el-menu-item>
+            <el-menu-item index="/usermain">
+              个人主页
+            </el-menu-item>
+          </el-submenu>
           <el-menu-item index="/login" v-if="!this.$store.state.LoginState" style="float: right">
             <i class="el-icon-user-solid"></i>
             <span>登录</span>
@@ -25,6 +33,7 @@
             <i class="el-icon-user"></i>
             <span>注册</span>
           </el-menu-item>
+
         </el-menu>
        </el-col>
       <!--<el-col :span="18" style="float: right;width: 60%">

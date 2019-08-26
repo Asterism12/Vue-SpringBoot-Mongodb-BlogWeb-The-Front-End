@@ -1,22 +1,36 @@
 <template>
-  <div>
-    <h1>User</h1>
-    <p>{{msg}}</p>
-    <el-row>
-      <el-table :data="userinfo">
-        <el-table-column prop="Id" label="用户名">
-        </el-table-column>
-
-        <el-table-column prop="Sex" label="性别">
-        </el-table-column>
-      </el-table>
-    </el-row>
+  <div style="width: 100%;">
+    <div>
+      <Nav></Nav>
+    </div>
+    <div>
+      <el-avatar src="this.$store.state.AvatarUrl" :size="90"></el-avatar>
+    </div>
+    <p></p>
+    <el-card style="width: 25%;margin:0 auto">
+      <div>
+        <span>用户名:{{this.$store.state.UserName}}</span>
+        <hr/>
+      </div>
+      <div>
+        <span>性别:{{this.$store.state.Sex}}</span>
+      </div>
+    </el-card>
+    <div style="margin:0 auto;width: 50%">
+      <listtest></listtest>
+    </div>
   </div>
 </template>
 
 <script>
+  import listtest from "./listtest";
+  import Nav from "./Nav";
     export default {
         name: "UserMain",
+        components: {
+            Nav,
+            listtest
+        },
         data() {
             return {
                 msg: "This is the homepage of the User",

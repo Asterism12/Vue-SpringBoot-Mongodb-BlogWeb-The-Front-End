@@ -1,6 +1,6 @@
 <template class="home">
   <div class="back">
-    <!--<Background style="z-index: 0;"></Background>-->
+    <Background style="z-index: 0;"></Background>
     <el-container style="z-index: 1;width: 100%" class="fore" >
       <el-row>
         <el-col :span="30">
@@ -104,6 +104,7 @@
 
   .aside{
     margin-top: 20px;
+    position: fixed;
   }
 
   h2 {

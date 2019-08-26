@@ -38,6 +38,10 @@ export default new Router({
     {
       path:'/tt_list',
       component:listtest
+    },
+    {
+      path:'/usermain',
+      component:UserMain
     }
   ]
 })
