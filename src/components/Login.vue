@@ -49,8 +49,10 @@
                     .then(successResponse => {
                         alert("success jieshou")
                         if (successResponse.data.code === 200) {
+                            alert("successAA")
                             this.$router.replace({path: '/HelloWorld'})
                         } else {
+                            alert("failAA")
                             this.$router.replace({path: '/HelloWorld'})
                         }
                     })
