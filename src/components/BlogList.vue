@@ -33,7 +33,7 @@
         },
         methods:{
             GoToBlog : function(bid){
-                this.$router.push({ name: 'blog', params: { id: blog.bid }})
+                this.$router.push({ name: 'blog', params: { id: bid }})
             }
         }
     }
