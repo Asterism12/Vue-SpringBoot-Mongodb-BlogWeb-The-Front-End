@@ -54,7 +54,7 @@
                             this.$router.push({path: '/'})
                         } else {
                             alert("fail")
-                            this.$router.push({path: 'login'})
+                            this.$router.push({path: '/login'})
                         }
                     })
                     .catch(failResponse => {
