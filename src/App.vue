@@ -4,11 +4,9 @@
     <div>
       <div class="main">
       </div>
-
     </div>
     <br><br><br>
   </div>
-
 </template>
 
 <script>
