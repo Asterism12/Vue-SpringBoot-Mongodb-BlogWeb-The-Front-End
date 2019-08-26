@@ -1,13 +1,15 @@
 <template>
-  <el-card class="box-card" :data="blog">
-    <div slot="header" class="clearfix">
-      <span>{{blog.title}}</span>
-      <el-button style="float: right; padding: 3px 0" type="text" @click="GoToBlog"(blog.bid)>查看原文</el-button>
-    </div>
-    <div  class="text item">
-      {{blog.abstract}}
-    </div>
-  </el-card>
+  <div>
+    <el-card class="box-card" v-for="blog in blogs":key="blog.bid">
+      <div slot="header" class="clearfix">
+        <span>{{blog.title}}</span>
+        <el-button style="float: right; padding: 3px 0" type="text" @click="GoToBlog(blog.bid)">查看原文</el-button>
+      </div>
+      <div  class="text item">
+        {{blog.abstract}}
+      </div>
+    </el-card>
+  </div>
 </template>
 
 <script>
@@ -15,7 +17,7 @@
         name: "BlogList",
         data(){
             return{
-                blog:{}
+                blogs:{}
             }
         },
         created() {

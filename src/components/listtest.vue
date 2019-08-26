@@ -1,5 +1,6 @@
 <template>
-  <el-card class="box-card" data="blog">
+  <div>
+  <el-card class="box-card" v-for="blog in blogs":key="blog.bid">
     <div slot="header" class="clearfix">
       <span>{{blog.title}}</span>
       <el-button style="float: right; padding: 3px 0" type="text" @click="GoToBlog(blog.bid)">查看原文</el-button>
@@ -8,6 +9,7 @@
       {{blog.abstract}}
     </div>
   </el-card>
+  </div>
 </template>
 
 <script>
@@ -15,7 +17,8 @@
         name: "BlogList",
         data(){
             return{
-                blog:[{title:'titletitle',abstract:'abstractabstract',bid:1}]
+                blogs:[{title:'titletitle',abstract:'abstractabstract',bid:1},
+                    {title:'titletitle',abstract:'abstractabstract',bid:2}]
             }
         },
         methods:{
