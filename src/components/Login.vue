@@ -62,10 +62,11 @@
                         password: this.loginForm.password
                     })
                     .then(successResponse => {
-                        alert("success jieshou")
                         if (successResponse.data.code === 200) {
+                            alert("success")
                             this.$router.replace({path: '/HelloWorld'})
                         } else {
+                            alert("fail")
                             this.$router.replace({path: '/HelloWorld'})
                         }
                     })
