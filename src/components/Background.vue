@@ -5,8 +5,6 @@
         <div :style="fixStyle" style="width:100%;height:100%;position: fixed;margin-top: 20px" class="filter"></div>
         <video style="width:100%;position: fixed;margin-top: 20px;margin-left: -55px" autoplay loop class="fillWidth" v-on:canplay="canplay">
           <source src="../assets/Fire/Slow-Fire.mp4" type="video/mp4"/>
-          <!--<source src="PATH_TO_WEBM" type="video/webm"/>
-          浏览器不支持 video 标签，建议升级浏览器。-->
         </video>
       </div>
     </div>

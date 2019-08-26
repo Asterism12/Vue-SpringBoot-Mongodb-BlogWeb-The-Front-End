@@ -55,7 +55,7 @@
 <style scoped>
 
   .tac {
-    width: 100%;
+    width: 200px;
   }
   .el-menu-vertical{
     width: 200px;

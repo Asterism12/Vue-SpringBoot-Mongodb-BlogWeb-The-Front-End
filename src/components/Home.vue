@@ -1,27 +1,22 @@
 <template class="home">
-  <div class="back">
+  <div class="back" >
     <Background style="z-index: 0;"></Background>
-    <el-container style="z-index: 1;width: 100%" class="fore" >
+    <el-container style="z-index: 1;width: 100%">
       <el-row>
-        <el-col :span="30">
+        <div>
           <Nav></Nav>
-        </el-col>
+        </div>
       </el-row>
       <el-row style="width: 100%">
-        <el-col :span="6">
-          <el-aside class="aside">
-            <SideNav></SideNav>
-          </el-aside>
-        </el-col>
-        <el-col :span="18">
-          <el-main>
-            <div class="head-info">
-              <h2>
-                今日推荐 <input type="" name="" v-model="query">
-              </h2>
-            </div>
-          </el-main>
-        </el-col>
+        <td>
+          <SideNav ></SideNav>
+        </td>
+        <td>
+          <listtest style=""></listtest>
+        </td>
+        <td>
+          <Recommended></Recommended>
+        </td>
       </el-row>
     </el-container>
   </div>
@@ -32,12 +27,16 @@
   import SideNav from "./SideNav";
   import BlogEditor from "./BlogEditor";
   import Background from "./Background";
+  import Recommended from "./Recommended";
+  import listtest from "./listtest";
 
     export default {
         name: "Home",
         components: {
+            Recommended,
             Background,
             BlogEditor,
+            listtest,
           "Nav":Nav,
           "SideNav":SideNav
         },
@@ -85,26 +84,7 @@
   }
   .fore{
     background: rgba(0,0,0,0);
-    position: absolute;
-  }
-  .container{
-
-  }
-  .head {
-    width: 100%;
-    padding: 0px;
-    background: rgba(0,0,0,0);
-  }
-
-  .fore{
-  }
-  .head-info{
-    margin-top: 28px;
-  }
-
-  .aside{
-    margin-top: 20px;
-    position: fixed;
+    margin:0 auto;
   }
 
   h2 {

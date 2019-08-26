@@ -36,5 +36,7 @@
 </script>
 
 <style scoped>
-
+  .box-card {
+    width: 400px;
+  }
 </style>

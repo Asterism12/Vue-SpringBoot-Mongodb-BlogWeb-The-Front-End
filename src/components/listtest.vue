@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%">
+  <div style="width: 490px">
   <el-card class="box-card" v-for="blog in blogs":key="blog.bid">
     <div slot="header" class="clearfix" >
       <span class="title">{{blog.title}}</span>
@@ -25,6 +25,10 @@
         data(){
             return{
                 blogs:[{title:'titletitle',abstract:'abstractabstract',bid:1},
+                    {title:'titletitle',abstract:'abstractabstract',bid:2},
+                    {title:'titletitle',abstract:'abstractabstract',bid:1},
+                    {title:'titletitle',abstract:'abstractabstract',bid:2},
+                    {title:'titletitle',abstract:'abstractabstract',bid:1},
                     {title:'titletitle',abstract:'abstractabstract',bid:2}]
             }
         },
