@@ -1,9 +1,10 @@
 <template>
-    <div class="homepage-hero-module">
-      <div class="video-container">
-        <div :style="fixStyle" class="filter"></div>
-        <video :style="fixStyle" autoplay loop class="fillWidth" v-on:canplay="canplay">
-          <source src="https://storage.coverr.co/videos/coverr-candles-on-the-dark-1563967736900?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTY2NzQ3MDc3LCJleHAiOjE1NjY3NTA2Nzd9.Yjkd5gbvp9FajDe6dP5X0H_DGbz5FeFufCE6i1T2YP8" type="video/mp4"/>
+    <div class="homepage-hero-module" style="width: 100%">
+      <div class="video-container"style="width: 100%">
+        <div style="width:100%;position: fixed;margin-top: 20px;background-color: #000000;z-index: 0"></div>
+        <div :style="fixStyle" style="width:100%;height:100%;position: fixed;margin-top: 20px" class="filter"></div>
+        <video style="width:100%;position: fixed;margin-top: 20px;margin-left: -600px" autoplay loop class="fillWidth" v-on:canplay="canplay">
+          <source src="../assets/Fire/Slow-Fire.mp4" type="video/mp4"/>
           <!--<source src="PATH_TO_WEBM" type="video/webm"/>
           浏览器不支持 video 标签，建议升级浏览器。-->
         </video>
@@ -61,23 +62,25 @@
 
 <style scoped>
   .homepage-hero-module{
-
   },
   .video-container {
     position: relative;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
   }
 
   .video-container .poster img,
   .video-container video {
-    z-index: 0;
+    z-index: 1;
     position: absolute;
   }
 
   .video-container .filter {
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     background: rgba(0, 0, 0, 0.4);
+  }
+  .video-container .fore{
+    z-index: 3;
   }
 </style>
