@@ -7,6 +7,7 @@ import Register from "../components/Register";
 import UserMain from "../components/UserMain";
 import BlogEditor from "../components/BlogEditor";
 import Background from "../components/Background";
+import listtest from "../components/listtest";
 
 Vue.use(Router)
 
@@ -41,6 +42,10 @@ export default new Router({
     {
       path: 'register',
       component: Register
+    },
+    {
+      path:'/tt_list',
+      component:listtest
     }
   ]
 })
