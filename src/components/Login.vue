@@ -25,11 +25,12 @@
 <script>
 
     import Nav from "./Nav";
+
     export default {
         name: 'Login',
         components: {Nav},
-        props:["showHome"],
-        data () {
+        props: ["showHome"],
+        data() {
             return {
                 loginForm: {
                     username: '',
@@ -39,7 +40,7 @@
             }
         },
         methods: {
-            login () {
+            login() {
                 this.$axios
                     .post('api/login', {
                         username: this.loginForm.username,
@@ -49,7 +50,7 @@
                         alert("success jieshou")
                         if (successResponse.data.code === 200) {
                             this.$router.replace({path: '/HelloWorld'})
-                        }else{
+                        } else {
                             this.$router.replace({path: '/HelloWorld'})
                         }
                     })
@@ -72,9 +73,11 @@
     background-size: cover;
     position: fixed;
   }
-  body{
+
+  body {
     margin: 0px;
   }
+
   .login-container {
     border-radius: 15px;
     background-clip: padding-box;
@@ -85,6 +88,7 @@
     border: 1px solid #eaeaea;
     box-shadow: 0 0 25px #cac6c6;
   }
+
   .login_title {
     margin: 0px auto 40px auto;
     text-align: center;

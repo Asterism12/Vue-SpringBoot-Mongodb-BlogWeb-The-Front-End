@@ -21,12 +21,16 @@ export default new Router({
       component: Login
     },
     {
-      path: '/blog/:id',
-      components: Blog
+      path:'/blog/edit',
+      component: BlogEditor
     },
     {
-      path:'/blog/edit',
-      components: BlogEditor
-    }
+      path:'/register',
+      component: Register
+    },
+    {
+      path: '/blog/:id',
+      component: Blog
+    },
   ]
 })

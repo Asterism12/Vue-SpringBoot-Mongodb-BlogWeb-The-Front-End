@@ -1,27 +1,30 @@
 <template>
-  <body id="poster">
-  <el-form class="login-container" label-position="left"
-           label-width="0px">
-    <h3 class="login_title">注册</h3>
-    <el-form-item>
-      <el-input type="text" v-model="loginForm.username"
-                auto-complete="off" placeholder="账号"></el-input>
-    </el-form-item>
-    <el-form-item>
-      <el-input type="password" v-model="loginForm.password"
-                auto-complete="off" placeholder="密码"></el-input>
-    </el-form-item>
-    <el-form-item style="width: 100%">
-      <el-button type="primary" style="width: 100%;background: #505458;border: none" v-on:click="login">登录</el-button>
-    </el-form-item>
-  </el-form>
-  </body>
+  <el-container>
+    <body id="poster">
+    <el-form class="login-container" label-position="left"
+             label-width="0px">
+      <h3 class="login_title">注册</h3>
+      <el-form-item>
+        <el-input type="text" v-model="registerForm.username"
+                  auto-complete="off" placeholder="账号"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input type="password" v-model="registerForm.password"
+                  auto-complete="off" placeholder="密码"></el-input>
+      </el-form-item>
+      <el-form-item style="width: 100%">
+        <el-button type="primary" style="width: 100%;background: #505458;border: none" v-on:click="register">登录
+        </el-button>
+      </el-form-item>
+    </el-form>
+    </body>
+  </el-container>
 </template>
 
 <script>
     export default {
         name: 'Register',
-        data () {
+        data() {
             return {
                 registerForm: {
                     username: '',
@@ -31,7 +34,7 @@
             }
         },
         methods: {
-            login () {
+            register() {
                 this.$axios
                     .post('api/login', {
                         username: this.registerForm.username,
@@ -41,7 +44,7 @@
                         alert("success jieshou")
                         if (successResponse.data.code === 200) {
                             this.$router.replace({path: '/HelloWorld'})
-                        }else{
+                        } else {
                             this.$router.replace({path: '/HelloWorld'})
                         }
                     })
@@ -60,9 +63,11 @@
     background-size: cover;
     position: fixed;
   }
-  body{
+
+  body {
     margin: 0px;
   }
+
   .login-container {
     border-radius: 15px;
     background-clip: padding-box;
@@ -73,6 +78,7 @@
     border: 1px solid #eaeaea;
     box-shadow: 0 0 25px #cac6c6;
   }
+
   .login_title {
     margin: 0px auto 40px auto;
     text-align: center;
