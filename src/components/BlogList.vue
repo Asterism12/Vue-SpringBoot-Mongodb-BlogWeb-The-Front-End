@@ -1,24 +1,45 @@
 <template>
-  <el-row>
-    <el-table :data="blog.comments">
-      <el-table-column prop="username" label="用户名">
-      </el-table-column>
-
-      <el-table-column prop="content" label="评论">
-      </el-table-column>
-    </el-table>
-  </el-row>
+  <el-card class="box-card" :data="blog">
+    <div slot="header" class="clearfix">
+      <span>{{blog.title}}</span>
+      <el-button style="float: right; padding: 3px 0" type="text">查看原文</el-button>
+    </div>
+    <div  class="text item">
+      {{blog.abstract}}
+    </div>
+  </el-card>
 </template>
 
 <script>
     export default {
         name: "BlogList",
         data(){
-
+            return{
+                blog:{}
+            }
         }
     }
 </script>
 
-<style scoped>
+<style>
+  .text {
+    font-size: 14px;
+  }
 
+  .item {
+    margin-bottom: 18px;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
+
+  .box-card {
+    width: 480px;
+  }
 </style>
