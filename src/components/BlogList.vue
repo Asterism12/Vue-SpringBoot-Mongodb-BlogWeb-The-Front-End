@@ -2,7 +2,7 @@
   <el-card class="box-card" :data="blog">
     <div slot="header" class="clearfix">
       <span>{{blog.title}}</span>
-      <el-button style="float: right; padding: 3px 0" type="text" @click="GoToRoute"()>查看原文</el-button>
+      <el-button style="float: right; padding: 3px 0" type="text" @click="GoToBlog"(blog.bid)>查看原文</el-button>
     </div>
     <div  class="text item">
       {{blog.abstract}}
@@ -18,9 +18,22 @@
                 blog:{}
             }
         },
+        created() {
+            this.$axios.get('/lists', {
+                params: {
+                    keyword:'',
+                    classification:''
+                }
+            })
+                .then(response => {
+                    this.blog = response.data;
+                })
+                .catch(error => {
+                })
+        },
         methods:{
-            GoToRoute : function(){
-                this.$router.push({ name: 'blog', params: { id: blog.bid }})
+            GoToBlog : function(bid){
+                this.$router.push({ name: 'blog', params: { id: bid }})
             }
         }
     }
