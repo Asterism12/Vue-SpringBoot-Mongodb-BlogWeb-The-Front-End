@@ -27,7 +27,7 @@ export default {
     methods:{
       show: function (name) {
         this.showHomePage = 1;
-        if(name == "Home"){
+        if(name === "Home"){
             this.showHomePage = 1;
         }
       }
