@@ -1,6 +1,6 @@
 <template class="home">
-  <div>
-    <Background style="z-index: 0;"></Background>
+  <div class="back">
+    <!--<Background style="z-index: 0;"></Background>-->
     <el-container style="z-index: 1;width: 100%" class="fore" >
       <el-row>
         <el-col :span="30">
@@ -81,7 +81,6 @@
 
 <style scoped>
   .back{
-
     position: absolute;
   }
   .fore{
