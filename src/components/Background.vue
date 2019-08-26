@@ -1,23 +1,24 @@
 <template>
-  <div class="homepage-hero-module">
-    <div class="video-container">
-      <div :style="fixStyle" class="filter"></div>
-      <video :style="fixStyle" autoplay loop class="fillWidth" v-on:canplay="canplay">
-        <source src="https://storage.coverr.co/videos/Slow-Fire?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTY2NzQ0NDQ2LCJleHAiOjE1NjY3NDgwNDZ9.Y17dILL1Q_IaPhcoNA2a5uAhKeLeu25SoxpDV89FIyk" type="video/mp4"/>
-        浏览器不支持 video 标签，建议升级浏览器。
-        <!--<source src="PATH_TO_WEBM" type="video/webm"/>
-        浏览器不支持 video 标签，建议升级浏览器。-->
-      </video>
-      <div class="poster hidden" v-if="!vedioCanPlay">
-        <img :style="fixStyle" src="" alt="">
+  <div>
+
+      <div class="homepage-hero-module">
+        <div class="video-container">
+          <div :style="fixStyle" class="filter"></div>
+          <video :style="fixStyle" autoplay loop class="fillWidth" v-on:canplay="canplay">
+            <source src="https://storage.coverr.co/videos/coverr-candles-on-the-dark-1563967736900?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTY2NzQ3MDc3LCJleHAiOjE1NjY3NTA2Nzd9.Yjkd5gbvp9FajDe6dP5X0H_DGbz5FeFufCE6i1T2YP8" type="video/mp4"/>
+            <!--<source src="PATH_TO_WEBM" type="video/webm"/>
+            浏览器不支持 video 标签，建议升级浏览器。-->
+          </video>
+        </div>
       </div>
-    </div>
   </div>
 </template>
 
 <script>
+    import Nav from "./Nav";
     export default {
-        name: 'Background',
+        name: 'login',
+        components: {Nav},
         data() {
             return {
                 vedioCanPlay: false,
@@ -62,7 +63,9 @@
 </script>
 
 <style scoped>
-  .homepage-hero-module,
+  .homepage-hero-module{
+
+  },
   .video-container {
     position: relative;
     height: 100vh;

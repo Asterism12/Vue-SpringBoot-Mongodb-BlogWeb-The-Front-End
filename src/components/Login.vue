@@ -4,7 +4,7 @@
     <body id="poster">
     <el-form class="login-container" label-position="left"
              label-width="0px">
-      <h3 class="login_title">系统登录</h3>
+      <h3 class="login_title">登录</h3>
       <el-form-item>
         <el-input type="text" v-model="loginForm.username"
                   auto-complete="off" placeholder="账号"></el-input>
@@ -48,11 +48,11 @@
                     })
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
-                            this.$store.states.LoginState=true
-                            //do something
+                            this.$store.state.LoginState=true
+                            this.$router.push({path: '/'})
                         } else {
                             alert("fail")
-                            //do something
+                            this.$router.push({path: 'login'})
                         }
                     })
                     .catch(failResponse => {
