@@ -47,29 +47,12 @@
                         password: this.loginForm.password
                     })
                     .then(successResponse => {
-                        alert("success jieshou")
                         if (successResponse.data.code === 200) {
-                            alert("successAA")
-                            this.$router.replace({path: '/HelloWorld'})
-                        } else {
-                            alert("failAA")
-                            this.$router.replace({path: '/HelloWorld'})
-                        }
-                    })
-                    .catch(failResponse => {
-                    })
-                this.$axios
-                    .post('api/login', {
-                        username: this.loginForm.username,
-                        password: this.loginForm.password
-                    })
-                    .then(successResponse => {
-                        if (successResponse.data.code === 200) {
-                            alert("success")
-                            this.$router.replace({path: '/HelloWorld'})
+                            this.$store.states.LoginState=true
+                            //do something
                         } else {
                             alert("fail")
-                            this.$router.replace({path: '/HelloWorld'})
+                            //do something
                         }
                     })
                     .catch(failResponse => {
