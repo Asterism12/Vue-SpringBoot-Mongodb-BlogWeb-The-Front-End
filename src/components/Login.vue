@@ -42,6 +42,21 @@
         methods: {
             login() {
                 this.$axios
+                    .post('login', {
+                        username: this.loginForm.username,
+                        password: this.loginForm.password
+                    })
+                    .then(successResponse => {
+                        alert("success jieshou")
+                        if (successResponse.data.code === 200) {
+                            this.$router.replace({path: '/HelloWorld'})
+                        } else {
+                            this.$router.replace({path: '/HelloWorld'})
+                        }
+                    })
+                    .catch(failResponse => {
+                    })
+                this.$axios
                     .post('api/login', {
                         username: this.loginForm.username,
                         password: this.loginForm.password
