@@ -19,6 +19,7 @@
             this.$axios.get('api/comment', {
                 params: {
                     username:this.$store.state.UserName,
+                    id: this.$route.params.id,
                     content:this.textarea1
                 }
             })
