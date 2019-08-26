@@ -18,6 +18,19 @@
                 blog:{}
             }
         },
+        created() {
+            this.$axios.get('/lists', {
+                params: {
+                    keyword:'',
+                    classification:''
+                }
+            })
+                .then(response => {
+                    this.blog = response.data;
+                })
+                .catch(error => {
+                })
+        },
         methods:{
             GoToBlog : function(bid){
                 this.$router.push({ name: 'blog', params: { id: blog.bid }})
