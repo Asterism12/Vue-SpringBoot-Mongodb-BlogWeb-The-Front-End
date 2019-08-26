@@ -36,14 +36,6 @@ export default new Router({
       component: Blog
     },
     {
-      path: '/blog/edit',
-      component: BlogEditor
-    },
-    {
-      path: 'register',
-      component: Register
-    },
-    {
       path:'/tt_list',
       component:listtest
     }
