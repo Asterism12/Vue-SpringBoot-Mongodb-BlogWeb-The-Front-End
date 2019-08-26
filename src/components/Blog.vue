@@ -24,13 +24,12 @@
             }
         },
         created() {
-            this.$axios.get('api/blogs', {
+            this.$axios.get('/blogs', {
                 params: {
                     bid: this.id
                 }
             })
                 .then(response => {
-                    console.log(response);
                     this.blog = response.data;
                 })
                 .catch(error => {

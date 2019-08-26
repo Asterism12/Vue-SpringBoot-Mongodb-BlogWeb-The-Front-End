@@ -42,16 +42,17 @@
         methods: {
             login() {
                 this.$axios
-                    .post('api/login', {
+                    .post('/login', {
                         username: this.loginForm.username,
                         password: this.loginForm.password
                     })
                     .then(successResponse => {
-                        alert("success jieshou")
                         if (successResponse.data.code === 200) {
-                            this.$router.replace({path: '/HelloWorld'})
+                            this.$store.states.LoginState=true
+                            //do something
                         } else {
-                            this.$router.replace({path: '/HelloWorld'})
+                            alert("fail")
+                            //do something
                         }
                     })
                     .catch(failResponse => {

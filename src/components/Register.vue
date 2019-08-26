@@ -39,16 +39,15 @@
         methods: {
             register() {
                 this.$axios
-                    .post('api/login', {
+                    .post('/login', {
                         username: this.registerForm.username,
                         password: this.registerForm.password
                     })
                     .then(successResponse => {
-                        alert("success jieshou")
                         if (successResponse.data.code === 200) {
-                            this.$router.replace({path: '/HelloWorld'})
+                            //do something
                         } else {
-                            this.$router.replace({path: '/HelloWorld'})
+                            //do something
                         }
                     })
                     .catch(failResponse => {
