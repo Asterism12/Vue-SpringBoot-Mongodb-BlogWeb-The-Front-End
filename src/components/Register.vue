@@ -39,15 +39,17 @@
         methods: {
             register() {
                 this.$axios
-                    .post('/login', {
+                    .post('/register', {
                         username: this.registerForm.username,
                         password: this.registerForm.password
                     })
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
+                            alert("sss")
                             this.$store.state.LoginState=true
                             this.$router.push({path: '/'})
                         } else {
+                            alert("fail")
                             this.$router.push({path: '/register'})
                         }
                     })
