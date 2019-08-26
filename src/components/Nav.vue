@@ -1,7 +1,7 @@
 <template>
   <el-container id="header">
     <el-row>
-      <el-col :span="15">
+      <el-col :span="12">
         <el-menu mode="horizontal" class="el-menu" router :default-active="$route.path"
                  @select="handleSelect" @open="handleOpen"
                  @close="handleClose">
@@ -19,7 +19,7 @@
           </el-menu-item>
         </el-menu>
        </el-col>
-      <el-col :span="15">
+      <el-col :span="18">
         <el-menu mode="horizontal" class="el-menu" router :default-active="$route.path"
                  @select="handleSelect" @open="handleOpen"
                  @close="handleClose">
