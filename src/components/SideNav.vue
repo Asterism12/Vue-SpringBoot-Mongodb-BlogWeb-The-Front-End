@@ -53,6 +53,10 @@
 </script>
 
 <style scoped>
+
+  .tac {
+    width: 100%;
+  }
   .el-menu-vertical{
     width: 200px;
     position: center;

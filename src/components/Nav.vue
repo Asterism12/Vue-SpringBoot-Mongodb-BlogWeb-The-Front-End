@@ -71,8 +71,6 @@
     z-index: 1;
     top: 0;
 
-    border: white;
-    border-radius: 25px;
 
   }
 

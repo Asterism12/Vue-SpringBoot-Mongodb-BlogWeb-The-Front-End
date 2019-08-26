@@ -1,47 +1,30 @@
 <template class="home">
-      <el-container class="fore">
-          <el-row>
-            <el-col :span="30">
-              <Nav></Nav>
-            </el-col>
-          </el-row>
-          <el-row>
-            <el-col :span="6">
-              <el-aside class="aside">
-                <SideNav></SideNav>
-              </el-aside>
-            </el-col>
-            <el-col :span="18">
-              <el-main>
-                <div class="head-info">
-                  <h2>
-                    今日推荐 <input type="" name="" v-model="query">
-                  </h2>
-                  <!--<div v-for="blog in Blogs" class="item">
-                    <h3>
-                      <router-link to="{name: 'ReadBlog', params: {id:blog.id}}">
-                        {{blog.title}}
-                      </router-link>
-                    </h3>
-                    <p class="bloginfo">
-                      <span>
-                        作者: {{blog.author}}
-                      </span>
-                      <span>
-                        标签: <span v-for="tag in blog.tags">{{tag}}{{blog.tags.indexOf(tag) == blog.tags.length-1 ? "" : ","}}</span>
-                      </span>
-                    </p>
-                    <p>{{blog.content | cutContent}}</p>
-                  </div>-->
-                </div>
-              </el-main>
-            </el-col>
-          </el-row>
-          <!--<video autoplay loop muted>
-            <source src="https://storage.coverr.co/videos/Slow-Fire?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTY2NzgyNTY2LCJleHAiOjE1NjY3ODYxNjZ9.hF-dTXDlNI9VCnqpWop2WDKPeSvfZy25zmHYlW4xg9Y" type="video/mp4"/>
-
-          </video>-->
-      </el-container>
+  <div>
+    <Background style="z-index: 0;"></Background>
+    <el-container style="z-index: 1;width: 100%" class="fore" >
+      <el-row>
+        <el-col :span="30">
+          <Nav></Nav>
+        </el-col>
+      </el-row>
+      <el-row style="width: 100%">
+        <el-col :span="6">
+          <el-aside class="aside">
+            <SideNav></SideNav>
+          </el-aside>
+        </el-col>
+        <el-col :span="18">
+          <el-main>
+            <div class="head-info">
+              <h2>
+                今日推荐 <input type="" name="" v-model="query">
+              </h2>
+            </div>
+          </el-main>
+        </el-col>
+      </el-row>
+    </el-container>
+  </div>
 </template>
 
 <script>
@@ -114,6 +97,8 @@
     background: rgba(0,0,0,0);
   }
 
+  .fore{
+  }
   .head-info{
     margin-top: 28px;
   }
