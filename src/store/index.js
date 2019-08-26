@@ -5,8 +5,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    LoginState: true,
-    UserName:'nwzhr',
+    LoginState: false,
+    UserName:'',
     ReadingBlog:0
   }
 })
