@@ -39,10 +39,10 @@
               </el-main>
             </el-col>
           </el-row>
-          <video autoplay loop muted>
+          <!--<video autoplay loop muted>
             <source src="https://storage.coverr.co/videos/Slow-Fire?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTY2NzgyNTY2LCJleHAiOjE1NjY3ODYxNjZ9.hF-dTXDlNI9VCnqpWop2WDKPeSvfZy25zmHYlW4xg9Y" type="video/mp4"/>
 
-          </video>
+          </video>-->
       </el-container>
     </div>
   </div>

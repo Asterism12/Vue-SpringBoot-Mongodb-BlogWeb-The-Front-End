@@ -45,9 +45,10 @@
                     })
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
-                            //do something
+                            this.$store.state.LoginState=true
+                            this.$router.push({path: '/'})
                         } else {
-                            //do something
+                            this.$router.push({path: '/register'})
                         }
                     })
                     .catch(failResponse => {
