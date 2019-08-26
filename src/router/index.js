@@ -6,6 +6,7 @@ import Blog from "@/components/Blog";
 import Register from "../components/Register";
 import UserMain from "../components/UserMain";
 import BlogEditor from "../components/BlogEditor";
+import Background from "../components/Background";
 
 Vue.use(Router)
 
@@ -32,5 +33,13 @@ export default new Router({
       path: '/blog/:id',
       component: Blog
     },
+    {
+      path: '/blog/edit',
+      component: BlogEditor
+    },
+    {
+      path: 'register',
+      component: Register
+    }
   ]
 })

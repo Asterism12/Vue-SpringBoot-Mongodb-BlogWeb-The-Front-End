@@ -4,13 +4,20 @@
              @select="handleSelect" @open="handleOpen"
              @close="handleClose">
       <el-menu-item index="/">
-        Home
-      </el-menu-item>
-      <el-menu-item index="/login">
-        登录
+        <i class="el-icon-s-home"></i>
+        <span>Home</span>
       </el-menu-item>
       <el-menu-item index="/blog/edit">
-        编辑博文
+        <i class="el-icon-edit"></i>
+        <span>编辑博文</span>
+      </el-menu-item>
+      <el-menu-item index="/login">
+        <i class="el-icon-user-solid"></i>
+        <span>登录</span>
+      </el-menu-item>
+      <el-menu-item index="/register">
+        <i class="el-icon-user"></i>
+        <span>注册</span>
       </el-menu-item>
     </el-menu>
   </el-container>

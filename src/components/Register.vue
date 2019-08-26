@@ -1,5 +1,6 @@
 <template>
   <el-container>
+    <Nav></Nav>
     <body id="poster">
     <el-form class="login-container" label-position="left"
              label-width="0px">
@@ -13,7 +14,7 @@
                   auto-complete="off" placeholder="密码"></el-input>
       </el-form-item>
       <el-form-item style="width: 100%">
-        <el-button type="primary" style="width: 100%;background: #505458;border: none" v-on:click="register">登录
+        <el-button type="primary" style="width: 50%;background: #d8bfd8;border: none" v-on:click="register">注册账号
         </el-button>
       </el-form-item>
     </el-form>
@@ -22,8 +23,10 @@
 </template>
 
 <script>
+  import Nav from "./Nav";
     export default {
         name: 'Register',
+        components:{Nav},
         data() {
             return {
                 registerForm: {
