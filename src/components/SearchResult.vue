@@ -39,6 +39,9 @@
                 blogresults:[{title:"title",abstract:"abstract",bid:"1"}],
                 userresults:[{username:"Asterism",userinfo:"happy"}]
             }
+        },
+        created() {
+            //required
         }
     }
 </script>
