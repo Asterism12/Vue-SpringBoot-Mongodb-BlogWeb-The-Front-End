@@ -7,16 +7,22 @@
           <Nav></Nav>
         </div>
       </el-row>
-      <el-row style="width: 100%">
-        <td>
-          <SideNav ></SideNav>
-        </td>
-        <td>
-          <listtest style=""></listtest>
-        </td>
-        <td>
-          <Recommended></Recommended>
-        </td>
+      <el-row style="width: 100%" :gutter="10">
+        <el-col style="position: fixed">
+          <div>
+            <SideNav></SideNav>
+          </div>
+        </el-col>
+        <el-col :span="10" offset="13">
+          <div>
+            <listtest></listtest>
+          </div>
+        </el-col>
+        <el-col offset="16" style="position: fixed">
+          <div>
+            <Recommended></Recommended>
+          </div>
+        </el-col>
       </el-row>
     </el-container>
   </div>

@@ -13,6 +13,10 @@
             <i class="el-icon-edit"></i>
             <span>编辑博文</span>
           </el-menu-item>
+          <el-menu-item index="/search" v-if="this.$store.state.LoginState">
+            <i class="el-icon-search"></i>
+            <span>搜索</span>
+          </el-menu-item>
           <el-submenu v-if="this.$store.state.LoginState" style="float: right">
             <template slot="title">
               <i class="el-icon-star-on>"></i>

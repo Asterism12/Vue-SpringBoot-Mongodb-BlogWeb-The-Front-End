@@ -8,6 +8,7 @@ import UserMain from "../components/UserMain";
 import BlogEditor from "../components/BlogEditor";
 import Background from "../components/Background";
 import listtest from "../components/listtest";
+import SearchResult from "../components/SearchResult";
 
 Vue.use(Router)
 
@@ -42,6 +43,10 @@ export default new Router({
     {
       path:'/usermain',
       component:UserMain
+    },
+    {
+      path:'/search',
+      component:SearchResult
     }
   ]
 })
