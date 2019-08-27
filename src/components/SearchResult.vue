@@ -1,5 +1,18 @@
 <template>
   <el-row>
+    <el-col :span="18">
+      <div class="grid-content bg-purple-dark">
+        <el-input v-model="input" placeholder="请输入内容"></el-input>
+      </div>
+    </el-col>
+    <el-col :span="4"></el-col>
+    <el-col :span="2">
+      <div class="grid-content bg-purple-dark">
+        <el-button @click="Search()>开始搜索</el-button>
+      </div>
+    </el-col>
+  </el-row>
+  <el-row>
     <el-col :span="12">
       <div class="grid-content bg-purple">
         <p>搜索文章</p>
@@ -36,12 +49,37 @@
         name: "SearchResult",
         data(){
             return{
+                input: '',
                 blogresults:[{title:"title",abstract:"abstract",bid:"1"}],
                 userresults:[{username:"Asterism",userinfo:"happy"}]
             }
         },
         created() {
-            //required
+            //required for text
+        },
+        methods:{
+            Search:function () {
+                this.$axios.get('/lists', {
+                    params: {
+                        keyword:this.input,
+                    }
+                })
+                    .then(response => {
+                        this.blogresults = response.data;
+                    })
+                    .catch(error => {
+                    })
+                this.$axios.get('/userlists', {
+                    params: {
+                        keyword:this.input,
+                    }
+                })
+                    .then(response => {
+                        this.userresults = response.data;
+                    })
+                    .catch(error => {
+                    })
+            }
         }
     }
 </script>
