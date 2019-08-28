@@ -34,8 +34,8 @@
                 }
             })
                 .then(response => {
-                    alert("success")
                     this.blogs = response.data;
+                    alert(this.blogs)
                 })
                 .catch(error => {
                 })
