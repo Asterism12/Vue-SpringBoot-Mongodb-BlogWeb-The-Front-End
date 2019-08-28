@@ -6,7 +6,7 @@
       <div>
         <el-card class="box-card" v-for="comment in blog.comments":key="blog.bid">
           <div slot="header" class="clearfix">
-            <span>{{comments.username}}</span>
+            <span>{{comment.username}}</span>
           </div>
           <div  class="text item">
             {{comment.content}}

@@ -1,9 +1,9 @@
 <template>
   <div style="width: 490px">
-    <el-card class="box-card" v-for="blog in blogs":key="blog.bid">
+    <el-card class="box-card" v-for="blog in blogs":key="blog.Id">
       <div slot="header" class="clearfix" >
         <span class="title">{{blog.title}}</span>
-        <el-button style="float: right; padding: 3px 0" type="text" @click="GoToBlog(blog.bid)">查看博客</el-button>
+        <el-button style="float: right; padding: 3px 0" type="text" @click="GoToBlog(blog.Id)">查看博客</el-button>
       </div>
       <div class="body">
         <el-col :span="2" style="background-color: #42b983">
@@ -34,8 +34,8 @@
                 }
             })
                 .then(response => {
-                    this.blogs = response.data;
-                    alert(this.blogs)
+                    alert("success")
+                    this.blogs = response.data
                 })
                 .catch(error => {
                 })

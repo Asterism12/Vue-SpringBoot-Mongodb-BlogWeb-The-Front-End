@@ -55,6 +55,7 @@
                             this.$router.push({path: '/'})
                         } else {
                             alert("fail")
+                            alert(successResponse.data.code)
                             this.$router.push({path: '/login'})
                         }
                     })
