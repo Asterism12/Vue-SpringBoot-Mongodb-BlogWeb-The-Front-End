@@ -21,7 +21,7 @@
               <i class="el-icon-star-on>"></i>
               {{this.$store.state.UserName}}
             </template>
-            <el-menu-item index="2-1">
+            <el-menu-item index="/setup">
               个人设置
             </el-menu-item>
             <el-menu-item index="/usermain">

@@ -11,6 +11,7 @@ import SearchResult from "../components/SearchResult";
 import BlogEditorV2 from "../components/BlogEditorV2";
 import BlogList from "../components/BlogList";
 import BlogV2 from "../components/BlogV2";
+import SetUp from "../components/SetUp";
 
 Vue.use(Router)
 
@@ -59,6 +60,10 @@ export default new Router({
     {
       path:'/test',
       component:BlogV2
+    },
+    {
+      path:'/setup',
+      component:SetUp
     }
   ]
 })

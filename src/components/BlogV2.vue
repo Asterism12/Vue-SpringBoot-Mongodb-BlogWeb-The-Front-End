@@ -13,6 +13,18 @@
       :scrollStyle="prop.scrollStyle"
       style="margin-top: 20px"
     ></mavon-editor>
+    <el-row>
+      <div>
+        <el-card class="box-card" v-for="comment in blog.comments":key="blog.comments.bid">
+          <div slot="header" class="clearfix">
+            <span>{{comment.username}}</span>
+          </div>
+          <div  class="text item">
+            {{comment.content}}
+          </div>
+        </el-card>
+      </div>
+    </el-row>
   </div>
 </template>
 
