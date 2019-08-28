@@ -26,7 +26,7 @@ export default new Router({
     },
     {
       path:'/blog/edit',
-      component: BlogEditor
+      component: BlogEditorV2
     },
     {
       path:'/register',

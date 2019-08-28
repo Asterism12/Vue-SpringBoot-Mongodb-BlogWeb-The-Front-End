@@ -3,6 +3,7 @@
     <el-col :span="12">
       <el-menu default-active="2"
                class="el-menu-vertical"
+               @select="handleSelect"
                @open="handleOpen"
                @close="handleClose"
                 background-color="#545c64"
@@ -19,16 +20,16 @@
             <span>总览</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="1">
+            <el-menu-item index="Java">
               Java
             </el-menu-item>
-            <el-menu-item index="2">
+            <el-menu-item index="Python">
               Python
             </el-menu-item>
-            <el-menu-item index="3">
+            <el-menu-item index="Cloud">
               云计算/大数据
             </el-menu-item>
-            <el-menu-item index="4">
+            <el-menu-item index="Block">
               区块链
             </el-menu-item>
           </el-menu-item-group>
@@ -47,6 +48,9 @@
             },
             handleClose(key, keyPath) {
                 console.log(key, keyPath);
+            },
+            handleSelect(key) {
+                this.$store.state.classification = key
             }
         }
     }
