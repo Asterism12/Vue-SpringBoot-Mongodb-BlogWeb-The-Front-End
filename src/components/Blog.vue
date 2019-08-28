@@ -4,12 +4,12 @@
     <article>{{blog.article}}</article>
     <el-row>
       <div>
-        <el-card class="box-card" v-for="blog in blogs":key="blog.bid">
+        <el-card class="box-card" v-for="comment in blog.comments":key="blog.bid">
           <div slot="header" class="clearfix">
-            <span>{{blog.comments.username}}</span>
+            <span>{{comments.username}}</span>
           </div>
           <div  class="text item">
-            {{blog.content}}
+            {{comment.content}}
           </div>
         </el-card>
       </div>
