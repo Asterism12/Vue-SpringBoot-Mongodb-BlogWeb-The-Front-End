@@ -4,7 +4,7 @@
     <article>{{blog.article}}</article>
     <el-row>
       <div>
-        <el-card class="box-card" v-for="comment in blog.comments":key="blog.bid">
+        <el-card class="box-card" v-for="comment in blog.comments":key="blog.comments.bid">
           <div slot="header" class="clearfix">
             <span>{{comment.username}}</span>
           </div>
