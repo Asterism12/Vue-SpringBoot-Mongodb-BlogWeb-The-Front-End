@@ -23,7 +23,7 @@
         name: "BlogList",
         data(){
             return{
-                blogs:[{title:'titletitle',abstract:'abstractabstract',bid:1}]
+                blogs:[]
             }
         },
         created() {
@@ -42,6 +42,7 @@
         },
         methods:{
             GoToBlog : function(bid){
+                alert("ahah")
                 this.$router.push({ name: 'blog', params: { id: bid }})
             }
         }
