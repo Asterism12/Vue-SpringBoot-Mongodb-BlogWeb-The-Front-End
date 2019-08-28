@@ -10,8 +10,8 @@ const store = new Vuex.Store({
     AvatarUrl:'../assets/logo.png',
     Sex:'男',
     ReadingBlog:0,
-    Classification:''
-  }
+    Classification:'',
+    SearchKeyword:'ddd',}
 })
 
 export default store
