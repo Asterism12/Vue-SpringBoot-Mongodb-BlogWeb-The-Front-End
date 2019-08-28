@@ -7,9 +7,9 @@ import Register from "../components/Register";
 import UserMain from "../components/UserMain";
 import BlogEditor from "../components/BlogEditor";
 import Background from "../components/Background";
-import listtest from "../components/listtest";
 import SearchResult from "../components/SearchResult";
 import BlogEditorV2 from "../components/BlogEditorV2";
+import BlogList from "../components/BlogList";
 
 Vue.use(Router)
 
@@ -38,10 +38,6 @@ export default new Router({
       component: Blog
     },
     {
-      path:'/tt_list',
-      component:listtest
-    },
-    {
       path:'/usermain',
       component:UserMain
     },
@@ -54,6 +50,10 @@ export default new Router({
       path: '/blogeditV2',
       name: 'BlogEdit',
       component: BlogEditorV2
+    },
+    {
+      path:'/bloglist',
+      components:BlogList
     }
   ]
 })

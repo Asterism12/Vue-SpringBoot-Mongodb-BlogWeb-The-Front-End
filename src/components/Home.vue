@@ -15,7 +15,7 @@
         </el-col>
         <el-col :span="10" offset="13">
           <div>
-            <listtest></listtest>
+            <BlogList></BlogList>
           </div>
         </el-col>
         <el-col offset="16" style="position: fixed">
@@ -34,15 +34,15 @@
   import BlogEditor from "./BlogEditor";
   import Background from "./Background";
   import Recommended from "./Recommended";
-  import listtest from "./listtest";
+  import BlogList from "./BlogList";
 
     export default {
         name: "Home",
         components: {
+            BlogList,
             Recommended,
             Background,
             BlogEditor,
-            listtest,
           "Nav":Nav,
           "SideNav":SideNav
         },
