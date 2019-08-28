@@ -9,7 +9,8 @@ const store = new Vuex.Store({
     UserName:'nwzhr',
     AvatarUrl:'../assets/logo.png',
     Sex:'男',
-    ReadingBlog:0
+    ReadingBlog:0,
+    SearchKeyword:'ddd'
   }
 })
 

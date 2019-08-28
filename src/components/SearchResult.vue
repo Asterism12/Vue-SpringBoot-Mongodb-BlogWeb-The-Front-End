@@ -51,13 +51,12 @@
         name: "SearchResult",
         data() {
             return {
-                input: '',
+                input: this.$store.state.SearchKeyword,
                 blogresults: [{title: "title", abstract: "abstract", bid: "1"}],
                 userresults: [{username: "Asterism", userinfo: "happy"}]
             }
         },
-        created() {
-            input = this.$route.params.keyword
+        mounted() {
             this.Search()
         },
         methods: {

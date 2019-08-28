@@ -17,16 +17,10 @@
         },
         methods: {
             Search() {
-                var search = this.search;
-                if(search) {
-                    this.$router.push({
-                        path: "/search",
-                        params: {
-                            keyword:this.search
-                        }
-                    })
-                }
-
+                this.$store.state.SearchKeyword = this.search
+                this.$router.push({
+                    name: 'SearchResult',
+                })
             }
         }
     }
