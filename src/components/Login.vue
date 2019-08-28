@@ -51,6 +51,7 @@
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
                             this.$store.state.LoginState=true
+                            this.$store.state.UserName=this.loginForm.username
                             this.$router.push({path: '/'})
                         } else {
                             alert("fail")
