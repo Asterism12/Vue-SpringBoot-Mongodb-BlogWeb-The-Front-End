@@ -8,7 +8,7 @@
     <el-col :span="4"></el-col>
     <el-col :span="2">
       <div class="grid-content bg-purple-dark">
-        <el-button @click="Search()>开始搜索</el-button>
+        <el-button @click="Search()">开始搜索</el-button>
       </div>
     </el-col>
   </el-row>
@@ -55,7 +55,8 @@
             }
         },
         created() {
-            //required for text
+            input=this.$route.params.id
+            this.Search()
         },
         methods:{
             Search:function () {
