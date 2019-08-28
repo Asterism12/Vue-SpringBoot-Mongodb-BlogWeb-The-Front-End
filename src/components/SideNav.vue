@@ -20,17 +20,20 @@
             <span>总览</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="Java">
+            <el-menu-item index="1">
               Java
             </el-menu-item>
-            <el-menu-item index="Python">
+            <el-menu-item index="2">
               Python
             </el-menu-item>
-            <el-menu-item index="Cloud">
+            <el-menu-item index="3">
               云计算/大数据
             </el-menu-item>
-            <el-menu-item index="Block">
-              区块链
+            <el-menu-item index="4">
+              人工智能
+            </el-menu-item>
+            <el-menu-item index="5">
+              其它
             </el-menu-item>
           </el-menu-item-group>
         </el-submenu>
