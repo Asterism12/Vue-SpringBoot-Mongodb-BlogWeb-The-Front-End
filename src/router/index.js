@@ -9,6 +9,7 @@ import BlogEditor from "../components/BlogEditor";
 import Background from "../components/Background";
 import listtest from "../components/listtest";
 import SearchResult from "../components/SearchResult";
+import BlogEditorV2 from "../components/BlogEditorV2";
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
     {
       path:'/search',
       component:SearchResult
+    },
+    {
+      path: '/blogeditV2',
+      name: 'BlogEdit',
+      component: BlogEditorV2
     }
   ]
 })
