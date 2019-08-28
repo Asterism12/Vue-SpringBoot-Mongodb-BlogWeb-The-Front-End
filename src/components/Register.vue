@@ -38,6 +38,7 @@
         },
         methods: {
             register() {
+                //alert(this.registerForm.username+" "+this.registerForm.password)
                 this.$axios
                     .post('/register', {
                         username: this.registerForm.username,

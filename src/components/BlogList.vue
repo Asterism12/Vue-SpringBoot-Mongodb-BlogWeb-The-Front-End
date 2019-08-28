@@ -34,6 +34,7 @@
                 }
             })
                 .then(response => {
+                    alert("success")
                     this.blog = response.data;
                 })
                 .catch(error => {
