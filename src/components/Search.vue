@@ -20,8 +20,8 @@
                 var search = this.search;
                 if(search) {
                     this.$router.push({
-                        path: "/research",
-                        query: {
+                        path: "/search",
+                        params: {
                             keyword:this.search
                         }
                     })
