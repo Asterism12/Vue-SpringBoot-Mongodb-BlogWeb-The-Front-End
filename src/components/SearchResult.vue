@@ -55,7 +55,7 @@
             }
         },
         created() {
-            input=this.$route.params.id
+            input=this.$route.params.keyword
             this.Search()
         },
         methods:{
