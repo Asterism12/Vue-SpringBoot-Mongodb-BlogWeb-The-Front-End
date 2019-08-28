@@ -23,13 +23,12 @@
 </template>
 
 <script>
-  import listtest from "./listtest";
   import Nav from "./Nav";
     export default {
         name: "UserMain",
         components: {
             Nav,
-            listtest
+
         },
         data() {
             return {
