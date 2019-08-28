@@ -13,10 +13,10 @@
             <i class="el-icon-edit"></i>
             <span>编辑博文</span>
           </el-menu-item>
-          <el-menu-item index="/search" v-if="this.$store.state.LoginState">
+          <el-col v-if="this.$store.state.LoginState" style="width: 200px;">
             <i class="el-icon-search"></i>
-            <span>搜索</span>
-          </el-menu-item>
+            <Search style="width: 200px"></Search>
+          </el-col>
           <el-submenu v-if="this.$store.state.LoginState" style="float: right">
             <template slot="title">
               <i class="el-icon-star-on>"></i>
@@ -37,23 +37,8 @@
             <i class="el-icon-user"></i>
             <span>注册</span>
           </el-menu-item>
-
         </el-menu>
        </el-col>
-      <!--<el-col :span="18" style="float: right;width: 60%">
-        <el-menu mode="horizontal" class="el-menu" router :default-active="$route.path"
-                 @select="handleSelect" @open="handleOpen"
-                 @close="handleClose">
-          <el-menu-item index="/login" v-if="!this.$store.state.LoginState">
-            <i class="el-icon-user-solid"></i>
-            <span>登录</span>
-          </el-menu-item>
-          <el-menu-item index="/register" v-if="!this.$store.state.LoginState">
-            <i class="el-icon-user"></i>
-            <span>注册</span>
-          </el-menu-item>
-        </el-menu>
-      </el-col>-->
     </el-row>
 
 
@@ -62,9 +47,10 @@
 
 
 <script>
+    import Search from "./Search";
     export default {
         name: 'Nav',
-
+        components: {Search},
         data: function () {
             return {
                 query: '',
