@@ -23,19 +23,14 @@
         name: "BlogList",
         data(){
             return{
-                blogs:[{title:'titletitle',abstract:'abstractabstract',bid:1},
-                    {title:'titletitle',abstract:'abstractabstract',bid:2},
-                    {title:'titletitle',abstract:'abstractabstract',bid:3},
-                    {title:'titletitle',abstract:'abstractabstract',bid:4},
-                    {title:'titletitle',abstract:'abstractabstract',bid:5},
-                    {title:'titletitle',abstract:'abstractabstract',bid:6}]
+                blogs:[{title:'titletitle',abstract:'abstractabstract',bid:1}]
             }
         },
         created() {
             this.$axios.get('/lists', {
                 params: {
                     keyword:'',
-                    classification:''
+                    classification:0
                 }
             })
                 .then(response => {
