@@ -7,11 +7,8 @@ const store = new Vuex.Store({
   state: {
     LoginState: false,
     UserName:'',
-    AvatarUrl:'../assets/logo.png',
-    Sex:'男',
-    ReadingBlog:0,
     Classification:'',
-    SearchKeyword:'ddd',}
+    SearchKeyword:'',}
 })
 
 export default store

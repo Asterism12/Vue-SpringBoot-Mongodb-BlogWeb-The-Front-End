@@ -40,7 +40,8 @@ export default new Router({
       component: BlogV2
     },
     {
-      path:'/usermain',
+      path:'/usermain/:username',
+      name:'usermain',
       component:UserMain
     },
     {
