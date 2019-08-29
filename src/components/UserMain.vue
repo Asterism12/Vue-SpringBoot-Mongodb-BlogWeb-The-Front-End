@@ -9,11 +9,11 @@
     <p></p>
     <el-card style="width: 25%;margin:0 auto">
       <div>
-        <span>用户名:{{this.$store.state.UserName}}</span>
+        <span>用户名:{{userinfo.username}}</span>
         <hr/>
       </div>
       <div>
-        <span>性别:{{this.$store.state.Sex}}</span>
+        <span>性别:{{userinfo.Sex}}</span>
       </div>
     </el-card>
     <div style="width: 490px">
@@ -51,7 +51,7 @@
         created() {
             this.$axios.get('/user', {
                 params: {
-                    uid: this.id
+                    username:this.$route.params.username,
                 }
             })
                 .then(response => {
