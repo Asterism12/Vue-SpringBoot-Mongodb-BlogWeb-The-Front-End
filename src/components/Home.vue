@@ -8,7 +8,7 @@
         </div>
       </el-row>
       <el-row style="width: 100%" :gutter="10">
-        <el-col style="position: fixed">
+        <el-col :span="4" style="position: fixed">
           <div>
             <SideNav></SideNav>
           </div>
