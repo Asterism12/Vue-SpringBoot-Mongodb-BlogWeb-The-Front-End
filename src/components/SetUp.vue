@@ -16,17 +16,19 @@
         </el-col>
         <el-col style="width: 100%">
           <div v-if="this.set === '1'" style="width: 100%">
-            <div>
-              <el-card style="width: 60%;margin:0 auto;background-color: #409EFF">
-                头像设置
-              </el-card>
-            </div>
+            <el-row>
+              <div>
+                <el-card style="width: 60%;margin:0 auto;background-color: #F3F3FA">
+                  头像设置
+                </el-card>
+              </div>
+            </el-row>
             <div style="width: 100%">
               <el-container style="width: 100%">
-                <el-col>
+                <el-row style="width: 100%">
                   <el-avatar src="this.$store.state.AvatarUrl" :size="90"></el-avatar>
-                </el-col>
-                <el-col>
+                </el-row>
+                <el-row style="width: 100%">
                   <el-upload
                     class="avatar-uploader"
                     action="https://jsonplaceholder.typicode.com/posts/"
@@ -36,7 +38,7 @@
                     <img v-if="imageUrl" :src="imageUrl" class="avatar">
                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                   </el-upload>
-                </el-col>
+                </el-row>
               </el-container>
             </div>
           </div>
