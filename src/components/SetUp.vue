@@ -1,58 +1,84 @@
 <template>
-  <el-container style="width: 100%">
+  <div style="width: 100%">
     <div>
-      <el-card>
-        头像设置
-      </el-card>
+      <Nav></Nav>
     </div>
     <div>
-      <el-col :span="12" style="float: left">
-        <el-avatar></el-avatar>
-      </el-col>
-      <el-col :span="12">
-        <el-upload
-          class="avatar-uploader"
-          action="https://jsonplaceholder.typicode.com/posts/"
-          :show-file-list="false"
-          :on-success="handleAvatarSuccess"
-          :before-upload="beforeAvatarUpload">
-          <img v-if="imageUrl" :src="imageUrl" class="avatar">
-          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-        </el-upload>
-      </el-col>
+      <el-dropdown @command="handleCommand">
+        <span class="el-dropdown-link">
+          选择设置<i class="el-icon-arrow-down el-icon--right"></i>
+        </span>
+        <el-dropdown-item command="1">设置头像</el-dropdown-item>
+        <el-dropdown-item command="2">设置密码</el-dropdown-item>
+      </el-dropdown>
     </div>
-    <el-row>
-      <el-col>
-        密码设置
-      </el-col>
-      <el-col>
-        <el-input placeholder="请输入新密码" v-model="input1" show-password>
-        </el-input>
-        <el-input placeholder="再次输入新密码" v-model="input2" show-password></el-input>
-      </el-col>
-    </el-row>
-    <el-row>
+    <div v-if="this.set === '1'">
       <div>
-        <el-button type="primary" icon="el-icon-check" @click="checkPassword">
-          确定
-        </el-button>
+        <el-card>
+          头像设置
+        </el-card>
       </div>
-    </el-row>
-  </el-container>
+      <div>
+        <el-container>
+          <el-col :span="12" style="float: left">
+            <el-avatar src="this.$store.state.AvatarUrl" :size="90"></el-avatar>
+          </el-col>
+          <el-col :span="12">
+            <el-upload
+              class="avatar-uploader"
+              action="https://jsonplaceholder.typicode.com/posts/"
+              :show-file-list="false"
+              :on-success="handleAvatarSuccess"
+              :before-upload="beforeAvatarUpload">
+              <img v-if="imageUrl" :src="imageUrl" class="avatar">
+              <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            </el-upload>
+          </el-col>
+        </el-container>
+      </div>
+    </div>
+    <div v-if="this.set === '2'">
+      <el-row>
+        <el-col>
+          密码设置
+        </el-col>
+        <el-col>
+          <el-input placeholder="请输入新密码" v-model="input1" show-password>
+          </el-input>
+          <el-input placeholder="再次输入新密码" v-model="input2" show-password></el-input>
+        </el-col>
+      </el-row>
+      <el-row>
+        <div>
+          <el-button type="primary" icon="el-icon-check" @click="checkPassword">
+            确定
+          </el-button>
+        </div>
+      </el-row>
+    </div>
+  </div>
 </template>
 
 <script>
+    import Nav from "./Nav";
     export default {
+        components: {
+            Nav
+        },
         data() {
             return {
                 imageUrl: '',
                 input1: '',
-                input2: ''
+                input2: '',
+                set: '1'
             };
         },
         methods: {
             handleAvatarSuccess(res, file) {
                 this.imageUrl = URL.createObjectURL(file.raw);
+            },
+            handleCommand(command) {
+                this.set = command
             },
             beforeAvatarUpload(file) {
                 const isJPG = file.type === 'image/jpeg';
@@ -122,4 +148,13 @@
     height: 178px;
     display: block;
   }
+
+  .el-dropdown-link {
+    cursor: pointer;
+    color: #409EFF;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
+
 </style>
