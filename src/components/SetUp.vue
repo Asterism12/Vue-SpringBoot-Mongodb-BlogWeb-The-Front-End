@@ -4,8 +4,7 @@
       <Nav></Nav>
     </div>
     <el-container style="width: 100%">
-      <el-row style="margin-top: 30px;width: 100%">
-        <el-col style="width: 100%">
+      <el-aside style="margin-top: 30px;width: 30%">
             <el-dropdown @command="handleCommand" style="float: left;" >
             <span class="el-dropdown-link">
               选择设置<i class="el-icon-arrow-down el-icon--right"></i>
@@ -13,16 +12,14 @@
               <el-dropdown-item command="1">设置头像</el-dropdown-item>
               <el-dropdown-item command="2">设置个人信息</el-dropdown-item>
             </el-dropdown>
-        </el-col>
-        <el-col style="width: 100%">
+      </el-aside>
+      <el-main style="width: 55%;">
           <div v-if="this.set === '1'" style="width: 100%">
-            <el-row>
-              <div>
-                <el-card style="width: 60%;margin:0 auto;background-color: #F3F3FA">
-                  头像设置
-                </el-card>
-              </div>
-            </el-row>
+            <div style="float: left;width: 100%">
+              <el-card style="width: 60%;background-color: #F3F3FA">
+                头像设置
+              </el-card>
+            </div>
             <div style="width: 100%">
               <el-container style="width: 100%">
                 <el-row style="width: 100%">
@@ -44,25 +41,40 @@
           </div>
           <div v-if="this.set === '2'">
             <el-row>
-              <el-col>
-                <div>
-                  <el-card style="width: 60%;margin:0 auto;">
+                <div style="float: left;width: 100%">
+                  <el-card style="width: 60%;background-color: #F3F3FA">
                     信息设置
                   </el-card>
                 </div>
-              </el-col>
-              <el-col>
-                <div>
-                  <el-radio v-model="sex" label="男" border>男</el-radio>
-                  <el-radio v-model="sex" label="女" border>女</el-radio>
-                </div>
-                <br/>
-                <el-input placeholder="再次输入新密码" v-model="input2" show-password style="width: 40%;margin-top: 20px"></el-input>
-              </el-col>
             </el-row>
+              <el-row>
+                  <div style="width:100%;margin-top: 30px">
+                    <span style="float: left">性别：</span>
+                    <div style="float: left">
+                      <el-radio v-model="sex" label="男" border>男</el-radio>
+                      <el-radio v-model="sex" label="女" border>女</el-radio>
+                    </div>
+                  </div>
+              </el-row>
+              <el-row>
+                  <div style="margin-top: 30px;width: 100%">
+                    <span style="float: left">年龄：</span>
+                    <el-input v-model="age" style="width: 30%;float: left"></el-input>
+                  </div>
+              </el-row>
+              <el-row>
+                <div style="margin-top: 30px;width: 100%">
+                  <el-row>
+                    <span style="float: left">个性签名：</span>
+                  </el-row>
+                  <el-row style="margin-top: 20px">
+                    <el-input v-model="sign" style="width: 60%;height: 150px;float: left"></el-input>
+                  </el-row>
+                </div>
+              </el-row>
             <el-row>
-              <div>
-                <el-button type="primary" icon="el-icon-check" @click="checkPassword" style="margin-top: 30px">
+              <div style="width: 100%;margin-top: 25px">
+                <el-button type="primary" icon="el-icon-check" @click="checkPassword" style="float: left; margin-left: 200px">
                   确定
                 </el-button>
               </div>
@@ -92,8 +104,7 @@
               </div>
             </el-row>
           </div>-->
-        </el-col>
-      </el-row>
+      </el-main>
     </el-container>
   </div>
 </template>
