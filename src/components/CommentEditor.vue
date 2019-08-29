@@ -1,10 +1,16 @@
 <template>
-  <el-input
-    type="textarea"
-    :autosize="{ minRows: 2, maxRows: 4}"
-    placeholder="写下你的评论"
-    v-model="textarea1">
-  </el-input>
+  <el-container>
+    <el-input
+      type="textarea"
+      :autosize="{ minRows: 2, maxRows: 4}"
+      placeholder="写下你的评论"
+      v-model="textarea1">
+    </el-input>
+    <el-button type="primary" ico="-el-icon-s-comment" @click="comment">
+      发表评论
+    </el-button>
+
+  </el-container>
 </template>
 
 <script>
@@ -15,19 +21,21 @@
                 textarea1: ''
             }
         },
-        comment () {
-            this.$axios.get('api/comment', {
-                params: {
-                    username:this.$store.state.UserName,
-                    id: this.$route.params.id,
-                    content:this.textarea1
-                }
-            })
-                .then(response => {
-                    alert("success")
+        methods: {
+            comment () {
+                this.$axios.get('api/comment', {
+                    params: {
+                        username:this.$store.state.UserName,
+                        id: this.$route.params.id,
+                        content:this.textarea1
+                    }
                 })
-                .catch(error => {
-                })
+                    .then(response => {
+                        alert("success")
+                    })
+                    .catch(error => {
+                    })
+            }
         }
     }
 </script>

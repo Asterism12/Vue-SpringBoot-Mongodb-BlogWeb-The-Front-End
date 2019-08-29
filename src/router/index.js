@@ -37,7 +37,7 @@ export default new Router({
     {
       path: '/blog/:id',
       name:'blog',
-      component: Blog
+      component: BlogV2
     },
     {
       path:'/usermain',
@@ -56,10 +56,6 @@ export default new Router({
     {
       path:'/bloglist',
       component:BlogList
-    },
-    {
-      path:'/test',
-      component:BlogV2
     },
     {
       path:'/setup',

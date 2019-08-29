@@ -25,15 +25,20 @@
         </el-card>
       </div>
     </el-row>
+    <el-row>
+      <CommentEditor></CommentEditor>
+    </el-row>
   </div>
 </template>
 
 <script>
+    import CommentEditor from "./CommentEditor";
     export default {
         name: "BlogV2",
+        components: {CommentEditor},
         data () {
             return {
-                blog: {title:'test',content:'==asdfdsfa=='}
+                blog: {title:'',content:'', comments:[]}
             }
     },
         computed: {
