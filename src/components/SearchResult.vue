@@ -17,12 +17,12 @@
       <el-col :span="12">
         <div class="grid-content bg-purple">
           <p>搜索文章</p>
-          <el-card class="box-card" v-for="blogresult in blogresults" :key="blogresult.bid">
+          <el-card class="box-card" v-for="blog in blogresults" :key="blog.bid">
             <div slot="header" class="clearfix">
               <el-link @click="GoToBlog(blog.bid)">{{blog.title}}</el-link>
             </div>
             <div class="text item">
-              {{blogresult.abstract}}
+              {{blog.abstract}}
             </div>
           </el-card>
         </div>
