@@ -4,8 +4,8 @@
     <article>{{blog.content}}</article>
     <el-row>
       <div>
-        <el-card class="box-card" v-for="comment in blog.comments":key="blog.comments.bid">
-          <div slot="header" class="clearfix">
+        <el-card class="box-card" v-for="comment in blog.commentsArrayList":key="blog.comments.bid">
+            <div slot="header" class="clearfix">
             <span>{{comment.username}}</span>
           </div>
           <div  class="text item">
@@ -23,7 +23,8 @@
         data() {
             return {
                 id: this.$route.params.id,
-                blog: {}
+                blog: {},
+                test:[]
             }
         },
         created() {
@@ -34,6 +35,8 @@
             })
                 .then(response => {
                     this.blog = response.data;
+                    //alert(this.blog)
+                    alert(this.blog.commentsArrayList)
                 })
                 .catch(error => {
                 })
