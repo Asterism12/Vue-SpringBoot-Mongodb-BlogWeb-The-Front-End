@@ -28,7 +28,7 @@
         created() {
             this.$axios.get('/lists', {
                 params: {
-                    keyword:'string',
+                    keyword:'',
                     classification:0
                 }
             })

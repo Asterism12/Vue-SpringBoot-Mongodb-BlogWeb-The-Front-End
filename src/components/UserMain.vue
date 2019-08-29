@@ -16,8 +16,21 @@
         <span>性别:{{this.$store.state.Sex}}</span>
       </div>
     </el-card>
-    <div style="margin:0 auto;width: 50%">
-      <listtest></listtest>
+    <div style="width: 490px">
+      <el-card class="box-card" v-for="blog in userinfo.blogs":key="blog.bid">
+        <div slot="header" class="clearfix" >
+          <el-link @click="GoToBlog(blog.bid)">{{blog.title}}</el-link>
+        </div>
+        <div class="body">
+          <el-col :span="2" style="background-color: #42b983">
+          </el-col>
+          <el-col>
+            <div class="text">
+              {{blog.abstract}}
+            </div>
+          </el-col>
+        </div>
+      </el-card>
     </div>
   </div>
 </template>
@@ -28,7 +41,6 @@
         name: "UserMain",
         components: {
             Nav,
-
         },
         data() {
             return {
@@ -37,7 +49,7 @@
             }
         },
         created() {
-            this.$axios.get('api/user', {
+            this.$axios.get('/user', {
                 params: {
                     uid: this.id
                 }
@@ -49,6 +61,11 @@
                 .catch(error => {
                 })
         },
+        methods:{
+            GoToBlog : function(bid){
+                this.$router.push({ name: 'blog', params: { id: bid }})
+            }
+        }
     }
 </script>
 
