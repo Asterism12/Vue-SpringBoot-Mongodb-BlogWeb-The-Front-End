@@ -1,18 +1,36 @@
 <template>
   <div>
-    <el-card style="width: 50%">
-      <h2>{{this.blog.title}}</h2>
+    <div>
+      <Nav></Nav>
+    </div>
+    <el-card>
+      <el-row>
+        <el-col :span="12">
+          <div style="width: 50%;">
+            <h2 style="float: left">{{this.blog.title}}</h2>
+          </div>
+        </el-col>
+        <el-col>
+          <div style="float: bottom">
+            <div style="float: right;font-size: smaller;color: #9D9D9D">{{this.blog.date}}&nbsp;&nbsp;&nbsp;作者:{{this.blog.author}}&nbsp;&nbsp;&nbsp;阅读量:{{this.blog.viewCount}}
+              &nbsp;&nbsp;&nbsp;评论数:{{this.blog.commentCount}}</div>
+          </div>
+        </el-col>
+      </el-row>
+      <hr>
+      <el-row>
+        <mavon-editor
+          class="md"
+          :value="this.blog.content"
+          :subfield="prop.subfield"
+          :defaultOpen="prop.defaultOpen"
+          :toolbarsFlag="prop.toolbarsFlag"
+          :editable="prop.editable"
+          :scrollStyle="prop.scrollStyle"
+          style="margin-top: 20px"
+        ></mavon-editor>
+      </el-row>
     </el-card>
-    <mavon-editor
-      class="md"
-      :value="this.blog.content"
-      :subfield="prop.subfield"
-      :defaultOpen="prop.defaultOpen"
-      :toolbarsFlag="prop.toolbarsFlag"
-      :editable="prop.editable"
-      :scrollStyle="prop.scrollStyle"
-      style="margin-top: 20px"
-    ></mavon-editor>
     <el-row>
       <div>
         <el-card class="box-card" v-for="comment in blog.list" :key="blog.list.bid">
@@ -33,10 +51,10 @@
 
 <script>
     import CommentEditor from "./CommentEditor";
-
+    import Nav from "./Nav";
     export default {
         name: "BlogV2",
-        components: {CommentEditor},
+        components: {CommentEditor,Nav},
         data() {
             return {
                 id: this.$route.params.id,
