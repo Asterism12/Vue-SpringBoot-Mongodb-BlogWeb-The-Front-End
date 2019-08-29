@@ -1,13 +1,11 @@
 <template>
   <el-container style="width: 100%">
-    <el-row style="width: 100%">
-      <el-col :span="24">
-        <el-card>
-          头像设置
-        </el-card>
-      </el-col>
-    </el-row>
-    <el-row>
+    <div>
+      <el-card>
+        头像设置
+      </el-card>
+    </div>
+    <div>
       <el-col :span="12" style="float: left">
         <el-avatar></el-avatar>
       </el-col>
@@ -22,15 +20,23 @@
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
       </el-col>
-    </el-row>
+    </div>
     <el-row>
       <el-col>
         密码设置
       </el-col>
       <el-col>
-        <el-input placeholder="请输入新密码" show-password>
+        <el-input placeholder="请输入新密码" v-model="input1" show-password>
         </el-input>
+        <el-input placeholder="再次输入新密码" v-model="input2" show-password></el-input>
       </el-col>
+    </el-row>
+    <el-row>
+      <div>
+        <el-button type="primary" icon="el-icon-check" @click="checkPassword">
+          确定
+        </el-button>
+      </div>
     </el-row>
   </el-container>
 </template>
@@ -39,7 +45,9 @@
     export default {
         data() {
             return {
-                imageUrl: ''
+                imageUrl: '',
+                input1: '',
+                input2: ''
             };
         },
         methods: {
@@ -57,6 +65,34 @@
                     this.$message.error('上传头像图片大小不能超过 2MB!');
                 }
                 return isJPG && isLt2M;
+            },
+            checkPassword() {
+                if (this.input1 === this.input2) {
+                    this.$axios
+                        .post('/changepwd', {
+                            username: this.$store.state.UserName,
+                            password: this.inpu
+                        })
+                        .then(successResponse => {
+                            if (successResponse.data.code === 200) {
+                                alert("success")
+                                this.$store.state.LoginState=true
+                                this.$store.state.UserName=this.registerForm.username
+                                this.$router.push({path: '/'})
+                            } else {
+                                alert("fail")
+                                this.input1 = ''
+                                this.input2 = ''
+                                this.$router.push({path: 'setup'})
+                            }
+                        })
+                }
+                else{
+                    alert("fail")
+                    this.input1 = ''
+                    this.input2 = ''
+                    this.$router.push({path: 'setup'})
+                }
             }
         }
     }

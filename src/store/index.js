@@ -5,8 +5,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    LoginState: false,
-    UserName:'',
+    LoginState: true,
+    UserName:'nwzhr',
     AvatarUrl:'../assets/logo.png',
     Sex:'男',
     ReadingBlog:0,
