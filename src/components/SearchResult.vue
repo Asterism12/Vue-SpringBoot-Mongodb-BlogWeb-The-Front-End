@@ -17,10 +17,9 @@
       <el-col :span="12">
         <div class="grid-content bg-purple">
           <p>搜索文章</p>
-          <el-card class="box-card" v-for="blogresult in blogresults" :key="bid">
+          <el-card class="box-card" v-for="blogresult in blogresults" :key="blogresult.bid">
             <div slot="header" class="clearfix">
-              <span>{{blogresult.title}}</span>
-              <el-button style="float: right; padding: 3px 0" type="text"></el-button>
+              <el-link @click="GoToBlog(blog.bid)">{{blog.title}}</el-link>
             </div>
             <div class="text item">
               {{blogresult.abstract}}
@@ -31,10 +30,9 @@
       <el-col :span="12">
         <div class="grid-content bg-purple-light">
           <p>搜索用户</p>
-          <el-card class="box-card" v-for="userresult in userresults" :key="uid">
+          <el-card class="box-card" v-for="userresult in userresults" :key="userresult.uid">
             <div slot="header" class="clearfix">
-              <span>{{userresult.username}}</span>
-              <el-button style="float: right; padding: 3px 0" type="text"></el-button>
+              <el-link @click="GoToBlog(userresult.username)">{{userresult.username}}</el-link>
             </div>
             <div class="text item">
               {{userresult.userinfo}}
@@ -52,8 +50,8 @@
         data() {
             return {
                 input: this.$store.state.SearchKeyword,
-                blogresults: [{title: "title", abstract: "abstract", bid: "1"}],
-                userresults: [{username: "Asterism", userinfo: "happy"}]
+                blogresults: [],
+                userresults: []
             }
         },
         mounted() {
@@ -61,9 +59,11 @@
         },
         methods: {
             Search: function () {
+                alert(this.input)
                 this.$axios.get('/lists', {
                     params: {
                         keyword: this.input,
+                        classification:0
                     }
                 })
                     .then(response => {
@@ -81,6 +81,12 @@
                     })
                     .catch(error => {
                     })
+            },
+            GoToBlog : function(bid){
+                this.$router.push({ name: 'blog', params: { id: bid }})
+            },
+            GoToUser : function(username){
+                this.$router.push({ name: 'usermain', params: { username: username }})
             }
         }
     }

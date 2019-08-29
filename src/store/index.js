@@ -11,7 +11,7 @@ const store = new Vuex.Store({
     Sex:'男',
     ReadingBlog:0,
     Classification:'',
-    SearchKeyword:'ddd',}
+    SearchKeyword:'',}
 })
 
 export default store
