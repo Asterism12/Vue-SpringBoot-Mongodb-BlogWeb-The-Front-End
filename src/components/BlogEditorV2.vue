@@ -64,9 +64,10 @@
         },
         methods: {
             submit() {
-                this.$axios.post('/publish', this.model)
+                this.$axios.get('/publish', {params:{username:this.model.username,title:this.model.title,content:this.model.content,
+                                                    classification:this.model.classification,date:this.model.date}})
                     .then(res => {
-                        if(res.data.Code === 200) {
+                        if(res.data.code === 200) {
                             alert("success")
                             //TO DO
                         }
