@@ -43,7 +43,7 @@
         </el-card>
       </div>
     </el-row>
-    <el-row v-if="!UserName === ''">
+    <el-row v-if="this.$store.state.UserName !== ''">
       <CommentEditor></CommentEditor>
     </el-row>
   </div>
