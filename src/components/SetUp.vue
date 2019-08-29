@@ -11,7 +11,7 @@
               选择设置<i class="el-icon-arrow-down el-icon--right"></i>
             </span>
               <el-dropdown-item command="1">设置头像</el-dropdown-item>
-              <el-dropdown-item command="2">设置密码</el-dropdown-item>
+              <el-dropdown-item command="2">设置个人信息</el-dropdown-item>
             </el-dropdown>
         </el-col>
         <el-col style="width: 100%">
@@ -47,6 +47,32 @@
               <el-col>
                 <div>
                   <el-card style="width: 60%;margin:0 auto;">
+                    信息设置
+                  </el-card>
+                </div>
+              </el-col>
+              <el-col>
+                <div>
+                  <el-radio v-model="sex" label="男" border>男</el-radio>
+                  <el-radio v-model="sex" label="女" border>女</el-radio>
+                </div>
+                <br/>
+                <el-input placeholder="再次输入新密码" v-model="input2" show-password style="width: 40%;margin-top: 20px"></el-input>
+              </el-col>
+            </el-row>
+            <el-row>
+              <div>
+                <el-button type="primary" icon="el-icon-check" @click="checkPassword" style="margin-top: 30px">
+                  确定
+                </el-button>
+              </div>
+            </el-row>
+          </div>
+          <!--<div v-if="this.set === '2'">
+            <el-row>
+              <el-col>
+                <div>
+                  <el-card style="width: 60%;margin:0 auto;">
                     密码设置
                   </el-card>
                 </div>
@@ -65,7 +91,7 @@
                 </el-button>
               </div>
             </el-row>
-          </div>
+          </div>-->
         </el-col>
       </el-row>
     </el-container>
@@ -83,8 +109,23 @@
                 imageUrl: '',
                 input1: '',
                 input2: '',
-                set: '1'
+                set: '1',
+                sex: '',
+                age: 0,
+                sign: ''
             };
+        },
+        created() {
+            this.$axios
+                .post('/user', {
+                    username: this.$store.state.UserName,
+                })
+                .then(successResponse => {
+                        this.sex=successResponse.data.ret.sex
+                        this.age=successResponse.data.ret.age
+                })
+                .catch(failResponse => {
+                })
         },
         methods: {
             handleAvatarSuccess(res, file) {
