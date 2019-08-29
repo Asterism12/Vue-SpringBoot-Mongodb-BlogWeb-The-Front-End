@@ -1,25 +1,28 @@
 <template>
   <div>
-    <el-row>
+    <el-row style="z-index: 2">
+      <Nav></Nav>
+    </el-row>
+    <el-row style="margin-top: 35px;z-index: 1">
       <el-form>
-        <el-form-item label="文章标题">
+        <el-form-item label="文章标题" style="width: 80%;margin: 0 auto">
           <el-col :span="6">
             <el-input v-model="model.title"></el-input>
           </el-col>
         </el-form-item>
-        <el-card>
+        <el-card style="width: 80%;margin:0 auto;margin-top: 20px">
           <div>
             {{this.model.date}}
           </div>
         </el-card>
         <el-form-item>
           <el-col>
-            <mavon-editor v-model="model.content"></mavon-editor>
+            <mavon-editor v-model="model.content" style="width: 80%;margin:0 auto"></mavon-editor>
           </el-col>
         </el-form-item>
 
         <el-form-item>
-          <el-row>
+          <el-row style="width: 80%;margin: 0 auto">
             <el-col :span="4">
               <el-dropdown @command="handleCommand" trigger="click" style="float: left;height: 100%">
             <span class="el-dropdown-link">
@@ -48,8 +51,10 @@
 </template>
 
 <script>
+    import Nav from "./Nav";
     export default {
         name: "BlogEditorV2",
+        components: {Nav},
         data() {
             return {
                 model: {
