@@ -3,10 +3,9 @@
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>今日推荐</span>
-        <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
       </div>
       <div v-for="blog in blogs" :key="bid" class="text item">
-        {{blog.title.lenth<15?blog.title:blog.title.slice(0,15)+"..."}}
+        <el-link @click="GoToBlog(blog.bid)">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}</el-link>
       </div>
     </el-card>
   </div>
@@ -21,16 +20,23 @@
             }
         },
         created() {
-            this.$axios.get('/blogs', {
+            this.$axios.get('/lists', {
                 params: {
-                    bid: this.id
+                    keyword:'',
+                    classification:0
                 }
             })
                 .then(response => {
-                    this.blog = response.data;
+                    this.blogs = response.data;
                 })
                 .catch(error => {
                 })
+        },
+        methods:{
+            GoToBlog : function(bid){
+                alert(bid)
+                this.$router.push({ name: 'blog', params: { id: bid }})
+            }
         }
     }
 </script>

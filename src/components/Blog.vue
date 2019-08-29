@@ -1,7 +1,7 @@
 <template>
   <div class="Blog">
     <h1>{{blog.title}}</h1>
-    <article>{{blog.article}}</article>
+    <article>{{blog.content}}</article>
     <el-row>
       <div>
         <el-card class="box-card" v-for="comment in blog.comments":key="blog.comments.bid">

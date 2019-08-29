@@ -2,7 +2,7 @@
   <div style="width: 490px">
     <el-card class="box-card" v-for="blog in blogs":key="blog.Id">
       <div slot="header" class="clearfix" >
-        <el-link @click="GoToBlog(blog.Id)">{{blog.title}}</el-link>
+        <el-link @click="GoToBlog(blog.bid)">{{blog.title}}</el-link>
       </div>
       <div class="body">
         <el-col :span="2" style="background-color: #42b983">
@@ -34,14 +34,14 @@
             })
                 .then(response => {
                     this.blogs = response.data
-                    alert(this.blogs[0].id)
+                    alert(this.blogs[0].bid)
                 })
                 .catch(error => {
                 })
         },
         methods:{
             GoToBlog : function(bid){
-                alert(bid)
+                //alert(bid)
                 this.$router.push({ name: 'blog', params: { id: bid }})
             }
         }
