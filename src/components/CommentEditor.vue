@@ -31,7 +31,7 @@
                     }
                 })
                     .then(response => {
-                        alert("success")
+                        alert(response.message)
                     })
                     .catch(error => {
                     })
