@@ -26,7 +26,7 @@
                 this.$axios.get('/comment', {
                     params: {
                         username:this.$store.state.UserName,
-                        id: this.$route.params.id,
+                        bid: this.$route.params.id,
                         content:this.textarea1
                     }
                 })
