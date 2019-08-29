@@ -31,7 +31,8 @@
                     }
                 })
                     .then(response => {
-                        alert(response.message)
+                        alert(response.data.message)
+                        this.$router.push({ name: 'blog', params: { id: this.$route.params.id, }})
                     })
                     .catch(error => {
                     })
