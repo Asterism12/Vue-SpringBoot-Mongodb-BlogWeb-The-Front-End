@@ -69,7 +69,7 @@
                     .then(res => {
                         if(res.data.code === 200) {
                             alert("success")
-                            //TO DO
+                            this.$router.push({path:'/'})
                         }
                     })
             },

@@ -3,59 +3,70 @@
     <div>
       <Nav></Nav>
     </div>
-    <div>
-      <el-dropdown @command="handleCommand">
-        <span class="el-dropdown-link">
-          选择设置<i class="el-icon-arrow-down el-icon--right"></i>
-        </span>
-        <el-dropdown-item command="1">设置头像</el-dropdown-item>
-        <el-dropdown-item command="2">设置密码</el-dropdown-item>
-      </el-dropdown>
-    </div>
-    <div v-if="this.set === '1'">
-      <div>
-        <el-card>
-          头像设置
-        </el-card>
-      </div>
-      <div>
-        <el-container>
-          <el-col :span="12" style="float: left">
-            <el-avatar src="this.$store.state.AvatarUrl" :size="90"></el-avatar>
-          </el-col>
-          <el-col :span="12">
-            <el-upload
-              class="avatar-uploader"
-              action="https://jsonplaceholder.typicode.com/posts/"
-              :show-file-list="false"
-              :on-success="handleAvatarSuccess"
-              :before-upload="beforeAvatarUpload">
-              <img v-if="imageUrl" :src="imageUrl" class="avatar">
-              <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-            </el-upload>
-          </el-col>
-        </el-container>
-      </div>
-    </div>
-    <div v-if="this.set === '2'">
-      <el-row>
-        <el-col>
-          密码设置
+    <el-container style="width: 100%">
+      <el-row style="margin-top: 30px;width: 100%">
+        <el-col style="width: 100%">
+            <el-dropdown @command="handleCommand" style="float: left;" >
+            <span class="el-dropdown-link">
+              选择设置<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+              <el-dropdown-item command="1">设置头像</el-dropdown-item>
+              <el-dropdown-item command="2">设置密码</el-dropdown-item>
+            </el-dropdown>
         </el-col>
-        <el-col>
-          <el-input placeholder="请输入新密码" v-model="input1" show-password>
-          </el-input>
-          <el-input placeholder="再次输入新密码" v-model="input2" show-password></el-input>
+        <el-col style="width: 100%">
+          <div v-if="this.set === '1'" style="width: 100%">
+            <div>
+              <el-card style="width: 60%;margin:0 auto;background-color: #409EFF">
+                头像设置
+              </el-card>
+            </div>
+            <div style="width: 100%">
+              <el-container style="width: 100%">
+                <el-col>
+                  <el-avatar src="this.$store.state.AvatarUrl" :size="90"></el-avatar>
+                </el-col>
+                <el-col>
+                  <el-upload
+                    class="avatar-uploader"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :show-file-list="false"
+                    :on-success="handleAvatarSuccess"
+                    :before-upload="beforeAvatarUpload">
+                    <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                  </el-upload>
+                </el-col>
+              </el-container>
+            </div>
+          </div>
+          <div v-if="this.set === '2'">
+            <el-row>
+              <el-col>
+                <div>
+                  <el-card style="width: 60%;margin:0 auto;">
+                    密码设置
+                  </el-card>
+                </div>
+              </el-col>
+              <el-col>
+                <el-input placeholder="请输入新密码" v-model="input1" show-password style="width: 40%;margin-top: 40px">
+                </el-input>
+                <br/>
+                <el-input placeholder="再次输入新密码" v-model="input2" show-password style="width: 40%;margin-top: 20px"></el-input>
+              </el-col>
+            </el-row>
+            <el-row>
+              <div>
+                <el-button type="primary" icon="el-icon-check" @click="checkPassword" style="margin-top: 30px">
+                  确定
+                </el-button>
+              </div>
+            </el-row>
+          </div>
         </el-col>
       </el-row>
-      <el-row>
-        <div>
-          <el-button type="primary" icon="el-icon-check" @click="checkPassword">
-            确定
-          </el-button>
-        </div>
-      </el-row>
-    </div>
+    </el-container>
   </div>
 </template>
 
