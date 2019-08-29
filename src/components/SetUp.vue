@@ -110,8 +110,22 @@
                 input1: '',
                 input2: '',
                 set: '1',
-                sex: ''
+                sex: '',
+                age: 0,
+                sign: ''
             };
+        },
+        created() {
+            this.$axios
+                .post('/user', {
+                    username: this.$store.state.UserName,
+                })
+                .then(successResponse => {
+                        this.sex=successResponse.data.ret.sex
+                        this.age=successResponse.data.ret.age
+                })
+                .catch(failResponse => {
+                })
         },
         methods: {
             handleAvatarSuccess(res, file) {
