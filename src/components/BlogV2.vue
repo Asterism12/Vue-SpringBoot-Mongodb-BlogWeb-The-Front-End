@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div style="z-index: 1">
       <Nav></Nav>
     </div>
     <el-card>
@@ -18,7 +18,7 @@
         </el-col>
       </el-row>
       <hr>
-      <el-row>
+      <el-row style="z-index: 0">
         <mavon-editor
           class="md"
           :value="this.blog.content"
@@ -43,7 +43,7 @@
         </el-card>
       </div>
     </el-row>
-    <el-row>
+    <el-row v-if="!UserName === ''">
       <CommentEditor></CommentEditor>
     </el-row>
   </div>
