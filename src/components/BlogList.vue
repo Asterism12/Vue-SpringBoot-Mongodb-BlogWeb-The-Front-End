@@ -33,15 +33,15 @@
                 }
             })
                 .then(response => {
-                    alert("success")
                     this.blogs = response.data
+                    alert(this.blogs[0].id)
                 })
                 .catch(error => {
                 })
         },
         methods:{
             GoToBlog : function(bid){
-                alert("ahah")
+                alert(bid)
                 this.$router.push({ name: 'blog', params: { id: bid }})
             }
         }
