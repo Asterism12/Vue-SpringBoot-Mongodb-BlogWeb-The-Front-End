@@ -23,7 +23,7 @@
         },
         methods: {
             comment () {
-                this.$axios.get('api/comment', {
+                this.$axios.get('/comment', {
                     params: {
                         username:this.$store.state.UserName,
                         id: this.$route.params.id,
