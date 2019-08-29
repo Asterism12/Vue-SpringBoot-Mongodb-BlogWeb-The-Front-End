@@ -1,6 +1,6 @@
 <template>
   <div style="width: 490px">
-    <el-card class="box-card" v-for="blog in blogs":key="blog.Id">
+    <el-card class="box-card" v-for="blog in blogs":key="blog.bid">
       <div slot="header" class="clearfix" >
         <el-link @click="GoToBlog(blog.bid)">{{blog.title}}</el-link>
       </div>

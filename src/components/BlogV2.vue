@@ -39,7 +39,8 @@
         components: {CommentEditor},
         data() {
             return {
-                blog: {title: '', content: '', comments: []}
+                id: this.$route.params.id,
+                blog: {}
             }
         },
         computed: {
@@ -54,6 +55,20 @@
                 return data
             }
         },
+        created() {
+            this.$axios.get('/blogs', {
+                params: {
+                    bid: this.id
+                }
+            })
+                .then(response => {
+                    this.blog = response.data;
+                    alert(response.data)
+                    alert(this.blog.commentsArrayList)
+                })
+                .catch(error => {
+                })
+        }
     }
 </script>
 
