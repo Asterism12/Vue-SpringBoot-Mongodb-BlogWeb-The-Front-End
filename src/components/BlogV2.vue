@@ -15,7 +15,7 @@
     ></mavon-editor>
     <el-row>
       <div>
-        <el-card class="box-card" v-for="comment in blog.comments" :key="blog.comments.bid">
+        <el-card class="box-card" v-for="comment in blog.list" :key="blog.list.bid">
           <div slot="header" class="clearfix">
             <span>{{comment.username}}</span>
           </div>
@@ -63,8 +63,6 @@
             })
                 .then(response => {
                     this.blog = response.data;
-                    alert(response.data)
-                    alert(this.blog.commentsArrayList)
                 })
                 .catch(error => {
                 })
