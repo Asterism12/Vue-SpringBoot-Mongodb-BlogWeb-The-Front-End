@@ -51,8 +51,7 @@
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
                             alert(successResponse.data.message)
-                            this.$store.state.LoginState=true
-                            this.$store.state.UserName=this.loginForm.username
+                            this.loadUserInfo()
                             this.$router.push({path: '/'})
                         } else {
                             alert(successResponse.data.message)
@@ -64,6 +63,18 @@
             },
             handleSelect(key, keyPath) {
                 console.log(key.keyPath);
+            },
+            loadUserInfo(){
+                this.$axios
+                    .post('/user', {
+                        username: this.$store.state.UserName,
+                    })
+                    .then(successResponse => {
+                        this.$store.state.UserInfo=successResponse.data.ret
+
+                    })
+                    .catch(failResponse => {
+                    })
             }
         }
     }

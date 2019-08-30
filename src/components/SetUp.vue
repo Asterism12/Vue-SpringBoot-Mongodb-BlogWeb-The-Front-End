@@ -111,32 +111,24 @@
 
 <script>
     import Nav from "./Nav";
+    import store from "../store";
     export default {
         components: {
             Nav
         },
         data() {
             return {
-                imageUrl: '',
+                imageUrl: store.state.UserInfo.Avatar,
                 input1: '',
                 input2: '',
                 set: '1',
-                sex: '',
-                age: 0,
-                sign: ''
+                sex: store.state.UserInfo.Sex,
+                age: store.state.UserInfo.Age,
+                sign: store.state.UserInfo.Sign
             };
         },
         created() {
-            this.$axios
-                .post('/user', {
-                    username: this.$store.state.UserName,
-                })
-                .then(successResponse => {
-                        this.sex=successResponse.data.ret.sex
-                        this.age=successResponse.data.ret.age
-                })
-                .catch(failResponse => {
-                })
+
         },
         methods: {
             handleAvatarSuccess(res, file) {
