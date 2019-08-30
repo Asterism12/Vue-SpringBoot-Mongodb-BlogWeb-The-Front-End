@@ -15,17 +15,18 @@
       </el-aside>
       <el-main style="width: 55%;">
           <div v-if="this.set === '1'" style="width: 100%">
-            <div style="float: left;width: 100%">
-              <el-card style="width: 60%;background-color: #F3F3FA">
-                头像设置
-              </el-card>
-            </div>
+            <el-row>
+              <div style="float: left;width: 100%">
+                <el-card style="width: 60%;background-color: #F3F3FA">
+                  头像设置
+                </el-card>
+              </div>
+            </el-row>
             <div style="width: 100%">
-              <el-container style="width: 100%">
-                <el-row style="width: 100%">
+                <el-row style="width: 60%;margin-top: 20px">
                   <el-avatar :src="this.$store.state.UserInfo.Avatar" :size="90"></el-avatar>
                 </el-row>
-                <el-row style="width: 100%">
+                <el-row style="width: 60%;margin-top: 20px">
                   <el-upload
                     class="avatar-uploader"
                     action="doUpload"
@@ -37,8 +38,9 @@
                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                   </el-upload>
                 </el-row>
-              </el-container>
-              <el-button type="primary" @click="modifyavatar">上传</el-button>
+                <el-row style="width: 60%;margin-top: 20px">
+                  <el-button type="primary" @click="modifyavatar">上传</el-button>
+                </el-row>
             </div>
           </div>
           <div v-if="this.set === '2'">
@@ -70,12 +72,12 @@
                     <span style="float: left">个性签名：</span>
                   </el-row>
                   <el-row style="margin-top: 20px">
-                    <el-input v-model="sign" style="width: 60%;height: 150px;float: left"></el-input>
+                    <el-input v-model="sign" style="width: 60%;float: left"></el-input>
                   </el-row>
                 </div>
               </el-row>
             <el-row>
-              <el-button type="primary" icon="el-icon-check" @click="modifyinfo" style="float: left; margin-left: 200px">
+              <el-button type="primary" icon="el-icon-check" @click="modifyinfo" style="float: left;margin-top: 20px; margin-left: 200px">
                 确定
               </el-button>>
               <div style="width: 100%;margin-top: 25px">
@@ -184,6 +186,8 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    width: 50%;
+    margin-left: 24%;
   }
   .avatar-uploader :hover {
     border-color: #409EFF;
