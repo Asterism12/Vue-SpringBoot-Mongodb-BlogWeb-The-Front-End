@@ -13,7 +13,7 @@
             <i class="el-icon-edit"></i>
             <span>编辑博文</span>
           </el-menu-item>
-          <el-col v-if="this.$store.state.LoginState" style="width: 400px;margin-left: 170px">
+          <el-col v-if="this.$store.state.LoginState" style="width: 400px;height: 100%;margin-left: 170px;margin-top: 0">
             <Search></Search>
           </el-col>
           <el-submenu v-if="this.$store.state.LoginState" style="float: right">
@@ -74,8 +74,5 @@
 
 
   }
-
-
-
 
 </style>
