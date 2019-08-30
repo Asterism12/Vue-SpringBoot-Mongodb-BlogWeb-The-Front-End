@@ -20,10 +20,9 @@
             }
         },
         created() {
-            this.$axios.get('/lists', {
+            this.$axios.post('/recommend', {
                 params: {
-                    keyword:'',
-                    classification:0
+                    username:store.state.UserInfo.UserName
                 }
             })
                 .then(response => {
