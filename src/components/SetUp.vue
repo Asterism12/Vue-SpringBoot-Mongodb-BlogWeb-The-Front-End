@@ -23,7 +23,7 @@
             <div style="width: 100%">
               <el-container style="width: 100%">
                 <el-row style="width: 100%">
-                  <el-avatar src="this.$store.state.AvatarUrl" :size="90"></el-avatar>
+                  <el-avatar :src="store.state.UserInfo.Avatar" :size="90"></el-avatar>
                 </el-row>
                 <el-row style="width: 100%">
                   <el-upload
