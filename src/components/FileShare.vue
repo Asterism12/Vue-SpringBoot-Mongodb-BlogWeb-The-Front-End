@@ -51,6 +51,8 @@
 </template>
 
 <script>
+    import store from "../store";
+
     export default {
         name: "FileShare",
         data(){
@@ -71,24 +73,33 @@
                 this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
             },
             handleUpload(file) {
-                const formFile = new FormData();
-                formFile.append("file", file);
-                this.$axios
-                    .post('/upload', {
-                        file:formFile
-                    })
-                    .then(successResponse => {
-                        alert(successResponse.data.message)
-                        this.reload()
-                    })
-                    .catch(failResponse => {
-                    })
+                this.$axios({
+                    method: 'post',
+                    url: '/upload',
+                    data: {
+                        file:file,
+                        username:store.state.UserInfo.UserName
+                    },
+                    transformRequest: [
+                        function (data) {
+                            let ret = ''
+                            for (let it in data) {
+                                ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+                            }
+                            ret = ret.substring(0, ret.lastIndexOf('&'));
+                            return ret
+                        }
+                    ],
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                })
             },
             reload(){
                 this.$axios
                     .post('/filelist')
                     .then(successResponse => {
-                        this.fileList=successResponse.data
+                        this.tableData=successResponse.data
                     })
                     .catch(failResponse => {
                     })
