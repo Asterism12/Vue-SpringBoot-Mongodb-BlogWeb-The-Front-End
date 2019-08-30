@@ -51,6 +51,7 @@
 </template>
 
 <script>
+    import store from "../store";
     import Nav from "./Nav";
     export default {
         name: "BlogEditorV2",
