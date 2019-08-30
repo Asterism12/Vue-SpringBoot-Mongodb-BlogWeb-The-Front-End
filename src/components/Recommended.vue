@@ -42,6 +42,6 @@
 
 <style scoped>
   .box-card {
-    width: 350px;
+    width: 300px;
   }
 </style>

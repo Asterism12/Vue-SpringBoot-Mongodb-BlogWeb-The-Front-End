@@ -7,7 +7,7 @@
                @select="handleSelect"
                @open="handleOpen"
                @close="handleClose"
-                background-color="#f6f6f6"
+                background-color="#ffffff"
                 text-color="#555"
       active-text-color="#ffd04b">
         <template>

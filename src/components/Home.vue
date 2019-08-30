@@ -1,6 +1,6 @@
-<template class="home">
-  <div class="back" >
-    <Background style="z-index: 0;margin: 0 auto"></Background>
+<template>
+  <div class="home">
+    <!--<Background style="z-index: 0;margin: 0 auto"></Background>-->
     <el-container style="z-index: 1;width: 100%">
       <el-row>
         <div>
@@ -8,17 +8,17 @@
         </div>
       </el-row>
       <el-row style="width: 100%" :gutter="10">
-        <el-col :span="4" style="position: fixed">
+        <el-col :span="4" style="position: fixed;margin-top: 20px">
           <div>
             <SideNav></SideNav>
           </div>
         </el-col>
-        <el-col :span="10" offset="13">
-          <div>
+        <el-col :span="16" offset="4">
+          <div style="margin-left: 5px">
             <BlogList></BlogList>
           </div>
         </el-col>
-        <el-col offset="16" style="position: fixed">
+        <el-col style="position: fixed;margin-left: 915px">
           <div>
             <Recommended></Recommended>
           </div>
@@ -85,8 +85,12 @@
 </script>
 
 <style scoped>
-  .back{
+
+  .home{
+    background-color: #f6f6f6;
+    width: 100%;
     position: absolute;
+    margin: 0 auto;
   }
   .fore{
     background: rgba(0,0,0,0);
