@@ -4,10 +4,10 @@
       <Nav></Nav>
     </div>
     <div>
-      <el-avatar :src="this.$store.state.UserInfo.Avatar" :size="90"></el-avatar>
+      <el-avatar style="margin-top: 20px" :src="this.$store.state.UserInfo.Avatar" :size="90"></el-avatar>
     </div>
     <p></p>
-    <el-card style="width: 25%;margin:0 auto">
+    <el-card style="width: 30%;margin:0 auto">
       <el-row>
         <span style="float: left;color: #000000">用 户 名:{{this.$store.state.UserInfo.UserName}}</span>
       </el-row>
@@ -19,14 +19,14 @@
         <span style="float: left;color: #000000">年 龄:{{this.$store.state.UserInfo.Age}}</span>
       </el-row>
       <el-row style="margin-top: 15px">
-        <span style="float: left;color: #000000">注 册 时 间:{{this.$store.state.UserInfo.RegisterDate.toLocaleString()}}</span>
+        <span style="float: left;color: #000000">注 册 时 间:{{this.$store.state.UserInfo.RegisterDate}}</span>
       </el-row>
       <hr color="#f6f6f6"/>
       <el-row style="margin-top: 15px">
         <span style="float: left;color: #000000">签 名:{{this.$store.state.UserInfo.Sign}}</span>
       </el-row>
     </el-card>
-    <div style="width: 490px">
+    <div style="width: 80%;margin: 0 auto">
       <el-card class="box-card" v-for="blog in this.$store.state.UserInfo.Blogs":key="blog.bid">
         <div slot="header" class="clearfix" >
           <el-link @click="GoToBlog(blog.bid)">{{blog.title}}</el-link>
@@ -64,5 +64,8 @@
 </script>
 
 <style scoped>
-
+    .box-card{
+      margin: 0 auto;
+      margin-top: 25px;
+    }
 </style>

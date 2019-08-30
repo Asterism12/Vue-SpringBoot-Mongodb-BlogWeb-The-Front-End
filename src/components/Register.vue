@@ -4,7 +4,7 @@
     <body id="poster">
     <el-form class="login-container" label-position="left"
              label-width="0px">
-      <h3 class="login_title">注册</h3>
+      <h3 class="login_title">注 册</h3>
       <el-form-item>
         <el-input type="text" v-model="registerForm.username"
                   auto-complete="off" placeholder="账号"></el-input>
