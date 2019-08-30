@@ -59,7 +59,7 @@
               <el-row>
                   <div style="margin-top: 30px;width: 100%">
                     <span style="float: left">年龄：</span>
-                    <el-input v-model="age" style="width: 30%;float: left"></el-input>
+                    <el-input v-model.number="age" type='number' style="width: 30%;float: left"></el-input>
                   </div>
               </el-row>
               <el-row>
@@ -121,7 +121,52 @@
                 return isJPG && isLt2M;
             },
             modifyinfo(){
-
+                this.$axios
+                    .post('/modifyinfo', {
+                        username: store.state.UserInfo.UserName,
+                        sex:this.sex,
+                        age:this.age,
+                        sign:this.sign
+                    })
+                    .then(successResponse => {
+                        alert(successResponse.data.message)
+                        this.loadUserInfo()
+                    })
+                    .catch(failResponse => {
+                    })
+            },
+            modifyavatar(){
+                this.$axios
+                    .post('/modifyavatar', {
+                        username: store.state.UserInfo.UserName,
+                        sex:this.sex,
+                        age:this.age,
+                        sign:this.sign
+                    })
+                    .then(successResponse => {
+                        alert(successResponse.data.message)
+                        this.loadUserInfo()
+                    })
+                    .catch(failResponse => {
+                    })
+            },
+            loadUserInfo(){
+                this.$axios
+                    .get('/user', {
+                        params:{username: store.state.UserInfo.UserName}})
+                    .then(successResponse => {
+                        alert("success")
+                        store.state.LoginState=true
+                        store.state.UserInfo.UserName=successResponse.data.username
+                        store.state.UserInfo.RegisterDate=successResponse.data.registertime
+                        store.state.UserInfo.Blogs=successResponse.data.blogs
+                        store.state.UserInfo.Avatar=successResponse.data.avatar
+                        store.state.UserInfo.Age=successResponse.data.age
+                        store.state.UserInfo.Sex=successResponse.data.sex
+                        store.state.UserInfo.Sign=successResponse.data.sign
+                    })
+                    .catch(failResponse => {
+                    })
             }
         }
     }

@@ -9,15 +9,15 @@
     <p></p>
     <el-card style="width: 25%;margin:0 auto">
       <div>
-        <span>用户名:{{userinfo.username}}</span>
+        <span>用户名:{{store.state.UserInfo.UserName}}</span>
         <hr/>
       </div>
       <div>
-        <span>性别:{{userinfo.Sex}}</span>
+        <span>性别:{{store.state.UserInfo.Sex}}</span>
       </div>
     </el-card>
     <div style="width: 490px">
-      <el-card class="box-card" v-for="blog in userinfo.blogs":key="blog.bid">
+      <el-card class="box-card" v-for="blog in store.state.UserInfo.Blogs":key="blog.bid">
         <div slot="header" class="clearfix" >
           <el-link @click="GoToBlog(blog.bid)">{{blog.title}}</el-link>
         </div>
@@ -43,23 +43,7 @@
             Nav,
         },
         data() {
-            return {
-                msg: "This is the homepage of the User",
-                userinfo: {}
-            }
-        },
-        created() {
-            this.$axios.get('/user', {
-                params: {
-                    username:this.$route.params.username,
-                }
-            })
-                .then(response => {
-                    console.log(response);
-                    this.userinfo = response.data;
-                })
-                .catch(error => {
-                })
+            return {}
         },
         methods:{
             GoToBlog : function(bid){
