@@ -14,6 +14,7 @@
         </el-col>
       </div>
     </el-card>
+    <br/>
   </div>
 </template>
 
@@ -65,6 +66,7 @@
   }
 
   .box-card {
-    width: 480px;
+    width: 690px;
+    margin-top: 20px;
   }
 </style>
