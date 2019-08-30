@@ -143,11 +143,24 @@
             modifyavatar(){
                 const formFile = new FormData();
                 formFile.append("file", this.file);
-                this.$axios
-                    .post('/modifyavatar', {
-                            username:store.state.UserInfo.UserName,
-                            file:formFile,
-                        })
+                this.$axios({
+                    method: 'post',
+                    url: '/modifyavatar',
+                    data: formFile,
+                    transformRequest: [
+                        function (data) {
+                            let ret = ''
+                            for (let it in data) {
+                                ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+                            }
+                            ret = ret.substring(0, ret.lastIndexOf('&'));
+                            return ret
+                        }
+                    ],
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                })
                     .then(successResponse => {
                         alert(successResponse.data.message)
                         this.loadUserInfo()

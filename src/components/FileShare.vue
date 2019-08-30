@@ -3,16 +3,16 @@
     <el-table
       :data="tableData"
       style="width: 100%">
-        <el-table-column
-          label="名称"
-          width="180">
-          <template slot-scope="scope">
-            <el-link
-              href="http://114.115.170.8:8666/download?:file='scope.row.name'" target="_blank">
-              {{ scope.row.name }}
-            </el-link>
-          </template>
-        </el-table-column>
+      <el-table-column
+        label="名称"
+        width="180">
+        <template slot-scope="scope">
+          <el-link
+            href="http://114.115.170.8:8666/download?:file='scope.row.name'" target="_blank">
+            {{ scope.row.name }}
+          </el-link>
+        </template>
+      </el-table-column>
       <el-table-column
         label="大小"
         width="180">
@@ -55,13 +55,13 @@
 
     export default {
         name: "FileShare",
-        data(){
-            return{
-                tableData:[{
-                    name:'name',
-                    size:1024,
-                    data:new Date().toLocaleString(),
-                    author:'wang'
+        data() {
+            return {
+                tableData: [{
+                    name: 'name',
+                    size: 1024,
+                    data: new Date().toLocaleString(),
+                    author: 'wang'
                 }]
             }
         },
@@ -73,12 +73,13 @@
                 this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
             },
             handleUpload(file) {
+                console.log(file)
                 this.$axios({
                     method: 'post',
                     url: '/upload',
                     data: {
-                        file:file,
-                        username:store.state.UserInfo.UserName
+                        file: file,
+                        username: store.state.UserInfo.UserName
                     },
                     transformRequest: [
                         function (data) {
@@ -94,12 +95,17 @@
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 })
+                    .then(successResponse => {
+                        alert(successResponse.data.message)
+                    })
+                    .catch(failResponse => {
+                    })
             },
-            reload(){
+            reload() {
                 this.$axios
                     .post('/filelist')
                     .then(successResponse => {
-                        this.tableData=successResponse.data
+                        this.tableData = successResponse.data
                     })
                     .catch(failResponse => {
                     })
