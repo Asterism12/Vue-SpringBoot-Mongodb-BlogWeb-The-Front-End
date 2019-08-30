@@ -151,7 +151,7 @@
                     this.$axios
                         .post('/changepwd', {
                             username: this.$store.state.UserName,
-                            password: this.inpu
+                            password: this.input
                         })
                         .then(successResponse => {
                             if (successResponse.data.code === 200) {
