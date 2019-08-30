@@ -4,7 +4,7 @@
       <div slot="header" class="clearfix">
         <span>今日推荐</span>
       </div>
-      <div v-for="blog in blogs" :key="bid" class="text item">
+      <div v-for="blog in blogs" :key="blog.bid" class="text item">
         <el-link @click="GoToBlog(blog.bid)">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}</el-link>
       </div>
     </el-card>
