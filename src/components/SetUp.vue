@@ -32,8 +32,7 @@
                     action="doUpload"
                     :show-file-list="false"
                     :on-success="handleAvatarSuccess"
-                    :before-upload="beforeAvatarUpload"
-                    :http-request="changefile">
+                    :before-upload="beforeAvatarUpload">
                     <img v-if="imageUrl" :src="imageUrl" class="avatar">
                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                   </el-upload>
@@ -123,6 +122,7 @@
                 if (!isLt2M) {
                     this.$message.error('上传头像图片大小不能超过 2MB!');
                 }
+                this.changefile(file)
                 return isJPG && isLt2M;
             },
             modifyinfo(){
@@ -141,12 +141,14 @@
                     })
             },
             modifyavatar(){
-                const formFile = new FormData();
-                formFile.append("file", this.file);
+                console.log(this.file)
                 this.$axios({
                     method: 'post',
                     url: '/modifyavatar',
-                    data: formFile,
+                    data: {
+                        file:this.file,
+                        username:store.state.UserInfo.UserName
+                    },
                     transformRequest: [
                         function (data) {
                             let ret = ''
