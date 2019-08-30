@@ -31,12 +31,14 @@
                     action="https://jsonplaceholder.typicode.com/posts/"
                     :show-file-list="false"
                     :on-success="handleAvatarSuccess"
-                    :before-upload="beforeAvatarUpload">
+                    :before-upload="beforeAvatarUpload"
+                    :http-request="changefile">
                     <img v-if="imageUrl" :src="imageUrl" class="avatar">
                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                   </el-upload>
                 </el-row>
               </el-container>
+              <el-button type="primary" @click="modifyavatar">上传</el-button>
             </div>
           </div>
           <div v-if="this.set === '2'">
@@ -73,10 +75,10 @@
                 </div>
               </el-row>
             <el-row>
+              <el-button type="primary" icon="el-icon-check" @click="modifyinfo" style="float: left; margin-left: 200px">
+                确定
+              </el-button>>
               <div style="width: 100%;margin-top: 25px">
-                <el-button type="primary" icon="el-icon-check" @click="modifyinfo" style="float: left; margin-left: 200px">
-                  确定
-                </el-button>
               </div>
             </el-row>
           </div>
@@ -94,7 +96,8 @@
         },
         data() {
             return {
-                imageUrl: store.state.UserInfo.Avatar,
+                imageUrl:'',
+                file:'',
                 set: '1',
                 sex: store.state.UserInfo.Sex,
                 age: store.state.UserInfo.Age,
@@ -136,12 +139,12 @@
                     })
             },
             modifyavatar(){
+                const formFile = new FormData();
+                formFile.append("file", this.file);
                 this.$axios
                     .post('/modifyavatar', {
-                        username: store.state.UserInfo.UserName,
-                        sex:this.sex,
-                        age:this.age,
-                        sign:this.sign
+                        username:store.state.UserInfo.UserName,
+                        avatar:formFile
                     })
                     .then(successResponse => {
                         alert(successResponse.data.message)
@@ -149,6 +152,9 @@
                     })
                     .catch(failResponse => {
                     })
+            },
+            changefile(file){
+                this.file=file
             },
             loadUserInfo(){
                 this.$axios
