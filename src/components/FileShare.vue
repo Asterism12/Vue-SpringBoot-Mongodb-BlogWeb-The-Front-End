@@ -1,41 +1,46 @@
 <template>
-  <div>
-    <el-table
-      :data="tableData"
-      style="width: 100%">
-      <el-table-column
-        label="名称"
-        width="180">
-        <template slot-scope="scope">
-          <el-link
-            href="http://114.115.170.8:8666/download?:file='scope.row.name'" target="_blank">
-            {{ scope.row.name }}
-          </el-link>
-        </template>
-      </el-table-column>
-      <el-table-column
-        label="大小"
-        width="180">
-        <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.size }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column
-        label="上传时间"
-        width="180">
-        <template slot-scope="scope">
-          <i class="el-icon-time"></i>
-          <span style="margin-left: 10px">{{ scope.row.date }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column
-        label="上传者"
-        width="180">
-        <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.author }}</span>
-        </template>
-      </el-table-column>
-    </el-table>
+  <div style="width: 100%">
+    <div style="width: 100%">
+      <Nav></Nav>
+    </div>
+    <div style="margin-top: 180px">
+      <el-table
+        :data="tableData"
+        style="width: 60%;margin-left: 20%;">
+        <el-table-column
+          label="名称"
+          width="180">
+          <template slot-scope="scope">
+            <el-link
+              href="http://114.115.170.8:8666/download?:file='scope.row.name'" target="_blank">
+              {{ scope.row.name }}
+            </el-link>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="大小"
+          width="180">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.size }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="上传时间"
+          width="180">
+          <template slot-scope="scope">
+            <i class="el-icon-time"></i>
+            <span style="margin-left: 10px">{{ scope.row.date }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="上传者"
+          width="180">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.author }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
     <el-upload
       class="upload-demo"
       action="123"
@@ -44,7 +49,7 @@
       :on-exceed="handleExceed"
       :file-list="fileList"
       :before-upload="handleUpload">
-      <el-button size="small" type="primary">点击上传</el-button>
+      <el-button size="small" type="primary" style="margin-top: 30px">点击上传</el-button>
       <div slot="tip" class="el-upload__tip">文件不超过500kb</div>
     </el-upload>
   </div>
@@ -52,9 +57,13 @@
 
 <script>
     import store from "../store";
+    import Nav from "./Nav";
 
     export default {
         name: "FileShare",
+        components: {
+          Nav
+        },
         data() {
             return {
                 tableData: [{

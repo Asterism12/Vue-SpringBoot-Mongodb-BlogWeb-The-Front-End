@@ -13,7 +13,11 @@
             <i class="el-icon-edit"></i>
             <span>编辑博文</span>
           </el-menu-item>
-          <el-col v-if="this.$store.state.LoginState" style="width: 400px;height: 100%;margin-left: 170px;margin-top: 0">
+          <el-menu-item index="/share" v-if="this.$store.state.LoginState">
+            <i class="el-icon-folder-opened"></i>
+            <span>资源分享</span>
+          </el-menu-item>
+          <el-col v-if="this.$store.state.LoginState" style="width: 400px;height: 100%;margin-left: 60px;margin-top: 0">
             <Search></Search>
           </el-col>
           <el-submenu v-if="this.$store.state.LoginState" style="float: right">
