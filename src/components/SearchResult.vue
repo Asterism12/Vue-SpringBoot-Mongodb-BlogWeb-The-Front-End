@@ -63,7 +63,7 @@
             Search: function () {
                 this.$axios.get('/lists', {
                     params: {
-                        username:store.state.UserInfo.UserName
+                        username:store.state.UserInfo.UserName,
                         keyword: this.input,
                         classification:0
                     }

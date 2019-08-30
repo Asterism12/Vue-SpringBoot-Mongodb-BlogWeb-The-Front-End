@@ -29,6 +29,7 @@
         created() {
             this.$axios.get('/lists', {
                 params: {
+                    username:store.state.UserInfo.UserName,
                     keyword:'',
                     classification:0
                 }
