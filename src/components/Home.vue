@@ -1,6 +1,6 @@
 <template class="home">
   <div class="back" >
-    <Background style="z-index: 0;"></Background>
+    <Background style="z-index: 0;margin: 0 auto"></Background>
     <el-container style="z-index: 1;width: 100%">
       <el-row>
         <div>

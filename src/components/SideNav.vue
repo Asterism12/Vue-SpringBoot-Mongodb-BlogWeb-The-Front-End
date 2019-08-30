@@ -1,13 +1,14 @@
 <template>
   <el-row class="tac">
     <el-col :span="12">
-      <el-menu default-active="2"
+      <el-menu mode="vertical"
+              default-active="2"
                class="el-menu-vertical"
                @select="handleSelect"
                @open="handleOpen"
                @close="handleClose"
-                background-color="#545c64"
-                text-color="#fff"
+                background-color="#f6f6f6"
+                text-color="#555"
       active-text-color="#ffd04b">
         <template>
           <h5 class="aside-title">博客分类</h5>

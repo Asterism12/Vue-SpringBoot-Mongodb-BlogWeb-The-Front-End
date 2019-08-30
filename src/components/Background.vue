@@ -1,11 +1,9 @@
 <template>
     <div class="homepage-hero-module" style="width: 100%">
-      <div class="video-container"style="width: 100%">
-        <div style="width:100%;position: fixed;margin-top: 20px;background-color: #000000;z-index: 0"></div>
+      <div class="video-container"style="width: 100%;margin-top: -10px">
+        <div style="width:100%;position: fixed;background-color: #000000;z-index: 0"></div>
         <div :style="fixStyle" style="width:100%;height:100%;position: fixed;margin-top: 20px" class="filter"></div>
-        <video style="height:100%;position: fixed;margin-top: 20px;margin-left: -200px" autoplay loop class="fillWidth" v-on:canplay="canplay">
-          <source src="../assets/Fire/Slow-Fire.x264.aac.mp4" type="video/mp4"/>
-        </video>
+        <img style="height:70%;position: fixed;margin-top: 50px;margin-left: -50px" src="../assets/Fire/Slow-Fire.jpg"/>
       </div>
     </div>
 </template>
