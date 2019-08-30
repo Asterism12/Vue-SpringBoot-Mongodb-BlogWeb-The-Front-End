@@ -7,7 +7,10 @@
           label="名称"
           width="180">
           <template slot-scope="scope">
-            <el-link href="114.115.170.8:8666/download?:file='scope.row.name'" target="_blank">{{ scope.row.name }}</el-link>
+            <el-link
+              href="http://114.115.170.8:8666/download?:file='scope.row.name'" target="_blank">
+              {{ scope.row.name }}
+            </el-link>
           </template>
         </el-table-column>
       <el-table-column
