@@ -14,6 +14,19 @@
       </div>
       <div>
         <span>性别:{{this.$store.state.UserInfo.Sex}}</span>
+        <hr/>
+      </div>
+      <div>
+        <span>年龄:{{this.$store.state.UserInfo.Age}}</span>
+        <hr/>
+      </div>
+      <div>
+        <span>注册时间:{{this.$store.state.UserInfo.RegisterDate}}</span>
+        <hr/>
+      </div>
+      <div>
+        <span>签名:{{this.$store.state.UserInfo.Sign}}</span>
+        <hr/>
       </div>
     </el-card>
     <div style="width: 490px">
