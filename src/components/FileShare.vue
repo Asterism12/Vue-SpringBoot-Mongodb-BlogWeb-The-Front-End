@@ -1,21 +1,22 @@
 <template>
   <div>
     <el-table
-      :data="fileList"
+      :data="tableData"
       style="width: 100%">
-      <el-table-column
-        label="名称"
-        width="180">
-        <template slot-scope="scope">
-          <i class="el-icon-time"></i>
-          <span style="margin-left: 10px">{{ scope.row.name }}</span>
-        </template>
-      </el-table-column>
+        <el-table-column
+          label="名称"
+          width="180">
+          <template slot-scope="scope">
+            <el-link
+              href="http://114.115.170.8:8666/download?:file='scope.row.name'" target="_blank">
+              {{ scope.row.name }}
+            </el-link>
+          </template>
+        </el-table-column>
       <el-table-column
         label="大小"
         width="180">
         <template slot-scope="scope">
-          <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.size }}</span>
         </template>
       </el-table-column>
@@ -31,16 +32,7 @@
         label="上传者"
         width="180">
         <template slot-scope="scope">
-          <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.author }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="操作">
-        <template slot-scope="scope">
-          <el-button
-            size="mini"
-            @click="handleEdit(scope.$index, scope.row)">下载
-          </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -61,16 +53,20 @@
 <script>
     export default {
         name: "FileShare",
-        data:{
-            fileList:[]
+        data(){
+            return{
+                tableData:[{
+                    name:'name',
+                    size:1024,
+                    data:new Date().toLocaleString(),
+                    author:'wang'
+                }]
+            }
         },
         created() {
             this.reload()
         },
         methods: {
-            handleEdit(index, row) {
-                //To-DO download
-            },
             handleExceed(files, fileList) {
                 this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
             },
