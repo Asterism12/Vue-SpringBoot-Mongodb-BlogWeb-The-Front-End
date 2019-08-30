@@ -155,7 +155,6 @@
                     .get('/user', {
                         params:{username: store.state.UserInfo.UserName}})
                     .then(successResponse => {
-                        alert("success")
                         store.state.LoginState=true
                         store.state.UserInfo.UserName=successResponse.data.username
                         store.state.UserInfo.RegisterDate=successResponse.data.registertime
