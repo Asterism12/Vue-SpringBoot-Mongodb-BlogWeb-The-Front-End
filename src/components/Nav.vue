@@ -19,7 +19,7 @@
           <el-submenu v-if="this.$store.state.LoginState" style="float: right">
             <template slot="title">
               <i class="el-icon-star-on>"></i>
-              {{this.$store.state.UserName}}
+              {{this.$store.state.UserInfo.UserName}}
             </template>
             <el-menu-item index="/setup">
               个人设置

@@ -5,10 +5,19 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    LoginState: true,
-    UserName:'nwzhr',
+    LoginState: false,
     Classification:'',
-    SearchKeyword:'',}
+    SearchKeyword:'',
+    UserInfo:{
+      UserName:'UserName',
+      RegisterDate:new Date().toLocaleString(),
+      Blogs:[],
+      Avatar:{},
+      Age:233,
+      Sex:'男',
+      Sign:'Sign'
+    }
+  }
 })
 
 export default store

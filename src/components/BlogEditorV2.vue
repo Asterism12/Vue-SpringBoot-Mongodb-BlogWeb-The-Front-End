@@ -58,7 +58,7 @@
         data() {
             return {
                 model: {
-                    username: this.$store.state.UserName,
+                    username: store.state.UserInfo.UserName,
                     title: '',
                     content: '',
                     classification:0,

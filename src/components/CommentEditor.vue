@@ -22,17 +22,17 @@
             }
         },
         methods: {
-            comment () {
+            comment() {
                 this.$axios.get('/comment', {
                     params: {
-                        username:this.$store.state.UserName,
+                        username: store.state.UserInfo.UserName,
                         bid: this.$route.params.id,
-                        content:this.textarea1
+                        content: this.textarea1
                     }
                 })
                     .then(response => {
                         alert(response.data.message)
-                        this.$router.push({ name: 'blog', params: { id: this.$route.params.id, }})
+                        this.$router.push({name: 'blog', params: {id: this.$route.params.id,}})
                     })
                     .catch(error => {
                     })

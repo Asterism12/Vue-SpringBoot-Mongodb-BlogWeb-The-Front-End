@@ -59,7 +59,7 @@
               <el-row>
                   <div style="margin-top: 30px;width: 100%">
                     <span style="float: left">年龄：</span>
-                    <el-input v-model="age" style="width: 30%;float: left"></el-input>
+                    <el-input v-model.number="age" type='number' style="width: 30%;float: left"></el-input>
                   </div>
               </el-row>
               <el-row>
@@ -74,36 +74,12 @@
               </el-row>
             <el-row>
               <div style="width: 100%;margin-top: 25px">
-                <el-button type="primary" icon="el-icon-check" @click="checkPassword" style="float: left; margin-left: 200px">
+                <el-button type="primary" icon="el-icon-check" @click="modifyinfo" style="float: left; margin-left: 200px">
                   确定
                 </el-button>
               </div>
             </el-row>
           </div>
-          <!--<div v-if="this.set === '2'">
-            <el-row>
-              <el-col>
-                <div>
-                  <el-card style="width: 60%;margin:0 auto;">
-                    密码设置
-                  </el-card>
-                </div>
-              </el-col>
-              <el-col>
-                <el-input placeholder="请输入新密码" v-model="input1" show-password style="width: 40%;margin-top: 40px">
-                </el-input>
-                <br/>
-                <el-input placeholder="再次输入新密码" v-model="input2" show-password style="width: 40%;margin-top: 20px"></el-input>
-              </el-col>
-            </el-row>
-            <el-row>
-              <div>
-                <el-button type="primary" icon="el-icon-check" @click="checkPassword" style="margin-top: 30px">
-                  确定
-                </el-button>
-              </div>
-            </el-row>
-          </div>-->
       </el-main>
     </el-container>
   </div>
@@ -111,32 +87,19 @@
 
 <script>
     import Nav from "./Nav";
+    import store from "../store";
     export default {
         components: {
             Nav
         },
         data() {
             return {
-                imageUrl: '',
-                input1: '',
-                input2: '',
+                imageUrl: store.state.UserInfo.Avatar,
                 set: '1',
-                sex: '',
-                age: 0,
-                sign: ''
+                sex: store.state.UserInfo.Sex,
+                age: store.state.UserInfo.Age,
+                sign: store.state.UserInfo.Sign
             };
-        },
-        created() {
-            this.$axios
-                .post('/user', {
-                    username: this.$store.state.UserName,
-                })
-                .then(successResponse => {
-                        this.sex=successResponse.data.ret.sex
-                        this.age=successResponse.data.ret.age
-                })
-                .catch(failResponse => {
-                })
         },
         methods: {
             handleAvatarSuccess(res, file) {
@@ -157,33 +120,52 @@
                 }
                 return isJPG && isLt2M;
             },
-            checkPassword() {
-                if (this.input1 === this.input2) {
-                    this.$axios
-                        .post('/changepwd', {
-                            username: this.$store.state.UserName,
-                            password: this.inpu
-                        })
-                        .then(successResponse => {
-                            if (successResponse.data.code === 200) {
-                                alert("success")
-                                this.$store.state.LoginState=true
-                                this.$store.state.UserName=this.registerForm.username
-                                this.$router.push({path: '/'})
-                            } else {
-                                alert("fail")
-                                this.input1 = ''
-                                this.input2 = ''
-                                this.$router.push({path: 'setup'})
-                            }
-                        })
-                }
-                else{
-                    alert("fail")
-                    this.input1 = ''
-                    this.input2 = ''
-                    this.$router.push({path: 'setup'})
-                }
+            modifyinfo(){
+                this.$axios
+                    .post('/modifyinfo', {
+                        username: store.state.UserInfo.UserName,
+                        sex:this.sex,
+                        age:this.age,
+                        sign:this.sign
+                    })
+                    .then(successResponse => {
+                        alert(successResponse.data.message)
+                        this.loadUserInfo()
+                    })
+                    .catch(failResponse => {
+                    })
+            },
+            modifyavatar(){
+                this.$axios
+                    .post('/modifyavatar', {
+                        username: store.state.UserInfo.UserName,
+                        sex:this.sex,
+                        age:this.age,
+                        sign:this.sign
+                    })
+                    .then(successResponse => {
+                        alert(successResponse.data.message)
+                        this.loadUserInfo()
+                    })
+                    .catch(failResponse => {
+                    })
+            },
+            loadUserInfo(){
+                this.$axios
+                    .get('/user', {
+                        params:{username: store.state.UserInfo.UserName}})
+                    .then(successResponse => {
+                        store.state.LoginState=true
+                        store.state.UserInfo.UserName=successResponse.data.username
+                        store.state.UserInfo.RegisterDate=successResponse.data.registertime
+                        store.state.UserInfo.Blogs=successResponse.data.blogs
+                        store.state.UserInfo.Avatar=successResponse.data.avatar
+                        store.state.UserInfo.Age=successResponse.data.age
+                        store.state.UserInfo.Sex=successResponse.data.sex
+                        store.state.UserInfo.Sign=successResponse.data.sign
+                    })
+                    .catch(failResponse => {
+                    })
             }
         }
     }

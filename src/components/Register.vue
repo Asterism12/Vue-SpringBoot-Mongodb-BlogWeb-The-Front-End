@@ -38,7 +38,6 @@
         },
         methods: {
             register() {
-                //alert(this.registerForm.username+" "+this.registerForm.password)
                 this.$axios
                     .post('/register', {
                         username: this.registerForm.username,
@@ -47,8 +46,8 @@
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
                             alert(successResponse.data.message)
-                            this.$store.state.LoginState=true
-                            this.$store.state.UserName=this.registerForm.username
+                            store.state.LoginState=true
+                            store.state.UserInfo.UserName=successResponse.username
                             this.$router.push({path: '/'})
                         } else {
                             alert(successResponse.data.message)

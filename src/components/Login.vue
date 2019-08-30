@@ -27,6 +27,7 @@
 <script>
 
     import Nav from "./Nav";
+    import store from "../store";
 
     export default {
         name: 'Login',
@@ -51,8 +52,8 @@
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
                             alert(successResponse.data.message)
-                            this.$store.state.LoginState=true
-                            this.$store.state.UserName=this.loginForm.username
+                            store.state.UserInfo.UserName=this.loginForm.username
+                            this.loadUserInfo()
                             this.$router.push({path: '/'})
                         } else {
                             alert(successResponse.data.message)
@@ -64,6 +65,23 @@
             },
             handleSelect(key, keyPath) {
                 console.log(key.keyPath);
+            },
+            loadUserInfo(){
+                this.$axios
+                    .get('/user', {
+                        params:{username: store.state.UserInfo.UserName}})
+                    .then(successResponse => {
+                        store.state.LoginState=true
+                        store.state.UserInfo.UserName=successResponse.data.username
+                        store.state.UserInfo.RegisterDate=successResponse.data.registertime
+                        store.state.UserInfo.Blogs=successResponse.data.blogs
+                        store.state.UserInfo.Avatar=successResponse.data.avatar
+                        store.state.UserInfo.Age=successResponse.data.age
+                        store.state.UserInfo.Sex=successResponse.data.sex
+                        store.state.UserInfo.Sign=successResponse.data.sign
+                    })
+                    .catch(failResponse => {
+                    })
             }
         }
     }
