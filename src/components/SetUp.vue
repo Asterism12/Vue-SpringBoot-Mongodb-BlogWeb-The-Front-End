@@ -143,9 +143,9 @@
                 formFile.append("file", this.file);
                 this.$axios
                     .post('/modifyavatar', {
-                        username:store.state.UserInfo.UserName,
-                        file:formFile,
-                    })
+                            username:store.state.UserInfo.UserName,
+                            file:formFile,
+                        })
                     .then(successResponse => {
                         alert(successResponse.data.message)
                         this.loadUserInfo()
