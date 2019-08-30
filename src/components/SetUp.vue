@@ -53,7 +53,7 @@
             </el-row>
               <el-row>
                   <div style="width:100%;margin-top: 30px">
-                    <span style="float: left">性别：</span>
+                    <span style="float: left">性 别：</span>
                     <div style="float: left">
                       <el-radio v-model="sex" label="男" border>男</el-radio>
                       <el-radio v-model="sex" label="女" border>女</el-radio>
@@ -62,14 +62,14 @@
               </el-row>
               <el-row>
                   <div style="margin-top: 30px;width: 100%">
-                    <span style="float: left">年龄：</span>
+                    <span style="float: left">年 龄：</span>
                     <el-input v-model.number="age" type='number' style="width: 30%;float: left"></el-input>
                   </div>
               </el-row>
               <el-row>
                 <div style="margin-top: 30px;width: 100%">
                   <el-row>
-                    <span style="float: left">个性签名：</span>
+                    <span style="float: left">个 性 签 名：</span>
                   </el-row>
                   <el-row style="margin-top: 20px">
                     <el-input v-model="sign" style="width: 60%;float: left"></el-input>
@@ -78,8 +78,8 @@
               </el-row>
             <el-row>
               <el-button type="primary" icon="el-icon-check" @click="modifyinfo" style="float: left;margin-top: 20px; margin-left: 200px">
-                确定
-              </el-button>>
+                确 定
+              </el-button>
               <div style="width: 100%;margin-top: 25px">
               </div>
             </el-row>
