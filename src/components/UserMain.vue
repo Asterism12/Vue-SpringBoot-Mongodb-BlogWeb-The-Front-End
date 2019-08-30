@@ -8,26 +8,23 @@
     </div>
     <p></p>
     <el-card style="width: 25%;margin:0 auto">
-      <div>
-        <span>用户名:{{this.$store.state.UserInfo.UserName}}</span>
-        <hr/>
-      </div>
-      <div>
-        <span>性别:{{this.$store.state.UserInfo.Sex}}</span>
-        <hr/>
-      </div>
-      <div>
-        <span>年龄:{{this.$store.state.UserInfo.Age}}</span>
-        <hr/>
-      </div>
-      <div>
-        <span>注册时间:{{this.$store.state.UserInfo.RegisterDate.toLocaleString()}}</span>
-        <hr/>
-      </div>
-      <div>
-        <span>签名:{{this.$store.state.UserInfo.Sign}}</span>
-        <hr/>
-      </div>
+      <el-row>
+        <span style="float: left;color: #000000">用 户 名:{{this.$store.state.UserInfo.UserName}}</span>
+      </el-row>
+      <hr color="#f6f6f6"/>
+      <el-row style="margin-top: 15px">
+        <span style="float: left;color: #000000">性 别:{{this.$store.state.UserInfo.Sex}}</span>
+      </el-row>
+      <el-row style="margin-top: 15px">
+        <span style="float: left;color: #000000">年 龄:{{this.$store.state.UserInfo.Age}}</span>
+      </el-row>
+      <el-row style="margin-top: 15px">
+        <span style="float: left;color: #000000">注 册 时 间:{{this.$store.state.UserInfo.RegisterDate.toLocaleString()}}</span>
+      </el-row>
+      <hr color="#f6f6f6"/>
+      <el-row style="margin-top: 15px">
+        <span style="float: left;color: #000000">签 名:{{this.$store.state.UserInfo.Sign}}</span>
+      </el-row>
     </el-card>
     <div style="width: 490px">
       <el-card class="box-card" v-for="blog in this.$store.state.UserInfo.Blogs":key="blog.bid">

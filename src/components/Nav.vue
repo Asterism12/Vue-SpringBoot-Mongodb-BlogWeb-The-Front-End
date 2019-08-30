@@ -1,10 +1,10 @@
 <template>
   <el-container id="header">
-    <el-row style="width: 100%">
+    <el-row style="width: 100%;height: 10px">
       <el-col>
         <el-menu mode="horizontal" class="el-menu" router :default-active="$route.path"
                  @select="handleSelect" @open="handleOpen"
-                 @close="handleClose" background-color="#000000" active-text-color="#ffffff">
+                 @close="handleClose" background-color="#505458" active-text-color="#ffffff">
           <el-menu-item index="/">
             <i class="el-icon-s-home"></i>
             <span>Home</span>
@@ -74,6 +74,8 @@
 
 
   }
+
+
 
 
 </style>
