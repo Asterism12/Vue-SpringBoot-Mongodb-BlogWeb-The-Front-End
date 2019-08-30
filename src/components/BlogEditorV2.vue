@@ -17,7 +17,7 @@
         </el-card>
         <el-form-item>
           <el-col>
-            <mavon-editor v-model="model.content" style="width: 80%;margin:0 auto" @imgAdd="imgAdd" @imgDel="imgDel" ref="md"></mavon-editor>
+            <mavon-editor v-model="model.content" style="width: 80%;margin:0 auto" @imgAdd="imgAdd" @imgDel="imgDel" ref="md" :toolbars="toolbars"></mavon-editor>
           </el-col>
         </el-form-item>
 
@@ -104,7 +104,7 @@
                 }
             },
             imgAdd(pos, $file) {
-              var formData = new FormData();
+              let formData = new FormData();
               formData.append('image',$file);
               this.img_file[pos] =$file;
               this.$axios.post('/uploadimg', formData).then(res => {
