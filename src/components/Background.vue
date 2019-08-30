@@ -3,8 +3,8 @@
       <div class="video-container"style="width: 100%">
         <div style="width:100%;position: fixed;margin-top: 20px;background-color: #000000;z-index: 0"></div>
         <div :style="fixStyle" style="width:100%;height:100%;position: fixed;margin-top: 20px" class="filter"></div>
-        <video style="width:100%;position: fixed;margin-top: 20px;margin-left: -55px" autoplay loop class="fillWidth" v-on:canplay="canplay">
-          <source src="../assets/Fire/Slow-Fire.mp4" type="video/mp4"/>
+        <video style="height:100%;position: fixed;margin-top: 20px;margin-left: -200px" autoplay loop class="fillWidth" v-on:canplay="canplay">
+          <source src="../assets/Fire/Slow-Fire.x264.aac.mp4" type="video/mp4"/>
         </video>
       </div>
     </div>
