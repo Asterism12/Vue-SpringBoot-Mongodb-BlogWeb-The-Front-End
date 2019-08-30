@@ -32,7 +32,7 @@
           <p>搜索用户</p>
           <el-card class="box-card" v-for="userresult in userresults" :key="userresult.uid">
             <div slot="header" class="clearfix">
-              <el-link @click="GoToBlog(userresult.username)">{{userresult.username}}</el-link>
+              <el-link @click="GoToUser(userresult.username)">{{userresult.username}}</el-link>
             </div>
             <div class="text item">
               {{userresult.userinfo}}

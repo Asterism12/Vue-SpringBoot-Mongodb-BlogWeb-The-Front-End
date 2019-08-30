@@ -4,20 +4,20 @@
       <Nav></Nav>
     </div>
     <div>
-      <el-avatar src="this.$store.state.AvatarUrl" :size="90"></el-avatar>
+      <el-avatar :src="this.$store.state.UserInfo.Avatar" :size="90"></el-avatar>
     </div>
     <p></p>
     <el-card style="width: 25%;margin:0 auto">
       <div>
-        <span>用户名:{{store.state.UserInfo.UserName}}</span>
+        <span>用户名:{{this.$store.state.UserInfo.UserName}}</span>
         <hr/>
       </div>
       <div>
-        <span>性别:{{store.state.UserInfo.Sex}}</span>
+        <span>性别:{{this.$store.state.UserInfo.Sex}}</span>
       </div>
     </el-card>
     <div style="width: 490px">
-      <el-card class="box-card" v-for="blog in store.state.UserInfo.Blogs":key="blog.bid">
+      <el-card class="box-card" v-for="blog in this.$store.state.UserInfo.Blogs":key="blog.bid">
         <div slot="header" class="clearfix" >
           <el-link @click="GoToBlog(blog.bid)">{{blog.title}}</el-link>
         </div>

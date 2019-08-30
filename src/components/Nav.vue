@@ -24,7 +24,7 @@
             <el-menu-item index="/setup">
               个人设置
             </el-menu-item>
-            <el-menu-item index="/usermain">
+            <el-menu-item @click="GoToUserMain">
               个人主页
             </el-menu-item>
           </el-submenu>
@@ -39,20 +39,24 @@
         </el-menu>
        </el-col>
     </el-row>
-
-
   </el-container>
 </template>
 
 
 <script>
     import Search from "./Search";
+    import store from "../store";
     export default {
         name: 'Nav',
         components: {Search},
         data: function () {
             return {
                 query: '',
+            }
+        },
+        methods:{
+            GoToUserMain(){
+                this.$router.push({ name: 'usermain', params: { username: store.state.UserInfo.UserName }})
             }
         }
     };
