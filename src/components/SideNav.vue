@@ -46,6 +46,7 @@
 <script>
     export default {
         name: "SideNav",
+        inject: ["reload"],
         methods: {
             handleOpen(key, keyPath) {
                 console.log(key, keyPath);
@@ -55,6 +56,7 @@
             },
             handleSelect(key) {
                 this.$store.state.classification = key
+                this.reload()
             }
         }
     }

@@ -32,7 +32,7 @@
                 params: {
                     username:store.state.UserInfo.UserName,
                     keyword:'',
-                    classification:0
+                    classification:this.$store.state.Classification
                 }
             })
                 .then(response => {

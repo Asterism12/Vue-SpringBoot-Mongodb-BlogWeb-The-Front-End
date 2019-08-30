@@ -1,11 +1,7 @@
 <template>
   <div id="app">
-    <router-view></router-view>
-    <div>
-      <div class="main">
-      </div>
-    </div>
-    <br><br><br>
+    <router-view v-if="isRouterAlive"></router-view>
+
   </div>
 </template>
 
@@ -15,6 +11,11 @@
 
 export default {
   name: 'App',
+  provide(){
+    return {
+        reload: this.reload
+    }
+  },
     components: {
       "Nav": Nav,
         "Home":Home
@@ -22,6 +23,7 @@ export default {
     data () {
       return {
           showHomePage: 0,
+          isRouterAlive: true
       }
     },
     methods:{
@@ -30,7 +32,13 @@ export default {
         if(name === "Home"){
             this.showHomePage = 1;
         }
-      }
+      },
+        reload () {
+          this.isRouterAlive = false
+            this.$nextTick(function(){
+              this.isRouterAlive = true
+            })
+        }
     },
     mounted() {
       this.show(this.$route.name)
