@@ -45,6 +45,8 @@
 </template>
 
 <script>
+    import store from "../store";
+
     export default {
         name: "SearchResult",
         data() {
@@ -59,9 +61,9 @@
         },
         methods: {
             Search: function () {
-                alert(this.input)
                 this.$axios.get('/lists', {
                     params: {
+                        username:store.state.UserInfo.UserName
                         keyword: this.input,
                         classification:0
                     }

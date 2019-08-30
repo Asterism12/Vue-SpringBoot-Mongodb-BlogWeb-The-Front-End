@@ -12,6 +12,7 @@ import BlogEditorV2 from "../components/BlogEditorV2";
 import BlogList from "../components/BlogList";
 import BlogV2 from "../components/BlogV2";
 import SetUp from "../components/SetUp";
+import FileShare from "../components/FileShare";
 
 Vue.use(Router)
 
@@ -61,6 +62,10 @@ export default new Router({
     {
       path:'/setup',
       component:SetUp
+    },
+    {
+      path:'/share',
+      component:FileShare
     }
   ]
 })
