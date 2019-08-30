@@ -127,9 +127,6 @@
                 sign: store.state.UserInfo.Sign
             };
         },
-        created() {
-
-        },
         methods: {
             handleAvatarSuccess(res, file) {
                 this.imageUrl = URL.createObjectURL(file.raw);
