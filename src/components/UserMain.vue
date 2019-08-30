@@ -21,7 +21,7 @@
         <hr/>
       </div>
       <div>
-        <span>注册时间:{{this.$store.state.UserInfo.RegisterDate}}</span>
+        <span>注册时间:{{this.$store.state.UserInfo.RegisterDate.toLocaleString()}}</span>
         <hr/>
       </div>
       <div>

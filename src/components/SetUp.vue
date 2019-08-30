@@ -28,7 +28,7 @@
                 <el-row style="width: 100%">
                   <el-upload
                     class="avatar-uploader"
-                    action="https://jsonplaceholder.typicode.com/posts/"
+                    action="doUpload"
                     :show-file-list="false"
                     :on-success="handleAvatarSuccess"
                     :before-upload="beforeAvatarUpload"
@@ -144,7 +144,7 @@
                 this.$axios
                     .post('/modifyavatar', {
                         username:store.state.UserInfo.UserName,
-                        avatar:formFile
+                        file:formFile,
                     })
                     .then(successResponse => {
                         alert(successResponse.data.message)
