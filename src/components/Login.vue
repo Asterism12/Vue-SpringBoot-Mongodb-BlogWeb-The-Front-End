@@ -27,6 +27,7 @@
 <script>
 
     import Nav from "./Nav";
+    import store from "../store";
 
     export default {
         name: 'Login',
@@ -51,6 +52,7 @@
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
                             alert(successResponse.data.message)
+                            store.state.UserInfo.UserName=this.loginForm.username
                             this.loadUserInfo()
                             this.$router.push({path: '/'})
                         } else {
@@ -66,12 +68,17 @@
             },
             loadUserInfo(){
                 this.$axios
-                    .post('/user', {
-                        username: this.$store.state.UserName,
-                    })
+                    .get('/user', {
+                        params:{username: store.state.UserInfo.UserName}})
                     .then(successResponse => {
-                        this.$store.state.UserInfo=successResponse.data.ret
-
+                        store.state.LoginState=true
+                        store.state.UserInfo.UserName=successResponse.data.username
+                        store.state.UserInfo.RegisterDate=successResponse.data.registertime
+                        store.state.UserInfo.Blogs=successResponse.data.blogs
+                        store.state.UserInfo.Avatar=successResponse.data.avatar
+                        store.state.UserInfo.Age=successResponse.data.age
+                        store.state.UserInfo.Sex=successResponse.data.sex
+                        store.state.UserInfo.Sign=successResponse.data.sign
                     })
                     .catch(failResponse => {
                     })

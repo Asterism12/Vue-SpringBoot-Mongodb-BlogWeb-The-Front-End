@@ -74,36 +74,12 @@
               </el-row>
             <el-row>
               <div style="width: 100%;margin-top: 25px">
-                <el-button type="primary" icon="el-icon-check" @click="checkPassword" style="float: left; margin-left: 200px">
+                <el-button type="primary" icon="el-icon-check" @click="modifyinfo" style="float: left; margin-left: 200px">
                   确定
                 </el-button>
               </div>
             </el-row>
           </div>
-          <!--<div v-if="this.set === '2'">
-            <el-row>
-              <el-col>
-                <div>
-                  <el-card style="width: 60%;margin:0 auto;">
-                    密码设置
-                  </el-card>
-                </div>
-              </el-col>
-              <el-col>
-                <el-input placeholder="请输入新密码" v-model="input1" show-password style="width: 40%;margin-top: 40px">
-                </el-input>
-                <br/>
-                <el-input placeholder="再次输入新密码" v-model="input2" show-password style="width: 40%;margin-top: 20px"></el-input>
-              </el-col>
-            </el-row>
-            <el-row>
-              <div>
-                <el-button type="primary" icon="el-icon-check" @click="checkPassword" style="margin-top: 30px">
-                  确定
-                </el-button>
-              </div>
-            </el-row>
-          </div>-->
       </el-main>
     </el-container>
   </div>
@@ -119,8 +95,6 @@
         data() {
             return {
                 imageUrl: store.state.UserInfo.Avatar,
-                input1: '',
-                input2: '',
                 set: '1',
                 sex: store.state.UserInfo.Sex,
                 age: store.state.UserInfo.Age,
@@ -146,33 +120,8 @@
                 }
                 return isJPG && isLt2M;
             },
-            checkPassword() {
-                if (this.input1 === this.input2) {
-                    this.$axios
-                        .post('/changepwd', {
-                            username: this.$store.state.UserName,
-                            password: this.input
-                        })
-                        .then(successResponse => {
-                            if (successResponse.data.code === 200) {
-                                alert("success")
-                                this.$store.state.LoginState=true
-                                this.$store.state.UserName=this.registerForm.username
-                                this.$router.push({path: '/'})
-                            } else {
-                                alert("fail")
-                                this.input1 = ''
-                                this.input2 = ''
-                                this.$router.push({path: 'setup'})
-                            }
-                        })
-                }
-                else{
-                    alert("fail")
-                    this.input1 = ''
-                    this.input2 = ''
-                    this.$router.push({path: 'setup'})
-                }
+            modifyinfo(){
+
             }
         }
     }
