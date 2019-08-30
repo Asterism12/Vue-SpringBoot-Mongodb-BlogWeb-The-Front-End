@@ -17,7 +17,7 @@
         </el-card>
         <el-form-item>
           <el-col>
-            <mavon-editor v-model="model.content" style="width: 80%;margin:0 auto"></mavon-editor>
+            <mavon-editor v-model="model.content" style="width: 80%;margin:0 auto" @imgAdd="imgAdd" @imgDel="imgDel" ref="md"></mavon-editor>
           </el-col>
         </el-form-item>
 
@@ -95,6 +95,38 @@
                 if(command === "5") {
                     this.classname = "其它"
                 }
+            },
+            imgAdd(pos, $file) {
+              var formData = new FormData();
+              formData.append('image',$file);
+              this.img_file[pos] =$file;
+              this.$axios.post('/uploadimg', formData).then(res => {
+                    if (res.data.code === 200) {
+                        this.$Message.success('上传成功')
+                        let url = res.data.data
+                        let name = $file.name
+                        if (name.includes('-')) {
+                            name = name.replace(/-/g, '')
+                        }
+                        let content = this.model.content
+                        // 第二步.将返回的url替换到文本原位置![...](0) -> ![...](url)  这里是必须要有的
+                        if (content.includes(name)) {
+                            let oStr = `(${pos})`
+                            let nStr = `(${url})`
+                            let index = content.indexOf(oStr)
+                            let str = content.replace(oStr, '')
+                            let insertStr = (soure, start, newStr) => {
+                                return soure.slice(0, start) + newStr + soure.slice(start)
+                            }
+                            this.model.content = insertStr(str, index, nStr)
+                        }
+                    }
+                  }
+
+              )
+            },
+            imgDel(pos) {
+                delete this.img_file[pos];
             }
         }
     }
