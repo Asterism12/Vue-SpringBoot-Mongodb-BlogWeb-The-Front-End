@@ -9,7 +9,7 @@ const store = new Vuex.Store({
     Classification:'',
     SearchKeyword:'',
     UserInfo:{
-      UserName:'UserName',
+      UserName:'',
       RegisterDate:new Date().toLocaleString(),
       Blogs:[],
       Avatar:{},

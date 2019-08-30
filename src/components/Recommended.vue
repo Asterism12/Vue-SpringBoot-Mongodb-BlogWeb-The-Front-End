@@ -4,7 +4,7 @@
       <div slot="header" class="clearfix">
         <span>今日推荐</span>
       </div>
-      <div v-for="blog in blogs" :key="bid" class="text item">
+      <div v-for="blog in blogs" :key="blog.bid" class="text item">
         <el-link @click="GoToBlog(blog.bid)">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}</el-link>
       </div>
     </el-card>
@@ -20,10 +20,9 @@
             }
         },
         created() {
-            this.$axios.get('/lists', {
+            this.$axios.post('/recommend', {
                 params: {
-                    keyword:'',
-                    classification:0
+                    username:store.state.UserInfo.UserName
                 }
             })
                 .then(response => {
