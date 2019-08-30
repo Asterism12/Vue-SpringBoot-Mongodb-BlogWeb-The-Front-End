@@ -35,8 +35,6 @@
             })
                 .then(response => {
                     this.blog = response.data;
-                    //alert(this.blog)
-                    alert(this.blog.commentsArrayList)
                 })
                 .catch(error => {
                 })

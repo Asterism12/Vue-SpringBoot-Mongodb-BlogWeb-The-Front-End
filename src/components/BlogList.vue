@@ -34,7 +34,6 @@
             })
                 .then(response => {
                     this.blogs = response.data
-                    console.log(response.data)
                 })
                 .catch(error => {
                 })
