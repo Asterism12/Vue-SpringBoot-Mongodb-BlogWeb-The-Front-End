@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  import store from "../store";
   import Nav from "./Nav";
     export default {
         name: 'Register',
@@ -47,7 +48,7 @@
                         if (successResponse.data.code === 200) {
                             alert(successResponse.data.message)
                             store.state.LoginState=true
-                            store.state.UserInfo.UserName=successResponse.username
+                            store.state.UserInfo.UserName=successResponse.data.username
                             this.$router.push({path: '/'})
                         } else {
                             alert(successResponse.data.message)

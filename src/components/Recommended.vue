@@ -34,7 +34,6 @@
         },
         methods:{
             GoToBlog : function(bid){
-                alert(bid)
                 this.$router.push({ name: 'blog', params: { id: bid }})
             }
         }
