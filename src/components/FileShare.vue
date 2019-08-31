@@ -12,8 +12,8 @@
           width="180">
           <template slot-scope="scope">
             <el-link
-              :href="'http://114.115.170.8:8666/download/file='+scope.row.name" target="_blank">
-              {{ scope.row.name }}
+              :href="scope.row.path" target="_blank">
+              {{ scope.row.title }}
             </el-link>
           </template>
         </el-table-column>
@@ -84,17 +84,18 @@
             handleUpload(file) {
                 const formdata = new FormData()
                 formdata.append('file', file)
-                formdata.append('username', store.state.UserInfo.UserName)
-                formdata.append('data',new Date().toLocaleString())
+                formdata.append('date',new Date().toLocaleString())
+                formdata.append('author', store.state.UserInfo.UserName)
                 formdata.append('size',file.size)
+                formdata.append('name',file.name)
                 console.log(file)
                 this.$axios.post(
                     '/upload',
                     formdata,
                     {headers: {'content-Type': 'multipart/form-data'}}
                 ).then(successResponse => {
-                    alert(successResponse.data.code)
-                    this.loadUserInfo()
+                    alert(successResponse.data.message)
+                    this.reload()
                 })
                     .catch(failResponse => {
                     })
@@ -104,6 +105,7 @@
                     .post('/filelist')
                     .then(successResponse => {
                         this.tableData = successResponse.data
+                        console.log(successResponse.data)
                     })
                     .catch(failResponse => {
                     })
