@@ -10,6 +10,7 @@
 <script>
     export default {
         name: "Search",
+        inject:["reload"],
         data() {
             return {
                 search: "",
@@ -18,6 +19,7 @@
         methods: {
             Search() {
                 this.$store.state.SearchKeyword = this.search
+                this.reload()
                 this.$router.push({
                     name: 'SearchResult',
                 })
