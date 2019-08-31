@@ -1,6 +1,6 @@
 <template>
   <div>
-<<<<<<< HEAD
+    <<<<<<< HEAD
 
     <el-card class="box-card">
       <div slot="header" class="clearfix">
@@ -10,7 +10,8 @@
         <el-row style="margin-top: 10px;width: 100%">
           <el-col style="width: 100%">
             <el-card>
-              <el-link @click="GoToBlog(blog.bid)">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}</el-link>
+              <el-link @click="GoToBlog(blog.bid)">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}
+              </el-link>
             </el-card>
           </el-col>
         </el-row>
@@ -21,19 +22,18 @@
 </template>
 
 <script>
-  import store from "../store";
+    import store from "../store";
+
     export default {
         name: "Recommended",
-        data(){
-            return{
-                blogs:[],
+        data() {
+            return {
+                blogs: [],
             }
         },
         created() {
             this.$axios.post('/recommend', {
-                params: {
-                    username:store.state.UserInfo.UserName
-                }
+                username: store.state.UserInfo.UserName
             })
                 .then(response => {
                     console.log(response.data)
@@ -42,9 +42,9 @@
                 .catch(error => {
                 })
         },
-        methods:{
-            GoToBlog : function(bid){
-                this.$router.push({ name: 'blog', params: { id: bid }})
+        methods: {
+            GoToBlog: function (bid) {
+                this.$router.push({name: 'blog', params: {id: bid}})
             }
         }
     }
@@ -64,6 +64,7 @@
     display: table;
     content: "";
   }
+
   .clearfix:after {
     clear: both
   }
