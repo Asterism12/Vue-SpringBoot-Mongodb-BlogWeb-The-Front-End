@@ -24,7 +24,7 @@
           :toolbarsFlag="prop.toolbarsFlag"
           :editable="prop.editable"
           :scrollStyle="prop.scrollStyle"
-          style="margin-top: 20px"
+          style="margin-top: 20px;"
         ></mavon-editor>
         <el-col style="height: 15%">
         </el-col>

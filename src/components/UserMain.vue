@@ -4,7 +4,7 @@
       <Nav></Nav>
     </div>
     <div>
-      <el-avatar style="margin-top: 20px" :src="UserInfo.Avatar" :size="90"></el-avatar>
+      <el-avatar style="margin-top: 20px" :src="'http://114.115.170.8:8666/avatar/'+this.$store.state.UserInfo.UserName+'.jpg'" :size="90"></el-avatar>
     </div>
     <p></p>
     <el-card style="width: 30%;margin:0 auto">
