@@ -62,14 +62,37 @@
                     username: store.state.UserInfo.UserName,
                     title: '',
                     content: '',
-                    classification:0,
+                    classification:1,
                     date: new Date().toLocaleString()
                 },
-                classname: ""
+                classname: "",
+                img_file: {}
             }
         },
         methods: {
             submit() {
+                var formdata = new FormData();
+                for(var _img in this.img_file){
+                    formdata.append(_img, this.img_file[_img]);
+                }
+                axios({
+                    url: '/uploadimg',
+                    method: 'post',
+                    data: formdata,
+                    headers: { 'content-Type': 'multipart/form-data' },
+                }).then((res) => {
+                    /**
+                     * 例如：返回数据为 res = [[pos, url], [pos, url]...]
+                     * pos 为原图片标志（0）
+                     * url 为上传后图片的url地址
+                     */
+                    // 第二步.将返回的url替换到文本原位置![...](0) -> ![...](url)
+                    for (var img in res) {
+                        // $vm.$img2Url 详情见本页末尾
+                        $vm.$img2Url(img[0], img[1]);
+                    }
+                })
+
                 this.$axios.post('/publish',
                     {
                         author:this.model.username,
@@ -103,38 +126,14 @@
                     this.classname = "其它"
                 }
             },
-            imgAdd(pos, $file) {
-              let formData = new FormData();
-              formData.append('image',$file);
-              this.img_file[pos] =$file;
-              this.$axios.post('/uploadimg', formData).then(res => {
-                    if (res.data.code === 200) {
-                        this.$Message.success('上传成功')
-                        let url = res.data.data
-                        let name = $file.name
-                        if (name.includes('-')) {
-                            name = name.replace(/-/g, '')
-                        }
-                        let content = this.model.content
-                        // 第二步.将返回的url替换到文本原位置![...](0) -> ![...](url)  这里是必须要有的
-                        if (content.includes(name)) {
-                            let oStr = `(${pos})`
-                            let nStr = `(${url})`
-                            let index = content.indexOf(oStr)
-                            let str = content.replace(oStr, '')
-                            let insertStr = (soure, start, newStr) => {
-                                return soure.slice(0, start) + newStr + soure.slice(start)
-                            }
-                            this.model.content = insertStr(str, index, nStr)
-                        }
-                    }
-                  }
-
-              )
+            imgAdd(pos, $file){
+                // 缓存图片信息
+                this.img_file[pos] = $file;
             },
-            imgDel(pos) {
+            imgDel(pos){
                 delete this.img_file[pos];
-            }
+            },
+
         }
     }
 </script>

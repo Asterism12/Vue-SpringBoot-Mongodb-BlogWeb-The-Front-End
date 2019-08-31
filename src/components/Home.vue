@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!--<Background style="z-index: 0;margin: 0 auto"></Background>-->
-    <el-container style="z-index: 1;width: 100%;width: 100%">
+    <el-container style="z-index: 1;width: 100%;height:100%;padding: auto;background-color: #f6f6f6">
       <el-row>
         <div>
           <Nav></Nav>
@@ -20,18 +20,11 @@
                          @close="handleClose"
                          background-color="#ffffff"
                          text-color="#555"
-                         active-text-color="#ffd04b">
+                         active-text-color="#33ccff">
                   <template>
                     <h5 class="aside-title">博客分类</h5>
                   </template>
-                  <el-submenu index="1">
-                    <template>
-                    </template>
-                    <template slot="title">
-                      <i class="el-icon-location"></i>
-                      <span>总览</span>
-                    </template>
-                    <el-menu-item-group>
+
                       <el-menu-item index="1">
                         Java
                       </el-menu-item>
@@ -47,8 +40,6 @@
                       <el-menu-item index="5">
                         其它
                       </el-menu-item>
-                    </el-menu-item-group>
-                  </el-submenu>
                 </el-menu>
               </el-col>
             </el-row>
@@ -59,10 +50,12 @@
             <BlogList></BlogList>
           </div>
         </el-col>
-        <el-col style="position: fixed;margin-left: 915px">
+        <el-col style="position: fixed;margin-left: 910px">
           <div>
             <Recommended></Recommended>
+            <img src="logo"/>
           </div>
+
         </el-col>
       </el-row>
     </el-container>
@@ -76,6 +69,7 @@
   import Background from "./Background";
   import Recommended from "./Recommended";
   import BlogList from "./BlogList";
+  import logo from '@/assets/Mainmenu.png'
 
     export default {
         name: "Home",
@@ -99,6 +93,7 @@
         data () {
             return {
                 query: '',
+                logo: logo
             }
         },
         methods: {
@@ -165,8 +160,8 @@
     background-color: #f6f6f6;
     width: 100%;
     height: 100%;
-    position: absolute;
     margin: 0 auto;
+    position: relative;
   }
   .fore{
     background: rgba(0,0,0,0);

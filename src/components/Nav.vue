@@ -4,7 +4,7 @@
       <el-col>
         <el-menu mode="horizontal" class="el-menu" router :default-active="$route.path"
                  @select="handleSelect" @open="handleOpen"
-                 @close="handleClose" background-color="#505458" active-text-color="#ffffff">
+                 @close="handleClose" background-color="#ffffff" active-text-color="#3399FF">
           <el-menu-item index="/">
             <i class="el-icon-s-home"></i>
             <span>Home</span>

@@ -10,8 +10,12 @@
                   auto-complete="off" placeholder="账号"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-input type="password" v-model="registerForm.password"
-                  auto-complete="off" placeholder="密码"></el-input>
+        <el-input type="password" v-model="password1"
+                  auto-complete="off" placeholder="请输入密码"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input type="password" v-model="password2"
+                  auto-complete="off" placeholder="请重新输入密码"></el-input>
       </el-form-item>
       <el-form-item style="width: 100%">
         <el-button type="primary" style="width: 50%;background: #d8bfd8;border: none" v-on:click="register">注册账号
@@ -34,29 +38,61 @@
                     username: '',
                     password: ''
                 },
-                responseResult: []
+                responseResult: [],
+                password1:'',
+                password2:'',
             }
         },
         methods: {
             register() {
-                this.$axios
-                    .post('/register', {
-                        username: this.registerForm.username,
-                        password: this.registerForm.password
-                    })
-                    .then(successResponse => {
-                        if (successResponse.data.code === 200) {
-                            alert(successResponse.data.message)
-                            store.state.LoginState=true
-                            store.state.UserInfo.UserName=this.registerForm.username
-                            this.$router.push({path: '/'})
-                        } else {
-                            alert(successResponse.data.message)
-                            this.$router.push({path: '/register'})
+                if (this.password2 !== this.password1) {
+                    this.$alert('两次密码不一致','注册失败', {
+                        confirmButtonText: '确定',
+                        callback: action => {
+                            this.$message ({
+                                type:'info',
+                                    message: '注册失败'
+                            })
                         }
                     })
-                    .catch(failResponse => {
-                    })
+                }
+                else{
+                    this.registerForm.password = this.password1
+                    this.$axios
+                        .post('/register', {
+                            username: this.registerForm.username,
+                            password: this.registerForm.password
+                        })
+                        .then(successResponse => {
+                            if (successResponse.data.code === 200) {
+                                this.$alert('','注册成功', {
+                                    confirmButtonText: '确定',
+                                    callback: action => {
+                                        this.$message ({
+                                            type:'info',
+                                            message: '注册成功'
+                                        })
+                                    }
+                                })
+                                store.state.LoginState=true
+                                store.state.UserInfo.UserName=this.registerForm.username
+                                this.$router.push({path: '/'})
+                            } else {
+                                this.$alert('','注册失败', {
+                                    confirmButtonText: '确定',
+                                    callback: action => {
+                                        this.$message ({
+                                            type:'info',
+                                            message: successResponse.data.message
+                                        })
+                                    }
+                                })
+                                this.$router.push({path: '/register'})
+                            }
+                        })
+                        .catch(failResponse => {
+                        })
+                }
             }
         }
     }

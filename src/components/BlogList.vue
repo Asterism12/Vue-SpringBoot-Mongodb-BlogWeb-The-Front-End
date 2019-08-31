@@ -4,7 +4,7 @@
 
       <div slot="header" class="clearfix" >
         <el-row>
-          <el-link @click="GoToBlog(blog.bid)" style="float: left;font-size: large;color: #555">{{blog.title}}</el-link>
+          <el-link @click="GoToBlog(blog.bid)" style="float: left;font-size: large;color: #3399ff">{{blog.title}}</el-link>
         </el-row>
         <el-row>
           <div style="float: bottom">

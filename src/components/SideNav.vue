@@ -9,17 +9,12 @@
                @close="handleClose"
                 background-color="#ffffff"
                 text-color="#555"
-      active-text-color="#ffd04b">
+      active-text-color="#ffd04b"
+      :default-openeds=["0"]>
         <template>
           <h5 class="aside-title">博客分类</h5>
         </template>
-        <el-submenu index="1">
-          <template>
-          </template>
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>总览</span>
-          </template>
+        <el-submenu index="0">
           <el-menu-item-group>
             <el-menu-item index="1">
               Java
