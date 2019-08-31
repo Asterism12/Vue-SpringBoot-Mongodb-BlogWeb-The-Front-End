@@ -24,7 +24,7 @@
             </el-row>
             <div style="width: 100%">
                 <el-row style="width: 60%;margin-top: 20px">
-                  <el-avatar :src="'http://114.115.170.8:27017/usr/local/avatar/aaaaaa/轮椅.jpg'" :size="90"></el-avatar>
+                  <el-avatar :src="'http://114.115.170.8:8666/avatar/aaaaaa.jpg'" :size="90"></el-avatar>
                 </el-row>
                 <el-row style="width: 60%;margin-top: 20px">
                   <el-upload
