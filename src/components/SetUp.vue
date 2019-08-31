@@ -142,13 +142,13 @@
             },
             modifyavatar(){
                 let formdata=new FormData();
-                formdata.append('username',store.state.UserInfo.UserName)
-                formdata.append('file',this.file)
-                this.$axios.post(
-                    '/modifyavatar',
-                    formdata,
-                    {headers:{'content-Type':'multipart/form-data'}}
-                ).then(successResponse => {
+                        formdata.append('username',store.state.UserInfo.UserName)
+                        formdata.append('file',this.file)
+                        this.$axios.post(
+                            '/modifyavatar',
+                            formdata,
+                            {headers:{'content-Type':'multipart/form-data'}}
+                        ).then(successResponse => {
                     alert(successResponse.data.code)
                     this.loadUserInfo()
                 })
