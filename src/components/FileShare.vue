@@ -62,7 +62,7 @@
     export default {
         name: "FileShare",
         components: {
-          Nav
+            Nav
         },
         data() {
             return {
@@ -82,31 +82,18 @@
                 this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
             },
             handleUpload(file) {
+                const formdata = new FormData()
+                formdata.append('file', this.file)
+                formdata.append('username', store.state.UserInfo.UserName)
                 console.log(file)
-                this.$axios({
-                    method: 'post',
-                    url: '/upload',
-                    data: {
-                        file: file,
-                        username: store.state.UserInfo.UserName
-                    },
-                    transformRequest: [
-                        function (data) {
-                            let ret = ''
-                            for (let it in data) {
-                                ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-                            }
-                            ret = ret.substring(0, ret.lastIndexOf('&'));
-                            return ret
-                        }
-                    ],
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
+                this.$axios.post(
+                    '/upload',
+                    formdata,
+                    {headers: {'content-Type': 'multipart/form-data'}}
+                ).then(successResponse => {
+                    alert(successResponse.data.code)
+                    this.loadUserInfo()
                 })
-                    .then(successResponse => {
-                        alert(successResponse.data.message)
-                    })
                     .catch(failResponse => {
                     })
             },
