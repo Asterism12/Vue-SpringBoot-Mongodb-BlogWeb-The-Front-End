@@ -5,7 +5,7 @@
       style="width: 100%">
       <el-table-column
         label="今日推荐"
-        width="180">
+        width="width:200%">
         <template slot-scope="scope">
           <el-link @click="GoToBlog(scope.row.bid)">
             {{ scope.row.title.length<20?scope.row.title:scope.row.title.slice(0,20)+"..." }}
