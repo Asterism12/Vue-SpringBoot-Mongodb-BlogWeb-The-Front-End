@@ -1,7 +1,5 @@
 <template>
   <div>
-    <<<<<<< HEAD
-
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>今日推荐</span>
