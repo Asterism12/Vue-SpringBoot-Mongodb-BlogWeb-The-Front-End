@@ -54,13 +54,15 @@
         },
         data() {
             return {
+                UserName:this.$route.params.username,
                 UserInfo:''
             }
         },
         created(){
+            alert(this.UserName)
             this.$axios
                 .get('/user', {
-                    params:{username: this.$route.params.usesrname}})
+                    params:{username: this.UserName}})
                 .then(successResponse => {
                     this.UserInfo.UserName=successResponse.data.username
                     this.UserInfo.RegisterDate=successResponse.data.registertime

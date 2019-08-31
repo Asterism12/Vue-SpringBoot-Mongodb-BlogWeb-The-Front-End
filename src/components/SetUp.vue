@@ -142,13 +142,23 @@
             },
             modifyavatar(){
                 console.log(this.file)
+                let formdata=new FormData();
+                formdata.append('image',this.file)
+                this.$axios.post(
+                    '/uploadimg',
+                    formdata,
+                    {headers:{'content-Type':'multipart/form-data'}}
+                ).then(successResponse => {
+                    alert(successResponse.data.code)
+                    this.loadUserInfo()
+                })
+                    .catch(failResponse => {
+                    })
+                /*
                 this.$axios({
                     method: 'post',
-                    url: '/modifyavatar',
-                    data: {
-                        file:this.file,
-                        username:store.state.UserInfo.UserName
-                    },
+                    url: '/uploadimg',
+                    data: formdata,
                     transformRequest: [
                         function (data) {
                             let ret = ''
@@ -164,11 +174,13 @@
                     }
                 })
                     .then(successResponse => {
-                        alert(successResponse.data.message)
+                        alert(successResponse.data.code)
                         this.loadUserInfo()
                     })
                     .catch(failResponse => {
                     })
+
+                 */
             },
             changefile(file){
                 this.file=file
