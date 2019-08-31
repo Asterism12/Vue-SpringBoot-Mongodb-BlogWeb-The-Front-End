@@ -45,15 +45,14 @@
             </el-row>
           </div>
         </el-col>
-        <el-col :span="16" offset="4">
-          <div style="margin-left: 5px">
+        <el-col :span="16" offset="4" style="width: 100%;height: 100%;background-color: #f6f6f6">
+          <div style="margin-left: 1%">
             <BlogList></BlogList>
           </div>
         </el-col>
-        <el-col style="position: fixed;margin-left: 910px">
+        <el-col style="position: fixed;margin-left: 75%">
           <div>
             <Recommended></Recommended>
-            <img src="logo"/>
           </div>
 
         </el-col>
@@ -69,7 +68,6 @@
   import Background from "./Background";
   import Recommended from "./Recommended";
   import BlogList from "./BlogList";
-  import logo from '@/assets/Mainmenu.png'
 
     export default {
         name: "Home",
@@ -93,7 +91,7 @@
         data () {
             return {
                 query: '',
-                logo: logo
+                logo: require("../assets/Mainmenu.png")
             }
         },
         methods: {

@@ -6,7 +6,7 @@
     <div style="margin-top: 180px">
       <el-table
         :data="tableData"
-        style="width: 80%;margin-left: 20%;">
+        style="width: 63%;margin:0 auto;">
         <el-table-column
           label="名称"
           width="180">

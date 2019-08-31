@@ -5,7 +5,10 @@
         <span>今日推荐</span>
       </div>
       <div v-for="blog in blogs" :key="blog.bid" class="text item">
-        <el-link @click="GoToBlog(blog.bid)">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}</el-link>
+        <el-row style="margin-top: 10px">
+          <el-link @click="GoToBlog(blog.bid)">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}</el-link>
+          <br/>
+        </el-row>
       </div>
     </el-card>
   </div>
@@ -42,7 +45,7 @@
 
 <style scoped>
   .box-card {
-    width: 300px;
+    width: 24%;
     font-weight: bold;
   }
 </style>

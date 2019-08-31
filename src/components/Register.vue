@@ -127,4 +127,9 @@
     text-align: center;
     color: #505458;
   }
+
+  body{
+    background-color: #f6f6f6;
+    position: relative;
+  }
 </style>
