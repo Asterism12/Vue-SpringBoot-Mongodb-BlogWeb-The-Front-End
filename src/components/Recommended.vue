@@ -1,16 +1,21 @@
 <template>
   <div>
+
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>今日推荐</span>
       </div>
       <div v-for="blog in blogs" :key="blog.bid" class="text item">
-        <el-row style="margin-top: 10px">
-          <el-link @click="GoToBlog(blog.bid)">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}</el-link>
-          <br/>
+        <el-row style="margin-top: 10px;width: 100%">
+          <el-col style="width: 100%">
+            <el-card>
+              <el-link @click="GoToBlog(blog.bid)">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}</el-link>
+            </el-card>
+          </el-col>
         </el-row>
       </div>
     </el-card>
+
   </div>
 </template>
 
@@ -20,7 +25,7 @@
         name: "Recommended",
         data(){
             return{
-                blogs:{}
+                blogs:[],
             }
         },
         created() {
@@ -30,6 +35,7 @@
                 }
             })
                 .then(response => {
+                    console.log(response.data)
                     this.blogs = response.data;
                 })
                 .catch(error => {
@@ -44,6 +50,23 @@
 </script>
 
 <style scoped>
+  .text {
+    font-size: 14px;
+  }
+
+  .item {
+    margin-bottom: 18px;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
+
   .box-card {
     width: 24%;
     font-weight: bold;
