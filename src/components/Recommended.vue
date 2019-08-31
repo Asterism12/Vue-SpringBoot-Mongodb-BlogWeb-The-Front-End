@@ -17,21 +17,6 @@
       </div>
     </el-card>
 
-=======
-    <el-table
-      :data="blogs"
-      style="width: 100%">
-      <el-table-column
-        label="今日推荐"
-        width="width:200%">
-        <template slot-scope="scope">
-          <el-link @click="GoToBlog(scope.row.bid)">
-            {{ scope.row.title.length<20?scope.row.title:scope.row.title.slice(0,20)+"..." }}
-          </el-link>
-        </template>
-      </el-table-column>
-    </el-table>
->>>>>>> 4443e9a0ba092b227ddd9fa1ece5042756c333bb
   </div>
 </template>
 
