@@ -67,9 +67,6 @@
 
   }
 
-  .item {
-    margin-bottom: 18px;
-  }
 
   .clearfix:before,
   .clearfix:after {

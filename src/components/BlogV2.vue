@@ -35,7 +35,7 @@
       <div>
         <el-card class="box-card" v-for="comment in blog.list" :key="comment.date">
           <div slot="header" class="clearfix">
-            <span>{{comment.username}}</span>
+            <span style="float: left;">{{comment.username}}</span>
           </div>
           <div class="text item">
             {{comment.content}}
@@ -43,7 +43,7 @@
         </el-card>
       </div>
     </el-row>
-    <el-row v-if="this.$store.state.UserName !== ''">
+    <el-row v-if="this.$store.state.UserName !== ''" style="margin-top: 20px">
       <CommentEditor></CommentEditor>
     </el-row>
   </div>
@@ -90,5 +90,12 @@
 </script>
 
 <style scoped>
-
+  .box-card{
+    margin-left: 10px;
+  }
+  .text{
+    font-family: SimHei;
+    float: left;
+    line-height: 30px;
+  }
 </style>

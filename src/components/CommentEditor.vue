@@ -17,6 +17,7 @@
     import store from "../store";
     export default {
         name: "CommentEditor",
+        inject:['reload'],
         data() {
             return {
                 textarea1: ''
@@ -33,7 +34,7 @@
                 })
                     .then(response => {
                         alert(response.data.message)
-                        this.$router.push({name: 'blog', params: {id: this.$route.params.id,}})
+                        this.reload()
                     })
                     .catch(error => {
                     })
