@@ -32,7 +32,7 @@
             </el-row>
             <div style="width: 100%">
                 <el-row style="width: 60%;margin-top: 20px">
-                  <el-avatar :src="this.avatarview" :size="90"></el-avatar>
+                  <el-avatar :src="'http://114.115.170.8:8666/avatar/'+this.$store.state.UserInfo.UserName+'.jpg'" :size="90"></el-avatar>
                 </el-row>
                 <el-row style="width: 60%;margin-top: 20px">
                   <el-upload
@@ -46,7 +46,7 @@
                   </el-upload>
                 </el-row>
                 <el-row style="width: 60%;margin-top: 20px">
-                  <el-button type="primary" @click="getUserAvatar()">上传</el-button>
+                  <el-button type="primary" @click="modifyavatar()">上传</el-button>
                 </el-row>
             </div>
           </div>
@@ -191,9 +191,7 @@
                     })
                     .then(successResponse => {
                         alert("success")
-                        console.log(successResponse.data)
                         this.avatarview=successResponse.data
-                        window.open(successResponse.data)
                     })
                     .catch(failResponse => {
                     })
