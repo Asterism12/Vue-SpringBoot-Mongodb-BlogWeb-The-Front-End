@@ -6,7 +6,7 @@
     <div style="margin-top: 180px">
       <el-table
         :data="tableData"
-        style="width: 60%;margin-left: 20%;">
+        style="width: 80%;margin-left: 20%;">
         <el-table-column
           label="名称"
           width="180">
@@ -26,7 +26,7 @@
         </el-table-column>
         <el-table-column
           label="上传时间"
-          width="180">
+          width="240">
           <template slot-scope="scope">
             <i class="el-icon-time"></i>
             <span style="margin-left: 10px">{{ scope.row.date }}</span>
@@ -69,7 +69,7 @@
                 tableData: [{
                     name: 'name',
                     size: 1024,
-                    data: new Date().toLocaleString(),
+                    date: new Date().toLocaleString(),
                     author: 'wang'
                 }]
             }
