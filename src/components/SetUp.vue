@@ -143,9 +143,10 @@
             modifyavatar(){
                 console.log(this.file)
                 let formdata=new FormData();
-                formdata.append('image',this.file)
+                formdata.append('username',store.state.UserInfo.UserName)
+                formdata.append('file',this.file)
                 this.$axios.post(
-                    '/uploadimg',
+                    '/modifyavatar',
                     formdata,
                     {headers:{'content-Type':'multipart/form-data'}}
                 ).then(successResponse => {

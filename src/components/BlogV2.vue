@@ -33,7 +33,7 @@
     </el-card>
     <el-row>
       <div>
-        <el-card class="box-card" v-for="comment in blog.list" :key="blog.list.bid">
+        <el-card class="box-card" v-for="comment in blog.list" :key="comment.date">
           <div slot="header" class="clearfix">
             <span>{{comment.username}}</span>
           </div>
@@ -81,6 +81,7 @@
             })
                 .then(response => {
                     this.blog = response.data;
+                    console.log(this.blog)
                 })
                 .catch(error => {
                 })
