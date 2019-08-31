@@ -9,7 +9,7 @@
             <span class="el-dropdown-link">
               选择设置<i class="el-icon-arrow-down el-icon--right"></i>
             </span>
-              <el-dropdown-item command="1">设置头像</el-dropdown-item>
+              <el-dropdown-item command="1" style="margin-top: 10px">设置头像</el-dropdown-item>
               <el-dropdown-item command="2">设置个人信息</el-dropdown-item>
             </el-dropdown>
       </el-aside>

@@ -75,7 +75,7 @@
                 for(var _img in this.img_file){
                     formdata.append(_img, this.img_file[_img]);
                 }
-                axios({
+                this.$axios({
                     url: '/uploadimg',
                     method: 'post',
                     data: formdata,
