@@ -1,18 +1,8 @@
 <template>
   <div>
-
     <el-row>
-      <el-col :span="18">
-        <div class="grid-content bg-purple-dark">
-          <el-input v-model="input" placeholder="请输入内容"></el-input>
-        </div>
-      </el-col>
-      <el-col :span="4"></el-col>
-      <el-col :span="2">
-        <div class="grid-content bg-purple-dark">
-          <el-button @click="Search()">开始搜索</el-button>
-        </div>
-      </el-col>
+      <Nav>
+      </Nav>
     </el-row>
     <el-row>
       <el-col :span="12">
@@ -39,15 +29,14 @@
               </el-link>
             </div>
             <div class="text item">
-              <hr color="#f6f6f6"/>
-              <el-row style="margin-top: 15px">
+              <el-row style="margin-top: 10px">
                 <span style="float: left;color: #000000">性 别:{{userresult.sex}}</span>
               </el-row>
-              <el-row style="margin-top: 15px">
+              <el-row style="margin-top: 10px">
                 <span style="float: left;color: #000000">年 龄:{{userresult.age}}</span>
               </el-row>
-              <el-row style="margin-top: 15px">
-                <span style="float: left;color: #000000">注 册 时 间:{{userresult.registerdate}}</span>
+              <el-row style="margin-top: 10px">
+                <span style="float: left;color: #000000">注 册 时 间:{{userresult.registertime}}</span>
               </el-row>
             </div>
           </el-card>
@@ -59,9 +48,13 @@
 
 <script>
     import store from "../store";
-
+    import Nav from "./Nav";
     export default {
         name: "SearchResult",
+        inject: ["reload"],
+        components: {
+            Nav
+        },
         data() {
             return {
                 input: this.$store.state.SearchKeyword,
