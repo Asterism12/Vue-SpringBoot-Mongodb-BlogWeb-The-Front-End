@@ -12,7 +12,7 @@
           width="180">
           <template slot-scope="scope">
             <el-link
-              :href="scope.row.path" target="_blank">
+              :href="'http://114.115.170.8:8666'+scope.row.path" target="_blank">
               {{ scope.row.title }}
             </el-link>
           </template>
@@ -21,7 +21,7 @@
           label="大小"
           width="180">
           <template slot-scope="scope">
-            <span style="margin-left: 10px">{{ scope.row.size }}</span>
+            <span style="margin-left: 10px">{{ scope.row.size}}</span>
           </template>
         </el-table-column>
         <el-table-column

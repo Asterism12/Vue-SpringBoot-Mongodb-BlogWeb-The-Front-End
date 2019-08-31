@@ -16,10 +16,17 @@
       <div class="body">
         <el-col :span="2">
         </el-col>
+        <mavon-editor
+          class="md"
+          :value="blog.abstract"
+          :subfield="prop.subfield"
+          :defaultOpen="prop.defaultOpen"
+          :toolbarsFlag="prop.toolbarsFlag"
+          :editable="prop.editable"
+          :scrollStyle="prop.scrollStyle"
+          style="margin-top: 20px"
+        ></mavon-editor>
         <el-col style="height: 15%">
-          <div class="text">
-            {{blog.abstract}}
-          </div>
         </el-col>
       </div>
     </el-card>
@@ -31,6 +38,18 @@
   import store from "../store";
     export default {
         name: "BlogList",
+        computed: {
+            prop() {
+                let data = {
+                    subfield: false,// 单双栏模式
+                    defaultOpen: 'preview',//edit： 默认展示编辑区域 ， preview： 默认展示预览区域
+                    editable: false,
+                    toolbarsFlag: false,
+                    scrollStyle: true
+                }
+                return data
+            }
+        },
         data(){
             return{
                 blogs:[],
