@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    LoginState: true,
+    LoginState: false,
     Classification:0,
     SearchKeyword:'',
     UserInfo:{

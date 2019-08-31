@@ -51,12 +51,28 @@
                     })
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
-                            alert(successResponse.data.message)
+                            this.$alert('','登录成功', {
+                                confirmButtonText: '确定',
+                                callback: action => {
+                                    this.$message ({
+                                        type:'info',
+                                        message: successResponse.data.message
+                                    })
+                                }
+                            })
                             store.state.UserInfo.UserName=this.loginForm.username
                             this.loadUserInfo()
                             this.$router.push({path: '/'})
                         } else {
-                            alert(successResponse.data.message)
+                            this.$alert('','登录失败', {
+                                confirmButtonText: '确定',
+                                callback: action => {
+                                    this.$message ({
+                                        type:'info',
+                                        message: successResponse.data.message
+                                    })
+                                }
+                            })
                             this.$router.push({path: '/login'})
                         }
                     })
