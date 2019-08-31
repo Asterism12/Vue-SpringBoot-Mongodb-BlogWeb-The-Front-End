@@ -116,7 +116,6 @@
                 ).then(response => {
                     // 第二步.将返回的url替换到文本原位置![...](0) -> ![...](url)
                     // $vm.$img2Url 详情见本页末尾
-                    alert(response.data.imgurl)
                     this.$refs.md.$img2Url(pos, "http://114.115.170.8:8666"+response.data.imgurl);
                 })
             },
