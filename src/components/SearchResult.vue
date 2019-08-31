@@ -34,11 +34,21 @@
           <el-card class="box-card" v-for="userresult in userresults" :key="userresult.uid">
             <div slot="header" class="clearfix">
               <el-link @click="GoToUser(userresult.username)" style="float: left;font-size: large;color: #d8bfd8">
-                {{userresult.username}}
+                <el-avatar :src="'http://114.115.170.8:8666/avatar/'+userresults.username+'.jpg'" :size="small" shape="square" fit="true" style="float: left"></el-avatar>
+                <span style="float: left;margin-top: 13px">&nbsp;&nbsp;&nbsp;{{userresult.username}}</span>
               </el-link>
             </div>
             <div class="text item">
-              {{userresult.userinfo}}
+              <hr color="#f6f6f6"/>
+              <el-row style="margin-top: 15px">
+                <span style="float: left;color: #000000">性 别:{{userresult.sex}}</span>
+              </el-row>
+              <el-row style="margin-top: 15px">
+                <span style="float: left;color: #000000">年 龄:{{userresult.age}}</span>
+              </el-row>
+              <el-row style="margin-top: 15px">
+                <span style="float: left;color: #000000">注 册 时 间:{{userresult.registerdate}}</span>
+              </el-row>
             </div>
           </el-card>
         </div>
