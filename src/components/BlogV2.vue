@@ -35,7 +35,8 @@
       <div>
         <el-card class="box-card" v-for="comment in blog.list" :key="comment.date">
           <div slot="header" class="clearfix">
-            <span style="float: left;">{{comment.username}}</span>
+            <el-avatar :src="'http://114.115.170.8:8666/avatar/'+comment.username+'.jpg'" :size="small" shape="square" fit="true" style="float: left"></el-avatar>
+            <span style="float: left;margin-top: 13px">&nbsp&nbsp&nbsp{{comment.username}}</span>
           </div>
           <div class="text item">
             {{comment.content}}

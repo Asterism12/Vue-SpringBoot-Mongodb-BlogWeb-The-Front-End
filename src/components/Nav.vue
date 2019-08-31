@@ -21,8 +21,9 @@
             <Search></Search>
           </el-col>
           <el-submenu v-if="this.$store.state.LoginState" style="float: right">
+
             <template slot="title">
-              <i class="el-icon-star-on>"></i>
+              <el-avatar :src="'http://114.115.170.8:8666/avatar/'+this.$store.state.UserInfo.UserName+'.jpg'" :size="small" shape="square" fit="true" style="margin:0 auto"></el-avatar>
               {{this.$store.state.UserInfo.UserName}}
             </template>
             <el-menu-item index="/setup">

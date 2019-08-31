@@ -51,7 +51,7 @@
                         callback: action => {
                             this.$message ({
                                 type:'info',
-                                    message: '注册失败'
+                                    message: '注册失败，两次密码不一致'
                             })
                         }
                     })
