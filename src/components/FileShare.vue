@@ -12,7 +12,7 @@
           width="180">
           <template slot-scope="scope">
             <el-link
-              :href="'http://114.115.170.8:8666/download?file='+scope.row.name" target="_blank">
+              :href="'http://114.115.170.8:8666/download/file='+scope.row.name" target="_blank">
               {{ scope.row.name }}
             </el-link>
           </template>
@@ -86,6 +86,7 @@
                 formdata.append('file', file)
                 formdata.append('username', store.state.UserInfo.UserName)
                 formdata.append('data',new Date().toLocaleString())
+                formdata.append('size',file.size)
                 console.log(file)
                 this.$axios.post(
                     '/upload',

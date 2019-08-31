@@ -165,6 +165,7 @@
                     })
             },
             changefile(file){
+                console.log(file)
                 this.file=file
             },
             loadUserInfo(){
