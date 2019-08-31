@@ -29,7 +29,7 @@
     <div style="width: 80%;margin: 0 auto">
       <el-card class="box-card" v-for="blog in this.UserInfo.Blogs":key="blog.bid">
         <div slot="header" class="clearfix" >
-          <el-link @click="GoToBlog(blog.bid)">{{blog.title}}</el-link>
+          <el-link @click="GoToBlog(blog.bid)" style="float: left;font-size: large;color: #3399ff">{{blog.title}}</el-link>
         </div>
         <div class="body">
           <el-col :span="2" style="background-color: #42b983">
@@ -88,5 +88,13 @@
     .box-card{
       margin: 0 auto;
       margin-top: 25px;
+    }
+
+    .text {
+      font-size: 14px;
+      float: left;
+      line-height: 30px;
+      font-family: SimHei;
+
     }
 </style>

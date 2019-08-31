@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <el-row>
       <el-col :span="18">
         <div class="grid-content bg-purple-dark">
@@ -19,7 +20,7 @@
           <p>搜索文章</p>
           <el-card class="box-card" v-for="blog in blogresults" :key="blog.bid">
             <div slot="header" class="clearfix">
-              <el-link @click="GoToBlog(blog.bid)">{{blog.title}}</el-link>
+              <el-link @click="GoToBlog(blog.bid)" style="float: left;font-size: large;color: #3399ff">{{blog.title}}</el-link>
             </div>
             <div class="text item">
               {{blog.abstract}}
@@ -32,7 +33,9 @@
           <p>搜索用户</p>
           <el-card class="box-card" v-for="userresult in userresults" :key="userresult.uid">
             <div slot="header" class="clearfix">
-              <el-link @click="GoToUser(userresult.username)">{{userresult.username}}</el-link>
+              <el-link @click="GoToUser(userresult.username)" style="float: left;font-size: large;color: #d8bfd8">
+                {{userresult.username}}
+              </el-link>
             </div>
             <div class="text item">
               {{userresult.userinfo}}
@@ -97,6 +100,9 @@
 <style scoped>
   .text {
     font-size: 14px;
+
+    line-height: 30px;
+    font-family: SimHei;
   }
 
   .item {
@@ -115,5 +121,7 @@
 
   .box-card {
     width: 480px;
+    margin: 0 auto;
+    margin-top: 10px;
   }
 </style>

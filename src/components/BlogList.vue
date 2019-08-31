@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 490px">
+  <div style="width: 100%;background-color: #f6f6f6">
     <el-card class="box-card" v-for="blog in blogs":key="blog.bid">
 
       <div slot="header" class="clearfix" >
@@ -14,9 +14,9 @@
         </el-row>
       </div>
       <div class="body">
-        <el-col :span="2" style="background-color: #42b983">
+        <el-col :span="2">
         </el-col>
-        <el-col>
+        <el-col style="height: 15%">
           <div class="text">
             {{blog.abstract}}
           </div>
@@ -62,6 +62,9 @@
   .text {
     font-size: 14px;
     float: left;
+    line-height: 30px;
+    font-family: SimHei;
+
   }
 
   .item {
@@ -78,7 +81,11 @@
   }
 
   .box-card {
-    width: 690px;
+    width: 58%;
     margin-top: 20px;
+  }
+  body{
+    background-color: #f6f6f6;
+    position: relative;
   }
 </style>

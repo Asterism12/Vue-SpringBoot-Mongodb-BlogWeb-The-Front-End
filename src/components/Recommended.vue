@@ -1,18 +1,22 @@
 <template>
   <div>
-    <el-table
-      :data="blogs"
-      style="width: 100%">
-      <el-table-column
-        label="今日推荐"
-        width="width:200%">
-        <template slot-scope="scope">
-          <el-link @click="GoToBlog(scope.row.bid)">
-            {{ scope.row.title.length<20?scope.row.title:scope.row.title.slice(0,20)+"..." }}
-          </el-link>
-        </template>
-      </el-table-column>
-    </el-table>
+<<<<<<< HEAD
+
+    <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <span>今日推荐</span>
+      </div>
+      <div v-for="blog in blogs" :key="blog.bid" class="text item">
+        <el-row style="margin-top: 10px;width: 100%">
+          <el-col style="width: 100%">
+            <el-card>
+              <el-link @click="GoToBlog(blog.bid)">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}</el-link>
+            </el-card>
+          </el-col>
+        </el-row>
+      </div>
+    </el-card>
+
   </div>
 </template>
 
@@ -65,6 +69,7 @@
   }
 
   .box-card {
-    width: 300px;
+    width: 24%;
+    font-weight: bold;
   }
 </style>
