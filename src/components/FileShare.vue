@@ -85,6 +85,7 @@
                 const formdata = new FormData()
                 formdata.append('file', file)
                 formdata.append('username', store.state.UserInfo.UserName)
+                formdata.append('data',new Date().toLocaleString())
                 console.log(file)
                 this.$axios.post(
                     '/upload',
