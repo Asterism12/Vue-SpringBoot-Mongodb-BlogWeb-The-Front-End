@@ -5,10 +5,10 @@
         <span>今日推荐</span>
       </div>
       <div v-for="blog in blogs" :key="blog.bid" class="text item">
-        <el-row style="margin-top: 10px;width: 100%">
+        <el-row style="margin-top:10px;width: 100%">
           <el-col style="width: 100%">
-            <el-card>
-              <el-link @click="GoToBlog(blog.bid)">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}
+            <el-card style="height: 60px">
+              <el-link @click="GoToBlog(blog.bid)" style="margin:0 auto">{{blog.title.length<15?blog.title:blog.title.slice(0,15)+"..."}}
               </el-link>
             </el-card>
           </el-col>
@@ -50,11 +50,11 @@
 
 <style scoped>
   .text {
-    font-size: 14px;
+    font-size: 10px;
   }
 
   .item {
-    margin-bottom: 18px;
+    margin-bottom: 5px;
   }
 
   .clearfix:before,

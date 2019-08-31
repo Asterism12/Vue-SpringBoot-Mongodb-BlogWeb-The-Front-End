@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <!--<Background style="z-index: 0;margin: 0 auto"></Background>-->
-    <el-container style="z-index: 1;width: 100%;height:100%;padding: auto;background-color: #f6f6f6">
-      <el-row>
+    <el-container style="width: 100%;height:100%;padding: auto;background-color: #f6f6f6">
+      <el-row style="z-index: 2">
         <div>
           <Nav></Nav>
         </div>
       </el-row>
-      <el-row style="width: 100%;height: 100%" :gutter="10">
+      <el-row style="width: 100%;height: 100%;z-index: 1" :gutter="10">
         <el-col :span="4" style="position: fixed;margin-top: 20px">
           <div>
             <el-row class="tac">
@@ -46,7 +46,7 @@
             </el-row>
           </div>
         </el-col>
-        <el-col :span="16" offset="4" style="width: 100%;height: 100%;background-color: #f6f6f6">
+        <el-col :span="16" offset="4" style="width: 100%;height: 100%;background-color: #f6f6f6;">
           <div style="margin-left: 1%">
             <BlogList></BlogList>
           </div>
