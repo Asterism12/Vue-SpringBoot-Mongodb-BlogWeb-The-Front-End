@@ -4,26 +4,26 @@
       <Nav></Nav>
     </div>
     <div>
-      <el-avatar style="margin-top: 20px" :src="this.UserInfo.Avatar" :size="90"></el-avatar>
+      <el-avatar style="margin-top: 20px" :src="UserInfo.Avatar" :size="90"></el-avatar>
     </div>
     <p></p>
     <el-card style="width: 30%;margin:0 auto">
       <el-row>
-        <span style="float: left;color: #000000">用 户 名:{{this.UserInfo.UserName}}</span>
+        <span style="float: left;color: #000000">用 户 名:{{UserInfo.UserName}}</span>
       </el-row>
       <hr color="#f6f6f6"/>
       <el-row style="margin-top: 15px">
-        <span style="float: left;color: #000000">性 别:{{this.UserInfo.Sex}}</span>
+        <span style="float: left;color: #000000">性 别:{{UserInfo.Sex}}</span>
       </el-row>
       <el-row style="margin-top: 15px">
-        <span style="float: left;color: #000000">年 龄:{{this.UserInfo.Age}}</span>
+        <span style="float: left;color: #000000">年 龄:{{UserInfo.Age}}</span>
       </el-row>
       <el-row style="margin-top: 15px">
-        <span style="float: left;color: #000000">注 册 时 间:{{this.UserInfo.RegisterDate}}</span>
+        <span style="float: left;color: #000000">注 册 时 间:{{UserInfo.RegisterDate}}</span>
       </el-row>
       <hr color="#f6f6f6"/>
       <el-row style="margin-top: 15px">
-        <span style="float: left;color: #000000">签 名:{{this.UserInfo.Sign}}</span>
+        <span style="float: left;color: #000000">签 名:{{UserInfo.Sign}}</span>
       </el-row>
     </el-card>
     <div style="width: 80%;margin: 0 auto">
@@ -55,11 +55,12 @@
         data() {
             return {
                 UserName:this.$route.params.username,
-                UserInfo:''
+                UserInfo:{
+                    UserName:''
+                }
             }
         },
         created(){
-            alert(this.UserName)
             this.$axios
                 .get('/user', {
                     params:{username: this.UserName}})
@@ -67,7 +68,7 @@
                     this.UserInfo.UserName=successResponse.data.username
                     this.UserInfo.RegisterDate=successResponse.data.registertime
                     this.UserInfo.Blogs=successResponse.data.blogs
-                    this.UserInfo.Avatar=successResponse.data.avatar
+                    this.UserInfo.Avatar=successResponse.data.avatarurl
                     this.UserInfo.Age=successResponse.data.age
                     this.UserInfo.Sex=successResponse.data.sex
                     this.UserInfo.Sign=successResponse.data.sign
