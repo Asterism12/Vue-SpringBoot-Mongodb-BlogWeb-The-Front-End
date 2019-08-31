@@ -109,7 +109,7 @@
                     })
                     .catch(failResponse => {
                     })
-            }
+            },
         }
     }
 </script>
