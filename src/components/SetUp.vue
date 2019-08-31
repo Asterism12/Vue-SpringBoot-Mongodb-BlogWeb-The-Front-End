@@ -46,7 +46,7 @@
                   </el-upload>
                 </el-row>
                 <el-row style="width: 60%;margin-top: 20px">
-                  <el-button type="primary" @click="modifyavatar">上传</el-button>
+                  <el-button type="primary" @click="getUserAvatar()">上传</el-button>
                 </el-row>
             </div>
           </div>
@@ -179,6 +179,18 @@
                         store.state.UserInfo.Age=successResponse.data.age
                         store.state.UserInfo.Sex=successResponse.data.sex
                         store.state.UserInfo.Sign=successResponse.data.sign
+                    })
+                    .catch(failResponse => {
+                    })
+            },
+            getUserAvatar(){
+                this.$axios
+                    .post('/show', {
+                        username: 'aaaaaa',
+                    })
+                    .then(successResponse => {
+                        alert("success")
+                        console.log(successResponse.data)
                     })
                     .catch(failResponse => {
                     })

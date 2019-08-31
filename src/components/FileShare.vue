@@ -83,7 +83,7 @@
             },
             handleUpload(file) {
                 const formdata = new FormData()
-                formdata.append('file', this.file)
+                formdata.append('file', file)
                 formdata.append('username', store.state.UserInfo.UserName)
                 console.log(file)
                 this.$axios.post(
