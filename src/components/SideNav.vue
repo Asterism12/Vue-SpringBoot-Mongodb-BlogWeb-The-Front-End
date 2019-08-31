@@ -16,6 +16,9 @@
         </template>
         <el-submenu index="0">
           <el-menu-item-group>
+            <el-menu-item index="0">
+              总览
+            </el-menu-item>
             <el-menu-item index="1">
               Java
             </el-menu-item>

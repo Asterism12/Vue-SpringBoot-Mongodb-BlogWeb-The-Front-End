@@ -12,8 +12,7 @@
           <div>
             <el-row class="tac">
               <el-col :span="12">
-                <el-menu mode="vertical"
-                         default-active="0"
+                <el-menu mode="vertical"npm
                          class="el-menu-vertical"
                          @select="handleSelect"
                          @open="handleOpen"
@@ -24,7 +23,9 @@
                   <template>
                     <h5 class="aside-title">博客分类</h5>
                   </template>
-
+                    <el-menu-item index="0">
+                      总览
+                    </el-menu-item>
                       <el-menu-item index="1">
                         Java
                       </el-menu-item>
@@ -91,7 +92,7 @@
         data () {
             return {
                 query: '',
-                logo: require("../assets/Mainmenu.png")
+                logo: require("../assets/Mainmenu.png"),
             }
         },
         methods: {
@@ -126,8 +127,9 @@
                 {
                     this.$store.state.Classification = 5
                 }
+
                 this.reload()
-            }
+            },
         },
         props: ["blogs"],
 
