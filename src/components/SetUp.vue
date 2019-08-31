@@ -24,7 +24,7 @@
             </el-row>
             <div style="width: 100%">
                 <el-row style="width: 60%;margin-top: 20px">
-                  <el-avatar :src="this.$store.state.UserInfo.Avatar" :size="90"></el-avatar>
+                  <el-avatar :src="'http://114.115.170.8:8666/usr/local/avatar/aaaaaa/轮椅.jpg'" :size="90"></el-avatar>
                 </el-row>
                 <el-row style="width: 60%;margin-top: 20px">
                   <el-upload
@@ -141,7 +141,6 @@
                     })
             },
             modifyavatar(){
-                console.log(this.file)
                 let formdata=new FormData();
                 formdata.append('username',store.state.UserInfo.UserName)
                 formdata.append('file',this.file)
@@ -155,33 +154,6 @@
                 })
                     .catch(failResponse => {
                     })
-                /*
-                this.$axios({
-                    method: 'post',
-                    url: '/uploadimg',
-                    data: formdata,
-                    transformRequest: [
-                        function (data) {
-                            let ret = ''
-                            for (let it in data) {
-                                ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-                            }
-                            ret = ret.substring(0, ret.lastIndexOf('&'));
-                            return ret
-                        }
-                    ],
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
-                })
-                    .then(successResponse => {
-                        alert(successResponse.data.code)
-                        this.loadUserInfo()
-                    })
-                    .catch(failResponse => {
-                    })
-
-                 */
             },
             changefile(file){
                 this.file=file
