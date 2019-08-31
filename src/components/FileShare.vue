@@ -12,7 +12,7 @@
           width="180">
           <template slot-scope="scope">
             <el-link
-              :href="'http://114.115.170.8:8666'+scope.row.path" target="_blank">
+              :href="'http://114.115.170.8:8666'+scope.row.path" target="_blank" @click="download(scope.row.path)">
               {{ scope.row.title }}
             </el-link>
           </template>
@@ -109,6 +109,9 @@
                     })
                     .catch(failResponse => {
                     })
+            },
+            download(url){
+                window.open("http://114.115.170.8:8666/uploadfiles/%E8%BD%AE%E6%A4%85.jpg")
             }
         }
     }
