@@ -32,7 +32,7 @@
             </el-row>
             <div style="width: 100%">
                 <el-row style="width: 60%;margin-top: 20px">
-                  <el-avatar :src="'http://114.115.170.8:8666/avatar/aaaaaa.jpg'" :size="90"></el-avatar>
+                  <el-avatar :src="this.avatarview" :size="90"></el-avatar>
                 </el-row>
                 <el-row style="width: 60%;margin-top: 20px">
                   <el-upload
@@ -110,7 +110,8 @@
                 set: '1',
                 sex: store.state.UserInfo.Sex,
                 age: store.state.UserInfo.Age,
-                sign: store.state.UserInfo.Sign
+                sign: store.state.UserInfo.Sign,
+                avatarview:{},
             };
         },
         methods: {
@@ -191,6 +192,8 @@
                     .then(successResponse => {
                         alert("success")
                         console.log(successResponse.data)
+                        this.avatarview=successResponse.data
+                        window.open(successResponse.data)
                     })
                     .catch(failResponse => {
                     })
