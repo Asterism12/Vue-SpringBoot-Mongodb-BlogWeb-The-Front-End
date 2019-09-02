@@ -1,13 +1,17 @@
 # techblogweb
 
-> This is the front end part of techblogweb.
+> A simple demo of blog web base on Vue-SpringBoot-Mongodb.
+>
+This git is the front end part of the demo. The back end part is here:
 
-feature:
+---
 
-Blog writing and commenting.
+**Feature:**
 
-Simple personalized recommendation.
+- Blog writing and commenting.
 
-Personal home page.
+- Simple personalized recommendation.
 
-Simple system of file sharing.
+- Personal home page.
+
+- Simple system of file sharing.
